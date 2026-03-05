@@ -3,12 +3,14 @@
 Atualmente, o mercado de peças automotivas enfrenta diversos desafios que impactam diretamente consumidores, mecânicos e até as próprias lojas. O principal problema está na falta de praticidade, agilidade e transparência no processo de compra.
 
 
+
 *1. Dificuldade de encontrar a peça correta*
 
 Muitos consumidores não possuem conhecimento técnico sobre o veículo e acabam tendo dificuldade para identificar exatamente qual peça precisam. Pequenas variações de modelo, ano, versão ou motorização podem gerar incompatibilidade, causando:
 - Compra errada de peças
 - Trocas e devoluções frequentes
 - Perda de tempo e dinheiro
+
 
 
 *2. Dependência de lojas físicas*
@@ -22,6 +24,7 @@ Necessidade de deslocamento até várias lojas
 E ainda, caso a peça não estiver disponível, o cliente precisa procurar em outra loja e repetir todo o processo.
 
 
+
 *3. Falta de estoque e baixa visibilidade*
 
 É muito comum a loja não ter a peça em estoque. Como muitas ainda não possuem sistemas digitais eficientes, isso gera alguns problemas, como:
@@ -29,6 +32,7 @@ E ainda, caso a peça não estiver disponível, o cliente precisa procurar em ou
 - Não há informação em tempo real
 - Não existe integração entre diferentes lojas
 E além disso, também gera frustração e atraso no conserto do veículo.
+
 
 
 *4. Dificuldade de comparar preços*
@@ -40,6 +44,7 @@ Sem uma plataforma centralizada, hoje em dia funciona desta forma:
 Isso pode fazer o cliente pagar mais caro por falta de informação.
 
 
+
 *5. Problemas em situações de emergência*
 
 Quando ocorre uma quebra inesperada (exemplo: bateria, correia, bomba de combustível), o cliente precisa resolver rapidamente. Porém pode gerar uma frustação por que:
@@ -49,6 +54,7 @@ Quando ocorre uma quebra inesperada (exemplo: bateria, correia, bomba de combust
 Em muitos casos, o carro parado significa prejuízo financeiro, principalmente para motoristas de aplicativo, entregadores ou pessoas que dependem do veículo para trabalhar.
 
 
+
 *6. Processo pouco tecnológico*
 
 Enquanto outros setores já possuem sistemas de delivery eficientes (como comida e farmácia), o setor de autopeças ainda apresenta:
@@ -56,6 +62,7 @@ Enquanto outros setores já possuem sistemas de delivery eficientes (como comida
 - Falta de integração logística
 - Ausência de plataformas inteligentes de busca
 Isso mostra um atraso tecnológico no setor e uma oportunidade clara de inovação.
+
 
 
 *Conclusão do problema*
