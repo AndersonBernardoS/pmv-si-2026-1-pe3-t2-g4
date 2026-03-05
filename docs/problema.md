@@ -72,6 +72,7 @@ O mercado atual de peças automotivas sofre com:
 -Falta de agilidade
 -Falta de transparência
 -Falta de integração digital
+
 Esses fatores geram perda de tempo, aumento de custos e insatisfação do consumidor.
 
 
