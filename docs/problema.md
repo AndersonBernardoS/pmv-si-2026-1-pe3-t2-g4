@@ -45,20 +45,12 @@ Enquanto outros setores já possuem sistemas de delivery eficientes (como comida
 - Ausência de plataformas inteligentes de busca
 Isso mostra um atraso tecnológico no setor e uma oportunidade clara de inovação.
 
-Conclusão do problema
+*Conclusão do problema*
 O mercado atual de peças automotivas sofre com:
-Falta de praticidade
-
-
-Falta de agilidade
-
-
-Falta de transparência
-
-
-Falta de integração digital
-
-
+-Falta de praticidade
+-Falta de agilidade
+-Falta de transparência
+-Falta de integração digital
 Esses fatores geram perda de tempo, aumento de custos e insatisfação do consumidor.
 
 
