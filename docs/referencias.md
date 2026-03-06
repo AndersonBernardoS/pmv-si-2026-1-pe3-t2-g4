@@ -9,3 +9,9 @@ BRITO, J. F. de et al. Ferramenta auxiliar para gestão empresarial: tecnologia 
 FERREIRA, Williamberg de Albuquerque. AGENDEVC: um sistema de agendamento para prestadores e consumidores de serviços diversos. 2024. Artigo (Bacharelado em Ciência da Computação) – Universidade Federal de Campina Grande, Campina Grande, 2024. Disponível em: https://dspace.sti.ufcg.edu.br/handle/riufcg/38362. Acesso em: 5 mar. 2026.
 
 MORALES NETO, Emilio; SILVA, Vanderléia de Souza da. Projeto de sistema de agendamento e recepção de serviços de pós-vendas em concessionária de veículos.Revista Tecnologias em Projeção, v. 13, n. 1, 2022.
+
+BALCÃO AUTOMOTIVO. Serviços de manutenção crescem 52,5% impulsionados por alta nos preços de carros novos. 23 jun. 2025. Disponível em: https://www.balcaoautomotivo.com/2025/06/23/servicos-de-manutencao-crescem-525-impulsionados-por-alta-nos-precos-de-carros-novos. Acesso em: 06 mar. 2026.
+
+REPARAÇÃO AUTOMOTIVA. Não sei como sua oficina chegou até aqui sem agendar serviços?. 02 jul. 2021. Disponível em: https://reparacaoautomotiva.com.br/2021/07/02/nao-sei-como-sua-oficina-chegou-ate-aqui-sem-agendar-servicos. Acessado em: 06 mar. 2026.
+
+REPARAÇÃO AUTOMOTIVA. Sua oficina mecânica não vai crescer sem agendamento. 23 jul. 2021. Disponível em: https://reparacaoautomotiva.com.br/2021/07/23/sua-oficina-mecanica-nao-vai-crescer-sem-agendamento. Acessado em: 06 mar. 2026.
