@@ -21,4 +21,9 @@ Descreva a importância ou a motivação para trabalhar com esta aplicação que
 
 ## 1.4. Público alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
+O público-alvo desse projeto é composto por dois grupos de usuários, os proprietários de veículos automotores e os prestadores de serviços automotivos, cada qual com suas especificidades.
+
+Público-alvo primário: Consiste em proprietários de veículos automotores, de ambos os gêneros, com idade entre 25 e 60 anos e renda média entre 2 e 10 salários mínimos. Espera-se também que possuam veículos com aproximadamente 3 a 15 anos de fabricação e que realizem manutenção preventiva ou corretiva em oficinas mecânicas independentes, buscando maior praticidade no agendamento dos serviços automotivos.
+
+Público-alvo secundário: Composto por micro e pequenas empresas do setor automotivo, como oficinas mecânicas, centros automotivos, auto elétricas, entre outras. É desejável que sejam estabelecimentos com pelo menos 1 ano de atuação no mercado, que atendam veículos regularmente e necessitam organizar o fluxo de serviços e horários de atendimento, pois fazem isso por meios informais, portanto necessitam de uma solução digital para otimizar a gestão dos atendimentos.
+
