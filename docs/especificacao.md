@@ -3,15 +3,15 @@
 Nesta parte do trabalho você deve detalhar a documentação dos requisitos do sistema proposto de acordo com as seções a seguir. Ressalta-se que aqui é utilizado como exemplo um sistema de gestão de cursos de aperfeiçoamento.
 
 ## 3.1 Objetivos deste documento
-Descrever e especificar as necessidades da Coordenação do Curso de Sistemas de Informação da PUC Minas que devem ser atendidas pelo projeto SCCA – Sistema de Cadastro de Cursos de Aperfeiçoamento.
+O objetivo deste documento é especificar as necessidades de prestadores de serviços automotivos e seus clientes que deverão ser atendidas pelo sistema proposto, denominado AgendaCar.
 
 ## 3.2 Escopo do produto
 
 ### 3.2.1 Nome do produto e seus componentes principais
-O produto será denominado SCCA – Sistema de Cadastro de Cursos de Aperfeiçoamento. Ele terá somente um componente (módulo) com os devidos elementos necessários à gestão de cursos.
+O produto será denominado AgendaCar. O sistema consiste em uma plataforma digital cujo objetivo é facilitar a conexão entre clientes e prestadores de serviços automotivos, permitindo a busca por serviços, a visualização de prestadores disponíveis e o agendamento de atendimentos de forma online. O sistema possibilitará o cadastro e gerenciamento de usuários e prestadores de serviços, o controle de disponibilidade de horários, a realização de agendamentos e a avaliação de serviços prestados.
 
 ### 3.2.2 Missão do produto
-Gerenciar informações sobre a oferta de cursos de aperfeiçoamento, gerenciar a composição das turmas, alunos, professores e matrículas. 
+Otimizar a organização dos atendimentos de prestadores de serviços automotivos e melhorar a experiência dos clientes por meio de um sistema que facilite a busca e o agendamento de serviços.
 
 ### 3.2.3 Limites do produto
 O SCCA não fornece nenhuma forma de avaliação de alunos, pagamento de parcelas do curso, pagamento a professore e agendamentos. O SCCA não contempla o atendimento a vários cursos de Sistemas de Informação de outras unidades da PUC Minas.
