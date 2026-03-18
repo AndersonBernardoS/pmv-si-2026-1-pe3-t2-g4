@@ -24,7 +24,7 @@ Este trabalho tem o objetivo de desenvolver um software para tornar a rotina dos
 
 ## 1.3. Justificativa
 
-A implementação de uma plataforma digital que conecte prestadores de serviços automotivos a proprietários de veículos é um ecossistema similar ao modelo marketplace de serviços, justificando-se pela necessidade urgente de mitigar o gap entre a explosão da demanda e a baixa maturidade digital do setor.
+A implementação de uma plataforma digital que conecte prestadores de serviços automotivos a proprietários de veículos é um ecossistema similar ao modelo marketplace de serviços, justificando-se pela necessidade urgente de mitigar o gap entre a explosão da demanda e a baixa maturidade digital do setor, esta aplicação traz soluções importes e necessárias para o cenário de serviços mecânicos, melhorando a visibilidade e a organização das oficinas, alem de dar um ênfase em empresas de alta qualidade e também da oportunidade para empresas menores de entrar no "cardápio" dos consumidores. Alem disso facilita para os consumidores (Público-alvo primário) a identificação de prestadores mais qualificados e um controle de manutenção no seu veiculo, o que soma na valorização do veiculo, onde veiculos com o gestão da manutenção realizada é bem visado no momento de venda. Esse é o futuro de uma relação de qualidade e transparência entre prestador e consumidor, segue abaixo mais alguns beneficios direcionados.
 
 ## 1.3.1. Sob a Ótica do Cliente (Público-alvo primário)
 Para o consumidor, a solução ataca as principais "dores" do mercado atual:
