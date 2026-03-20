@@ -34,10 +34,19 @@ O AgendaCar não irá abranger funcionalidades relacionadas ao controle de estoq
 
 | Código | Requisito Funcional (Funcionalidade) | Descrição | Prioridade |
 |--------------------|------------------------------------|----------------------------------------|------------|
-| RF1 | Gerenciar Curso de Aperfeiçoamento |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Cursos de Aperfeiçoamento | |
-| RF2 |	Gerenciar Professor	| Processamento de Inclusão, Alteração, Exclusão e Consulta de professores | |
-| RF3	| Gerenciar Matrícula |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Matrículas de alunos em Cursos de Aperfeiçoamento | |
-| ... |	...	| ... | ... |
+| RF1 | Acessos ao sistema |	O usuário deve realizar login utilizando e-mail e senha. | ESSENCIAL |
+| RF2 |	Gerenciamento de usuários	| O usuário deve manutenir seus dados cadastrais no sistema. | ESSENCIAL |
+| RF3	| Filtro de prestadores |	O cliente pode filtrar prestadores por categoria, localização e avaliação. | ESSENCIAL |
+| RF4	| Agendamento de serviços |	O cliente deve agendar a prestação de serviços no sistema. | ESSENCIAL |
+| RF5	| Gerenciamento da agenda |	O prestador deve gerenciar sua disponibilidade e quantidade de vagas na agenda. | ESSENCIAL |
+| RF6	| Gerenciamento de serviços e produtos |	O prestador deve catalogar no sistema seus serviços e produtos oferecidos. | ESSENCIAL |
+| RF7	| Alteração e cancelamento de agendamentos |	O usuário pode alterar/cancelar os agendamentos. | ESSENCIAL |
+| RF8	| Avaliação dos prestadores |	O cliente pode avaliar os prestadores de serviços. | DESEJÁVEL |
+| RF9	| Emissão de relatórios |	O prestador pode emitir relatórios de agendamentos. | DESEJÁVEL |
+| RF10	| Solicitação de pré-diagnóstico |	O cliente pode solicitar um pré-diagnóstico ao prestador antes do agendamento. | DESEJÁVEL |
+| RF11	| Bloqueio de agendamentos |	O sistema deve bloquear conflitos de agendamentos. | DESEJÁVEL |
+| RF12	| Tempo limite para cancelamento |	O usuário não pode alterar/cancelar um agendamento com menos de 24 horas de antecedência. | DESEJÁVEL |
+| RF13	| Aprovação de orçamentos |	O prestador de serviços pode enviar orçamentos e solicitar a aprovação do cliente. | OPCIONAL |
 
 ### 3.3.2 Requisitos Não Funcionais
 
