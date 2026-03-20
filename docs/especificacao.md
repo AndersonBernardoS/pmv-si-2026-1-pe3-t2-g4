@@ -43,10 +43,13 @@ O AgendaCar não irá abranger funcionalidades relacionadas ao controle de estoq
 
 | Código | Requisito Não Funcional (Restrição) |
 |--------------------|------------------------------------|
-| RNF1 | O ambiente operacional a ser utilizado é o Windows XP. |
-| RNF2 | O sistema deverá executar em um computador configurado com uma impressora de tecnologia laser ou de jato de tinta, a ser usada para impressão dos relatórios. |
-| RNF3 |	Segurança	O produto deve restringir o acesso por meio de senhas individuais para o usuário. |
-| ... |	... |	... |
+| RNF1 | A aplicação deve ser responsiva em diferentes dispositivos (computadores, tablets, smartphones). |
+| RNF2 | A aplicação deve apresentar interface simples e intuitiva. |
+| RNF3 |	A aplicação deve suportar aumentos no volume de requisições. |
+| RNF4 |	O sistema deve estar disponível 24/7. |
+| RNF5 |	Os carregamentos entre páginas e módulos devem ter apenas 3seg de carregamento. |
+| RNF6 |	O sistema poderá apresentar tema escuro e claro. |
+| RNF7 |	O sistema deve respeitar as leis locais (LGPD). |
 
 ### 3.3.3 Usuários 
 
