@@ -131,8 +131,11 @@ Pós-condições: O sistema informa ao prestador que ter um percentual de recusa
 #### Avaliar Prestador (CSU-03)
 
 Sumário: O cliente registra uma nota e um comentário sobre a experiência do serviço realizado, contribuindo para o ranking de confiabilidade do prestador no sistema.  
+
 Ator Primário: Cliente  
+
 Ator Secundário: Prestador  
+
 Pré-condições: O agendamento deve estar com o status "Concluído" no sistema.
 
 Fluxo Principal:
