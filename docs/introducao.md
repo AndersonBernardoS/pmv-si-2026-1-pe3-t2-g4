@@ -8,8 +8,17 @@ A implementação de um sistema de agendamento implica o amadurecimento da empre
 
 ## 1.1. Problema
 
-Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. 
-Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
+O mercado de serviços automotivos ainda enfrenta dificuldades relacionadas à falta de praticidade, agilidade e organização no agendamento de atendimentos.
+
+Principais problemas:
+
+Dificuldade para agendar serviços: Muitos clientes não conseguem marcar horários de forma rápida e clara, dependendo de atendimento exclusivamente presencial.
+Falta de disponibilidade visível: Não há acesso fácil aos horários disponíveis em tempo real.
+Desorganização nas oficinas: Agendamentos manuais ou superficiais podem gerar atrasos, conflitos de horário e má gestão do fluxo de clientes.
+Perda de tempo: O cliente precisa se deslocar para várias oficinas até encontrar a peça ou conserto nescessário.
+Falta de transparência: Informações sobre preço, tempo de serviço e disponibilidade nem sempre são claras.
+Dificuldade em situações urgentes: Em casos de emergência, o cliente não sabe qual oficina pode atender mais rápido.
+
 
 ## 1.2. Objetivos do Trabalho
 ### Objetivo Geral
