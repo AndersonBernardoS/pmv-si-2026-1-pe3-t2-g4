@@ -146,7 +146,7 @@ Fluxo Principal:
 
 Pós-condições: A avaliação torna-se visível no perfil público do prestador para outros usuários. Além do prestador receber uma notificação informando que recebeu uma nova avaliação (sem permissão para editá-la ou excluí-la).
 
-#### Cadastro de Usuário (CSU-04)
+#### Cadastrar usuário (CSU-04)
 
 Sumário: O usuário cadastra suas informações para que possa utilizar o sistema, definindo se é do tipo cliente ou prestador de serviço.
 
