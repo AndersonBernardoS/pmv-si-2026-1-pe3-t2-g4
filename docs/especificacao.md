@@ -175,7 +175,31 @@ b. E-mail já cadastrado:
   
 Pós-condições: O usuário é cadastrado com sucesso com o tipo definido corretamente.
 
-#### Gerenciamento da agenda e Gerenciamento de serviços e produtos (CSU-05 e CSU-06)
+#### Editar usuário (CSU-05)
+
+Sumário: O usuário edita suas informações cadastrais.
+
+Ator Primário: Usuário (Cliente/Prestador)
+
+Pré-condições: O usuário deve estar logado no sistema.
+
+Fluxo Principal:
+1. O usuário acessa a tela de edição.
+2. O sistema exibe o formulário de edição com as informações atualmente cadastradas.
+3. O usuário altera as informações desejadas.
+4. O usuário confima a edição.
+5. O sistema valida as informações de edição.
+6. O sistema salva as novas informações.
+7. O sistema confirma a edição.
+
+Fluxo Alternativo (etapa 6)
+
+a. Os dados são inválidos:
+   1. O sistema informa ao usuário que os dados estão inválidos.
+   2. O sistema retorna ao passo 2 do fluxo principal.
+
+
+#### Gerenciamento da agenda e Gerenciamento de serviços e produtos (CSU-06 e CSU-07)
 
 **Fluxo Principal – Autenticação:**
 
@@ -205,7 +229,7 @@ Pós-condições: O usuário é cadastrado com sucesso com o tipo definido corre
 
 ---
 
-**Fluxo Principal – Gerenciamento de Agenda (CSU-05):**
+**Fluxo Principal – Gerenciamento de Agenda (CSU-06):**
 
 1. O prestador acessa o painel de agenda.
 2. O sistema exibe as opções de gerenciamento.
@@ -216,7 +240,7 @@ Pós-condições: O usuário é cadastrado com sucesso com o tipo definido corre
 
 ---
 
-**Fluxo Principal – Gerenciamento de Catálogo (CSU-06):**
+**Fluxo Principal – Gerenciamento de Catálogo (CSU-07):**
 
 1. O prestador acessa o catálogo para gerenciamento.
 2. O sistema exibe os itens cadastrados.
