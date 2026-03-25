@@ -170,7 +170,7 @@ Fluxo Alternativo
    2. O sistema retorna ao passo 2 do fluxo principal.
   
 6B. E-mail já cadastrado:
-   1. O sistema informa que o e-mail usado já está sendo usado.
+   1. O sistema informa que o e-mail já está sendo usado.
    2. O sistema retorna ao passo 2 do fluxo principal.
   
 Pós-condições: O usuário é cadastrado com sucesso com o tipo definido corretamente.
