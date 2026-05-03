@@ -45,6 +45,17 @@ Além disso, está disponível o link "Ainda não se cadastrou? Cadastre-se" que
 
 **Similaridade:** Os campos compartilham o mesmo estilo visual, facilitando o reconhecimento de sua função pelo usuário.
 
+#### 4.3.1.3 Recomendações Ergonômicas
+
+
+#### 4.3.1.4 Regras de Ouro
+
+**Perseguir a Consistência:** A interface segue padrões visuais.
+**Feedbacks Informativos:**
+**Marcar o Final dos Diálogos:**
+**Fornecer Controle de Iniciativa do Usuário:** O usuário tem liberdade para concluir ações de autenticação ou navegar entre as telas.
+**Carga de Memória de Trabalho:** Por seguir padrões e fluxos intuitivos a memorização não se torna necessária por parte do usuário.
+
 ![Tela de Login](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/Tela%20de%20Login.png)
 
 ## 4.4 Testes com Protótipos
