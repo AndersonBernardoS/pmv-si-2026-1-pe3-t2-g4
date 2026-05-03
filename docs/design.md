@@ -30,6 +30,23 @@ Mapa da Empatia é um material utilizado para conhecer melhor o seu cliente. A p
 ## 4.3 Protótipos das Interfaces
 Apresente nesta seção os protótipos de alta fidelidade do sistema proposto. A fidelidade do protótipo refere-se ao nível de detalhes e funcionalidades incorporadas a ele. Assim, um protótipo de alta fidelidade é uma representação interativa do produto, baseada no computador ou em dispositivos móveis. Esse protótipo já apresenta maior semelhança com o design final em termos de detalhes e funcionalidades. No desenvolvimento dos protótipos, devem ser considerados os princípios gestálticos, as recomendações ergonômicas e as regras de design (como as 8 regras de ouro). É importante descrever no texto do relatório como os princípios gestálticos e as regras de ouro foram seguidas no projeto das interfaces. Nesta etapa deve-se dar uma ênfase na implementação do software de modo que possam ser realizados os testes com usuários na etapa seguinte.
 
+### 4.3.1 Login
+
+#### 4.3.1.1 Objetivo da tela
+
+A tela apresenta um formulário de autenticação contendo os campos de e-mail e senha, destinados para usuário já cadastrados anteriormente no sistema.
+Ao clicar no botão "Entrar", o sistema valida as credencias informadas. Caso os dados sejam válidos, o usuário é autenticado e redirecionado para o ambiente interno.
+A interface também disponibiliza a opção "Manter conectado?", que permite que a sessão do usuário seja preservada, evitando a necessidade de um novo login em acessos futuros.
+Além disso, está disponível o link "Ainda não se cadastrou? Cadastre-se" que redireciona o usuário para a tela de cadastro.
+
+#### 4.3.1.2 Princípios Gestálticos
+
+**Proximidade, Região comum e Boa continuidade:** Os campos de e-mail e senha estão posicionados próximos e dentro do mesmo container, fazendo referência a único grupo funcional relacionado à autenticação. O checkbox "Manter conectado" e o botão "Entrar" aparecem logo abaixo, passando a sensação de sequência natural das ações do usuário.
+
+**Similaridade:** Os campos compartilham o mesmo estilo visual, facilitando o reconhecimento de sua função pelo usuário.
+
+![Tela de Login](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/Tela%20de%20Login.png)
+
 ## 4.4 Testes com Protótipos
 Nesta seção você deve apresentar os testes realizados com usuários utilizando os protótipos de alta fidelidade desenvolvidos na seção anterior. O objetivo é avaliar a usabilidade, a clareza das informações e a adequação do design às necessidades das personas definidas no projeto.
 
