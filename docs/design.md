@@ -47,14 +47,19 @@ Além disso, está disponível o link "Ainda não se cadastrou? Cadastre-se" que
 
 #### 4.3.1.3 Recomendações Ergonômicas
 
+**Feedback imediato:** Os campos e botões são destacados quando focados.
+
+**Localização do usuário:** A tela deixa claro em que ponto o usuário se encontra no sistema.
+
+**Legibilidade:** Os textos tem tamanho, espaçamento e contraste com o fundo, o que proporciona boa legibilidade.
+
+**Agrupamento/Distinção de Itens:** Os itens semelhantes estão agrupados e devidamente diferenciados dos demais elementos da interface.
 
 #### 4.3.1.4 Regras de Ouro
 
 **Perseguir a Consistência:** A interface segue padrões visuais.
 
-**Feedbacks Informativos:**
-
-**Marcar o Final dos Diálogos:**
+**Feedbacks Informativos:** Os campos e botões são destacados quando focados.
 
 **Fornecer Controle de Iniciativa do Usuário:** O usuário tem liberdade para concluir ações de autenticação ou navegar entre as telas.
 
