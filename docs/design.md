@@ -100,6 +100,57 @@ A tela inicial (homepage) tem como objetivo atrair e orientar o usuário na util
 ![Tela inicial (homepage)](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/Homepage.png)
 
 
+
+
+### 4.3.3 Telas de Cadastro (Usuário / Serviços)
+
+#### 4.3.2.1 Objetivo da tela
+
+A tela de cadastro de usuário tem por finalidade permitir que qualquer usuário, seja ele cliente ou prestador(a) de serviços insira suas informações no sistema para acessar as funcionalidades que exigem login (solicitar orçamentos, realizar agendamentos e avaliar prestadores).
+
+Por sua vez, a tela de cadastro de serviços é disponibilizada apenas para prestadores, onde podem inserir informações que irão compor seu catálogo de serviços junto ao sistema, ficando disponíveis para que os clientes possam conhecer o prestador antes de solicitar orçamento ou agendar atendimentos.
+
+#### 4.3.2.2 Princípios Gestálticos
+
+**Proximidade**: Na tela de cadastro de usuário, a caixa de seleção centralizada na parte superior do formulário conduz o novo usuário a selecionar seu perfil (cliente ou prestador(a) de serviços). Abaixo, os campos de formulário apresentam junto às caixas de texto um título exibindo a informação solicitada. Ainda no centro da página, uma lista com botões selecionáveis sugere ao usuário os tipos de serviços que ele busca ou oferece. Na tela de cadastro de serviços, disponível apenas para prestadores, as caixas de texto centralizadas na página exibem títulos para demonstrar quais informações devem ser preenchidas. Em ambas as telas, os elementos foram dispostos próximos, cercados por linhas delimitadores, denotando um aspecto de formulário estruturado.
+
+**Similaridade**: Os botões dispostos no cabeçalho da página seguem o padrão de cores definido no layout, e o corpo da página apresenta fundo claro, com tipografia em bom contraste no formulário, facilitando a visualização.
+
+**Boa Continuidade (alinhamento)**: Os campos de formulário seguem uma sequencia lógica, conduzindo o preenchimento das informações necessárias.
+
+#### 4.3.2.3 Recomendações Ergonômicas
+
+**Legibilidade**: Contraste adequado e fontes legíveis.
+
+**Condução**: O fluxo de informações solicitadas segue uma lógica orientada ao usuário, proporcionando rápido aprendizado e clareza no preenchimento.
+
+**Agrupamento/Distinção de itens**: Os campos semelhantes estão agrupados e diferenciados.
+
+#### 4.3.2.4 Regras de Ouro
+
+**Perseguir a consistência**: A interface possui padrões visuais.
+
+**Fornecer Feedbacks Informativos**: As caixas de texto dos formulários apresentam títulos que descrevem quais informações devem ser preenchidas respectivamente. Um pré-texto inserido dentro das caixas também demonstra o formato esperado para a informação.
+
+**Reduzir a Carga de Memória de Trabalho**: Os títulos sobre as caixas de texto combinados com o pré-texto inserido nas caixas facilitam a compreensão e reduz a carga de trabalho em identificar o que deve ser preenchido pelo usuário.
+
+<img width="1129" height="801" alt="tela_cadastro_usuarios" src="https://github.com/user-attachments/assets/fbed3bb8-85dd-4bd5-ba2d-e6c9e839840a" />
+
+<img width="1128" height="803" alt="tela_cadastro_servicos" src="https://github.com/user-attachments/assets/9459ef65-733b-4fb2-b4a4-6de1180ba61c" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 4.4 Testes com Protótipos
 Nesta seção você deve apresentar os testes realizados com usuários utilizando os protótipos de alta fidelidade desenvolvidos na seção anterior. O objetivo é avaliar a usabilidade, a clareza das informações e a adequação do design às necessidades das personas definidas no projeto.
 
