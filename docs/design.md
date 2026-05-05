@@ -142,84 +142,39 @@ Por sua vez, a tela de cadastro de serviços é disponibilizada apenas para pres
 
 
 
-### 4.3.3 Tela de Agendamento de Serviço (Usuário / Serviços)
+### 4.3.4 Tela de Agendamento de Serviço (Usuário / Serviços)
 
-**4.3.2.1 Objetivo da tela**
+**4.3.4.1 Objetivo da tela**
 
 A tela de agendamento de serviço tem por finalidade permitir que o usuário (cliente) finalize a reserva de um serviço automotivo pré-selecionado, escolhendo o dia e o horário disponíveis que melhor lhe convêm. Ela consolida as informações sobre o prestador e o serviço, guiando o usuário através de um fluxo sequencial para confirmar o atendimento na data desejada.
 
-**4.3.2.2 Princípios Gestálticos**
+**4.3.4.2 Princípios Gestálticos**
 
-Proximidade: As informações cruciais sobre o serviço selecionado e o prestador estão agrupadas em um único painel centralizado, cercado por uma borda, formando uma unidade visual distinta. Os cartões que representam os dias da semana estão dispostos em uma linha horizontal contínua, denotando que pertencem à mesma categoria de escolha. Da mesma forma, os botões de horário estão agrupados em sua própria seção, indicando uma relação direta entre eles. O botão final de confirmação está posicionado logo após as seções de escolha, indicando o próximo passo lógico.
+**Proximidade**: As informações cruciais sobre o serviço selecionado e o prestador estão agrupadas em um único painel centralizado, cercado por uma borda, formando uma unidade visual distinta. Os cartões que representam os dias da semana estão dispostos em uma linha horizontal contínua, denotando que pertencem à mesma categoria de escolha. Da mesma forma, os botões de horário estão agrupados em sua própria seção, indicando uma relação direta entre eles. O botão final de confirmação está posicionado logo após as seções de escolha, indicando o próximo passo lógico.
 
-Similaridade: O padrão de seleção é consistente: tanto para o dia escolhido ("Ter 05 Mai") quanto para o horário ("09:00"), o item selecionado adquire uma borda laranja e texto laranja, distinguindo-o dos demais. Os botões de categoria no menu lateral esquerdo seguem um padrão visual unificado (fundo laranja, ícone branco). Os links institucionais no rodapé do menu lateral seguem o mesmo padrão tipográfico.
+**Similaridade**: O padrão de seleção é consistente: tanto para o dia escolhido ("Ter 05 Mai") quanto para o horário ("09:00"), o item selecionado adquire uma borda laranja e texto laranja, distinguindo-o dos demais. Os botões de categoria no menu lateral esquerdo seguem um padrão visual unificado (fundo laranja, ícone branco). Os links institucionais no rodapé do menu lateral seguem o mesmo padrão tipográfico.
 
-Boa Continuidade (alinhamento): O layout central segue uma sequência lógica e numerada (1. Escolha o dia, 2. Escolha o horário), conduzindo as escolhas de informações de forma fluida. Os elementos centrais (painel de resumo, lista de dias, grade de horários, botão de confirmação) estão alinhados verticalmente, facilitando a varredura visual e a compreensão do fluxo.
+**Boa Continuidade (alinhamento)**: O layout central segue uma sequência lógica e numerada (1. Escolha o dia, 2. Escolha o horário), conduzindo as escolhas de informações de forma fluida. Os elementos centrais (painel de resumo, lista de dias, grade de horários, botão de confirmação) estão alinhados verticalmente, facilitando a varredura visual e a compreensão do fluxo.
 
-**4.3.2.3 Recomendações Ergonômicas**
+**4.3.4.3 Recomendações Ergonômicas**
 
-Legibilidade: A interface apresenta um contraste adequado, com texto preto sobre fundo branco e texto branco sobre fundo laranja. As fontes utilizadas são legíveis e de tamanho apropriado para a leitura, tanto para os títulos quanto para os detalhes dos cartões.
+**Legibilidade**: A interface apresenta um contraste adequado, com texto preto sobre fundo branco e texto branco sobre fundo laranja. As fontes utilizadas são legíveis e de tamanho apropriado para a leitura, tanto para os títulos quanto para os detalhes dos cartões.
 
-Condução: O fluxo de agendamento é estruturado em passos numerados e claros (1 e 2), proporcionando uma rápida compreensão do que o usuário deve fazer em seguida. A presença de um grande botão "Confirmar agendamento" no final guia o usuário para a conclusão do processo. As setas de navegação nos dias oferecem uma condução clara para explorar mais opções.
+**Condução**: O fluxo de agendamento é estruturado em passos numerados e claros (1 e 2), proporcionando uma rápida compreensão do que o usuário deve fazer em seguida. A presença de um grande botão "Confirmar agendamento" no final guia o usuário para a conclusão do processo. As setas de navegação nos dias oferecem uma condução clara para explorar mais opções.
 
-Agrupamento/Distinção de itens: Os campos semelhantes estão agrupados em seções lógicas: informações do serviço, escolha da data, escolha do horário. O menu lateral também agrupa as categorias de serviços de forma distinta. A área de agendamento é claramente diferenciada dos menus de navegação e do rodapé.
+**Agrupamento/Distinção de itens**: Os campos semelhantes estão agrupados em seções lógicas: informações do serviço, escolha da data, escolha do horário. O menu lateral também agrupa as categorias de serviços de forma distinta. A área de agendamento é claramente diferenciada dos menus de navegação e do rodapé.
 
-Feedback: A interface fornece feedback visual imediato ao usuário ao selecionar um dia ou horário, alterando a cor da borda para laranja. O resumo do serviço na parte superior serve como feedback de confirmação das escolhas anteriores.
+**Feedback**: A interface fornece feedback visual imediato ao usuário ao selecionar um dia ou horário, alterando a cor da borda para laranja. O resumo do serviço na parte superior serve como feedback de confirmação das escolhas anteriores.
 
-**4.3.2.4 Regras de Ouro**
+**4.3.3.4 Regras de Ouro**
 
-Perseguir a consistência: A interface possui padrões visuais consistentes, como o esquema de cores (azul e laranja), o estilo dos botões e o padrão de seleção com borda laranja usado para dias e horários. Os títulos das etapas (1., 2.) mantêm o mesmo estilo. Os links e botões de navegação seguem um padrão reconhecível.
+**Perseguir a consistência**: A interface possui padrões visuais consistentes, como o esquema de cores (azul e laranja), o estilo dos botões e o padrão de seleção com borda laranja usado para dias e horários. Os títulos das etapas (1., 2.) mantêm o mesmo estilo. Os links e botões de navegação seguem um padrão reconhecível.
 
-Fornecer Feedbacks Informativos: A numeração das etapas informa o usuário sobre o processo de agendamento. A mudança de cor para laranja nos itens selecionados fornece feedback imediato da seleção do usuário. O painel de resumo na parte superior confirma as informações do serviço e do prestador antes da confirmação final.
+**Fornecer Feedbacks Informativos**: A numeração das etapas informa o usuário sobre o processo de agendamento. A mudança de cor para laranja nos itens selecionados fornece feedback imediato da seleção do usuário. O painel de resumo na parte superior confirma as informações do serviço e do prestador antes da confirmação final.
 
-Reduzir a Carga de Memória de Trabalho: O painel de resumo do serviço na parte superior mantém as informações contextuais (nome do serviço, prestador, localização) visíveis durante todo o processo de agendamento, evitando que o usuário precise se lembrar de telas anteriores. O fluxo numerado e a exibição clara de opções de data e hora em grade reduzem o esforço cognitivo para navegar e fazer escolhas.
+**Reduzir a Carga de Memória de Trabalho**: O painel de resumo do serviço na parte superior mantém as informações contextuais (nome do serviço, prestador, localização) visíveis durante todo o processo de agendamento, evitando que o usuário precise se lembrar de telas anteriores. O fluxo numerado e a exibição clara de opções de data e hora em grade reduzem o esforço cognitivo para navegar e fazer escolhas.
+
 <img width="1180" height="835" alt="image" src="https://github.com/user-attachments/assets/11cb6ff0-4408-4f5c-bcb0-e79dc9b12e4c" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
