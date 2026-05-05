@@ -67,6 +67,39 @@ Além disso, está disponível o link "Ainda não se cadastrou? Cadastre-se" que
 
 ![Tela de Login](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/Tela%20de%20Login.png)
 
+### 4.3.2 Tela Inicial (Homepage)
+
+#### 4.3.2.1 Objetivo da tela
+
+A tela inicial (homepage) tem como objetivo atrair e orientar o usuário na utilização do sistema. Ela possui um campo de busca rápida, possibilitando ao usuário encontrar serviços automotivos de forma simples. Além disso, ela contém um fluxo explicativo ("Como funciona?"), que orienta o uso da plataforma tanto para clientes quanto para prestadores de serviços.
+
+#### 4.3.2.2 Princípios Gestálticos
+
+**Proximidade**: Os blocos como funciona, tanto para clientes quanto para profissional, estão agrupados e mesmo separados estão próximos, os passos dentro de cada bloco estão bem organizados.
+
+**Similaridade**: Botões laranja seguem o mesmo padrão. Os ícones circulares dos passos têm o mesmo estilo e tipografia consistente.
+
+**Boa Continuidade (alinhamento)**: O passo a passo segue um fluxo que guia o usuário naturalmente.
+
+#### 4.3.2.3 Recomendações Ergonômicas
+
+**Legibilidade**: Contraste adequado e fontes legíveis.
+
+**Condução**: O fluxo explicativo ("Como funciona?") orienta o usuário, proporcionando rápido aprendizado e facilidade na utilização.
+
+**Agrupamento/Distinção de itens**: Os campos semelhantes estão agrupados e diferenciados.
+
+#### 4.3.2.4 Regras de Ouro
+
+**Perseguir a consistência**: A interface possui padrões visuais.
+
+**Fornecer Feedbacks Informativos**: O Botão buscar sugere uma ação clara e o passo a passo mostra o que acontece depois.
+
+**Reduzir a Carga de Memória de Trabalho**: O fluxo explicativo ("Como funciona?") explica tudo na tela, não é necessário lembrar etapas.
+
+![Tela inicial (homepage)](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/Homepage.png)
+
+
 ## 4.4 Testes com Protótipos
 Nesta seção você deve apresentar os testes realizados com usuários utilizando os protótipos de alta fidelidade desenvolvidos na seção anterior. O objetivo é avaliar a usabilidade, a clareza das informações e a adequação do design às necessidades das personas definidas no projeto.
 
