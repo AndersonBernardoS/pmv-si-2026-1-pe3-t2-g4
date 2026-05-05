@@ -136,6 +136,7 @@ Por sua vez, a tela de cadastro de serviços é disponibilizada apenas para pres
 
 <img width="1129" height="801" alt="tela_cadastro_usuarios" src="https://github.com/user-attachments/assets/fbed3bb8-85dd-4bd5-ba2d-e6c9e839840a" />
 
+
 <img width="1128" height="803" alt="tela_cadastro_servicos" src="https://github.com/user-attachments/assets/9459ef65-733b-4fb2-b4a4-6de1180ba61c" />
 
 
