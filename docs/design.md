@@ -293,3 +293,6 @@ Esta seção apresenta os testes realizados com usuários utilizando os protóti
 
 [Relatório de Testes com Usuário-Tiago Nocce.pdf](https://drive.google.com/file/d/1tkNIsWnrZerrIkdAS5YeAyMcd_mfYnT9/view?usp=sharing)
 
+[Relatório de Testes com Usuário Cliente - N-3.pdf](https://github.com/user-attachments/files/27574916/Relatorio.de.Testes.com.Usuario.Cliente.-.N-3.pdf)
+
+
