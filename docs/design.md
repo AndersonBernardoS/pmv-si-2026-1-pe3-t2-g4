@@ -142,7 +142,7 @@ Por sua vez, a tela de cadastro de serviços é disponibilizada apenas para pres
 
 
 
-### 4.3.4 Tela de Agendamento de Serviço (Usuário / Serviços)
+### 4.3.4 Tela de Agendamento de Serviço (Cliente)
 
 **4.3.4.1 Objetivo da tela**
 
@@ -176,6 +176,43 @@ A tela de agendamento de serviço tem por finalidade permitir que o usuário (cl
 
 <img width="1180" height="835" alt="image" src="https://github.com/user-attachments/assets/11cb6ff0-4408-4f5c-bcb0-e79dc9b12e4c" />
 
+
+
+
+
+### 4.3.5 Tela de Gerenciamento de Agendamentos (Prestador de serviços)
+
+**4.3.5.1 Objetivo da tela**
+
+A tela de gerenciamento das solicitações de agendamento tem por finalidade permitir que o prestador de serviços visualize e gerencia as solicitações de agendamento realizadas pelos clientes.
+
+**4.3.5.2 Princípios Gestálticos**
+
+**Proximidade**: Trata-se de um calendário centralizado na página, em que cada dia do mês apresenta os agendamentos solicitados, com horário e serviço a ser realizado, respectivamente, seguindo um processo lógico.
+
+**Similaridade**: O padrão de apresentação dos dias, horários e serviços é consistente e segue a paleta de cores da página para diferenciar os agendamentos confirmados daqueles a confirmar.
+
+**Boa Continuidade (alinhamento)**: O layout central segue uma sequência lógica, conduzindo a visualização de forma fluida. O calendário segue um padrão de alinhamento familiar a padrões de calendários de modo geral, facilitando a leitura visual e a compreensão do fluxo.
+
+**4.3.5.3 Recomendações Ergonômicas**
+
+**Legibilidade**: A interface apresenta um contraste adequado, com texto preto sobre fundo branco e texto branco sobre fundo laranja. As fontes utilizadas são legíveis e de tamanho apropriado para a leitura, tanto para os títulos quanto para os detalhes dos cartões.
+
+**Condução**: O formato de calendário proporciona uma rápida compreensão do que o usuário precisa saber. As setas de navegação nos meses oferecem uma condução clara para explorar mais opções.
+
+**Agrupamento/Distinção de itens**: Os campos semelhantes estão agrupados em seções lógicas: agendamentos confirmados, agendamentos a confirmar, horários e serviços agendados. A área de agendamento é claramente delimitada no centro da página.
+
+**Feedback**: A interface fornece feedback visual imediato ao usuário ao demonstrar o calendário de forma ampla. O resumo de horário e serviço delimitados no quadro do dia servem como feedback de visualização dos agendamentos.
+
+**4.3.5.4 Regras de Ouro**
+
+**Perseguir a consistência**: A interface possui padrões visuais consistentes, como o esquema de cores (azul e laranja), sendo o estilo do calendário e o padrão de confirmação dos dias e horários na cor laranja.
+
+**Fornecer Feedbacks Informativos**: A disposição dos dias e lista dos horários informam ao usuário sobre os agendamentos solicitados. A mudança de cor para laranja preenchido nos agendamentos confirmados fornece feedback imediato dos atendimentos a serem realizados.
+
+**Reduzir a Carga de Memória de Trabalho**: O calendário centralizado na página, a disposição dos dias e horários, bem como a legenda dos agendamentos confirmados apresentam um padrão de simples leitura, reduzem o esforço cognitivo para interpretar as informações apresentadas.
+
+<img width="1175" height="827" alt="tela_agenda_prestador" src="https://github.com/user-attachments/assets/23643e3f-0f3c-4a15-97f7-429fba3adb6a" />
 
 
 
