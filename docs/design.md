@@ -214,6 +214,33 @@ A tela de gerenciamento das solicitações de agendamento tem por finalidade per
 
 <img width="1175" height="827" alt="tela_agenda_prestador" src="https://github.com/user-attachments/assets/23643e3f-0f3c-4a15-97f7-429fba3adb6a" />
 
+### 4.3.6 Tela de Catálogo de Prestadores
+
+**4.3.6.1 Objetivo da tela**
+
+O objetivo dessa tela é listas os prestadores de serviços com base na busca feita pelo usuário. Os dados de cada prestador ficam separadas em um card.
+
+**4.3.6.2 Princípios Gestálticos**
+
+**Similaridade**: O padrão dos cards separam bem os dados de pretadores diferentes.
+
+**Proximidade:** Os dados de cada prestador ficam próximas entre si, evitando que cause confusão com os dados de prestadores diferentes.
+
+#### 4.3.6.3 Recomendações Ergonômicas
+
+**Legibilidade**: Contraste adequado e fontes legíveis.
+
+**Agrupamento/Distinção de itens**: Os cards com dados dos prestadores agrupam os dados de cada um e também demarca evitando que se misturem.
+
+#### 4.3.6.4 Regras de Ouro
+
+**Perseguir a consistência**: A interface possui padrões visuais.
+
+**Fornecer Feedbacks Informativos**: Os botões de "Agende um serviço" e "Solicite um orçamento" recebem um efeito ao passar o mouse.
+
+**Reduzir a Carga de Memória de Trabalho**: Os cards separam bem as informações evitando o esforço para identificar cada prestador.
+
+<img width="1440" height="1024" alt="Catálogo de Prestadores" src="https://github.com/user-attachments/assets/3fbf1dc3-9850-4f1c-ae07-971b6eb10dc1" />
 
 
 
