@@ -225,3 +225,6 @@ Esta seção apresenta os testes realizados com usuários utilizando os protóti
 
 [Relatório_de_Testes_com_Usuário_Prestador1.pdf](https://github.com/user-attachments/files/27572301/Relatorio_de_Testes_com_Usuario_Prestador1.pdf)
 
+[Relatório de Testes com Usuário Cliente 2.pdf](https://github.com/user-attachments/files/27572818/Relatorio.de.Testes.com.Usuario.Cliente.2.pdf)
+
+
