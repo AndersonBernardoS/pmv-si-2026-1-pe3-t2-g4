@@ -291,4 +291,5 @@ Esta seção apresenta os testes realizados com usuários utilizando os protóti
 
 [Relatório de Testes com Usuário Cliente 2.pdf](https://github.com/user-attachments/files/27572818/Relatorio.de.Testes.com.Usuario.Cliente.2.pdf)
 
+[Relatório de Testes com Usuário-Tiago Nocce.pdf]()
 
