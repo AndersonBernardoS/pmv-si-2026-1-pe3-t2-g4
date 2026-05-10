@@ -242,6 +242,43 @@ O objetivo dessa tela é listas os prestadores de serviços com base na busca fe
 
 <img width="1440" height="1024" alt="Catálogo de Prestadores" src="https://github.com/user-attachments/assets/3fbf1dc3-9850-4f1c-ae07-971b6eb10dc1" />
 
+### 4.3.7 Tela de Solicitação de Orçamento
+
+**4.3.7.1 Objetivo da tela**
+
+O objetivo dessa tela é permitir que o usuário descreva o serviço automotivo desejado e envie uma solicitação de orçamento para um prestador de serviços de forma prática. A interface facilita o preenchimento das informações necessárias, oferecendo campos claros e uma estrutura visual intuitiva.
+
+**4.3.7.2 Princípios Gestálticos**
+
+**Proximidade**:  Os elementos da tela foram agrupados próximos uns dos outros.
+
+**Similaridade**: Existe repetição de cores, formatos e estilos.
+
+**Boa continuidade**: O formulário segue um fluxo linear, conduzindo naturalmente o olhar do usuário.
+
+**Região comum**: Os elementos relacionados estão dentro de áreas delimitadas.
+
+**4.3.7.3 Recomendações Ergonômicas**
+
+**Condução**: A interface conduz o usuário e informa através de mensagens.
+
+**Legibilidade**: A interface possui boa legibilidade e contraste adequado.
+
+**Agrupamento/Distinção de Itens**: As informações estão bem divididas em menu lateral, informações do prestador de serviços e formulário principal.
+
+**4.3.7.4 Regras de Ouro**
+
+**Perseguir a Consistência**: A tela mantém um padrão visual.
+
+**Reduzir a Carga de Memória de Trabalho**: Os campos possuem texto explicativo, que ajuda o usuário a entender e preencher os campos corretamente.
+
+**Fornecer Feedbacks Informativos**: Botões com indicações claras de acões.
+
+**Fornecer Prevenção de Erros e Forma Simples de Corrigi-los**: A interface ajuda na prevenção de erros por separar os campos e possuir organização lógica do formulário.
+
+<img width="1206" height="856" alt="Solicitação de orçamento" src="https://github.com/user-attachments/assets/cec5930c-9f4d-4762-aa60-14d5846855d7" />
+
+
 
 
 
