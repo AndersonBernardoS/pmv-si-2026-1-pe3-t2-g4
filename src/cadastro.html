@@ -10,104 +10,386 @@
     <style>
         :root {
             --primary-blue: #143c88;
-            --sidebar-blue: #2a56a6;
             --primary-orange: #f47920;
             --orange-hover: #e06815;
             --bg-gray: #f5f6f8;
             --text-dark: #333;
-            --text-blue: #1c3d7a;
+            --text-light: #777;
+            --card-border: #eaeaea;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
-        body { background-color: var(--bg-gray); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; }
-        header { background-color: var(--primary-blue); height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10; }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 700; text-transform: uppercase; text-decoration: none; cursor: pointer; }
-        .logo i, .logo span { color: white; }
-        .login-container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
-        .login-card { background: white; width: 100%; max-width: 450px; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eaeaea; text-align: center; }
-        .login-card h2 { color: var(--text-blue); margin-bottom: 10px; font-size: 28px; }
-        .login-card p { color: #666; margin-bottom: 30px; font-size: 14px; }
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-blue); }
-        .input-wrapper { position: relative; display: flex; align-items: center; }
-        .input-wrapper i { position: absolute; left: 15px; color: #999; }
-        .input-wrapper input { width: 100%; padding: 12px 12px 12px 40px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; outline: none; transition: border-color 0.3s; }
-        .input-wrapper input:focus { border-color: var(--primary-blue); }
-        .btn-login { width: 100%; background-color: var(--primary-orange); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 10px; transition: background 0.3s; }
-        .btn-login:hover { background-color: var(--orange-hover); }
-        .login-links { margin-top: 25px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
-        .login-links a { color: var(--primary-blue); text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        .login-links a:hover { color: var(--primary-orange); text-decoration: underline; }
         
-        #msg-feedback { font-size: 14px; margin-bottom: 15px; padding: 10px; border-radius: 6px; display: none; font-weight: 500; }
+        body { 
+            background-color: var(--bg-gray); 
+            color: var(--text-dark); 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+
+        /* HEADER */
+        header { 
+            background-color: var(--primary-blue); 
+            height: 80px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 40px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+            z-index: 10; 
+        }
+
+        .Logo { display: flex; align-items: center; height: 100%; }
+        .Logo img { height: 60px; width: auto; display: block; }
+        
+        .header-buttons { display: flex; gap: 15px; }
+        .btn-header { 
+            background-color: var(--primary-orange); 
+            color: white; 
+            border: none; 
+            padding: 10px 24px; 
+            border-radius: 4px; 
+            font-size: 16px; 
+            font-weight: 500; 
+            cursor: pointer; 
+            transition: background 0.3s; 
+            text-decoration: none;
+        }
+        .btn-header:hover { background-color: var(--orange-hover); }
+
+        /* CONTAINER PRINCIPAL */
+        .main-container {
+            flex: 1;
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* CARDS */
+        .card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        /* SELETOR DE TIPO DE CONTA */
+        .type-selector {
+            display: flex;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .type-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .type-option input[type="radio"] {
+            margin-top: 4px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .type-text strong {
+            display: block;
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+
+        .type-text p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* FORMULÁRIO GRID */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .left-column { display: flex; flex-direction: column; gap: 20px; }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus { border-color: var(--primary-blue); }
+
+        /* LISTA DE SERVIÇOS E TOGGLES */
+        .right-column { display: flex; flex-direction: column; gap: 20px; }
+        .right-column h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; color: var(--text-dark); }
+        
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-info strong { font-size: 14px; font-weight: 500; color: var(--text-dark); display: block; margin-bottom: 2px;}
+        .service-info p { font-size: 13px; color: var(--text-light); }
+
+        /* TOGGLE SWITCH CSS */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px; width: 18px;
+            left: 3px; bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: var(--text-light); }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        /* RODAPÉ DO FORMULÁRIO */
+        .form-footer {
+            grid-column: span 2;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .terms-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .terms-group input[type="checkbox"] {
+            margin-top: 4px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .terms-group label strong { font-size: 14px; color: var(--text-dark); font-weight: 500;}
+        .terms-group label span { font-size: 13px; color: var(--text-light); }
+
+        .btn-submit {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 0 auto;
+            display: block;
+            width: 250px;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover { background-color: #000; }
+
+        /* MENSAGENS FEEDBACK */
+        #msg-feedback { font-size: 14px; padding: 10px; border-radius: 6px; display: none; font-weight: 500; text-align: center; grid-column: span 2;}
         .msg-error { background-color: #ffeaea; color: #d93025; border: 1px solid #d93025; }
         .msg-success { background-color: #e6f4ea; color: #1e8e3e; border: 1px solid #1e8e3e; }
-        
-        footer { background-color: #e6e6e6; padding: 15px 40px; display: flex; justify-content: flex-start; align-items: center; gap: 15px; }
+
+        /* FOOTER DA PÁGINA */
+        footer { 
+            background-color: #e0e0e0; 
+            padding: 15px 40px; 
+            display: flex; 
+            justify-content: flex-start; 
+            align-items: center; 
+            gap: 15px; 
+            margin-top: auto;
+        }
         footer i { font-size: 28px; color: #333; cursor: pointer; transition: color 0.3s; }
         footer i:hover { color: var(--primary-orange); }
-        /* Ajuste para o container da logo */
-.Logo {
-    display: flex;
-    align-items: left;
-    height: 100%; 
-}
 
-
-.Logo img {
-    height: 80px;       
-    width: auto;        
-    display: block;
-}
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; gap: 30px; }
+            .type-selector { flex-direction: column; gap: 15px; }
+            .form-footer { grid-column: span 1; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="Logo">
-            <img src="img/Logo.jpg">
+            <!-- Link removido conforme solicitado -->
+            <img src="img/Logo.jpg" alt="Logo AgendaCar">
+        </div>
+        <div class="header-buttons">
+            <!-- Botão de Início removido conforme solicitado -->
+            <button class="btn-header" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
         </div>
     </header>
 
-    <div class="login-container">
-        <div class="login-card">
-            <h2>Crie sua conta</h2>
-            <p>Cadastre-se para começar a agendar seus serviços.</p>
-            
-            <div id="msg-feedback"></div>
-
-            <form id="form-cadastro">
-                <div class="form-group">
-                    <label for="nome_cad">Nome Completo</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-id-card"></i>
-                        <input type="text" id="nome_cad" placeholder="Digite seu nome completo" required>
+    <div class="main-container">
+        
+        <form id="form-cadastro">
+            <!-- SELETOR DE TIPO DE CONTA -->
+            <div class="card type-selector">
+                <label class="type-option">
+                    <input type="radio" name="tipo_conta" value="cliente" checked>
+                    <div class="type-text">
+                        <strong>CLIENTE</strong>
+                        <p>Estou à procura de prestadores de serviços.</p>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email_cad">E-mail</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="email" id="email_cad" placeholder="Digite seu e-mail" required>
+                </label>
+                
+                <label class="type-option">
+                    <input type="radio" name="tipo_conta" value="prestador">
+                    <div class="type-text">
+                        <strong>PRESTADOR(A) DE SERVIÇOS</strong>
+                        <p>Estou aqui para oferecer meus serviços.</p>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="password_cad">Senha</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="password_cad" placeholder="Crie uma senha forte" required>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-login">Cadastrar</button>
-            </form>
-
-            <div class="login-links">
-                <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
+                </label>
             </div>
-        </div>
+
+            <!-- FORMULÁRIO PRINCIPAL -->
+            <div class="card form-grid">
+                
+                <div id="msg-feedback"></div>
+
+                <!-- COLUNA ESQUERDA: DADOS -->
+                <div class="left-column">
+                    <div class="form-group">
+                        <label for="nome_cad">Nome completo</label>
+                        <input type="text" id="nome_cad" placeholder="Nome completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email_cad">Email</label>
+                        <input type="email" id="email_cad" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="celular_cad">Celular</label>
+                        <input type="tel" id="celular_cad" placeholder="(00) 00000-0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nascimento_cad">Data de nascimento</label>
+                        <input type="text" id="nascimento_cad" placeholder="DD/MM/AAAA" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senha_cad">Senha</label>
+                        <input type="password" id="senha_cad" placeholder="Crie sua senha de acesso" required>
+                    </div>
+                </div>
+
+                <!-- COLUNA DIREITA: SERVIÇOS -->
+                <div class="right-column">
+                    <h3>Quais tipos de serviços você procura/oferece?</h3>
+                    
+                    <div class="service-item">
+                        <div class="service-info">
+                            <strong>Mecânica em geral</strong>
+                            <p>Inserir uma breve descrição da categoria</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" name="servicos" value="Mecânica em geral">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-info">
+                            <strong>Motores</strong>
+                            <p>Inserir uma breve descrição da categoria</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" name="servicos" value="Motores">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-info">
+                            <strong>Suspensão</strong>
+                            <p>Inserir uma breve descrição da categoria</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" name="servicos" value="Suspensão">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-info">
+                            <strong>Lanternagem e pintura</strong>
+                            <p>Inserir uma breve descrição da categoria</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" name="servicos" value="Lanternagem e pintura">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-info">
+                            <strong>Outros serviços</strong>
+                            <p>Inserir uma breve descrição da categoria</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" name="servicos" value="Outros serviços">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- RODAPÉ DO FORMULÁRIO -->
+                <div class="form-footer">
+                    <div class="terms-group">
+                        <input type="checkbox" id="termos" required>
+                        <label for="termos">
+                            <strong>Concordo com os termos e política de privacidade.</strong><br>
+                            <span>Leia nossos termos e política de privacidade.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">CADASTRAR</button>
+                </div>
+
+            </div>
+        </form>
     </div>
 
     <footer>
@@ -121,7 +403,17 @@
             
             const nome = document.getElementById('nome_cad').value.trim();
             const email = document.getElementById('email_cad').value.trim().toLowerCase();
-            const password = document.getElementById('password_cad').value.trim();
+            const celular = document.getElementById('celular_cad').value.trim();
+            const nascimento = document.getElementById('nascimento_cad').value.trim();
+            const password = document.getElementById('senha_cad').value.trim();
+            const tipoConta = document.querySelector('input[name="tipo_conta"]:checked').value;
+            
+            // Capturando os serviços selecionados nos toggles
+            const servicosSelecionados = [];
+            document.querySelectorAll('input[name="servicos"]:checked').forEach((checkbox) => {
+                servicosSelecionados.push(checkbox.value);
+            });
+
             const feedback = document.getElementById('msg-feedback');
 
             let usuarios = JSON.parse(localStorage.getItem('agendacar_usuarios')) || [];
@@ -138,14 +430,17 @@
                 id: Date.now(),
                 nome: nome,
                 email: email,
+                celular: celular,
+                nascimento: nascimento,
                 senha: password,
-                tipo: 'cliente'
+                tipo: tipoConta,
+                servicos: servicosSelecionados
             };
 
             usuarios.push(novoUsuario);
             localStorage.setItem('agendacar_usuarios', JSON.stringify(usuarios));
 
-            feedback.textContent = 'Cadastro realizado com sucesso! Redirecionando...';
+            feedback.textContent = 'Cadastro realizado com sucesso! Redirecionando para o login...';
             feedback.className = 'msg-success';
             feedback.style.display = 'block';
 
