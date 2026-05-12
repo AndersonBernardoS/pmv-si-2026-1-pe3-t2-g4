@@ -102,7 +102,40 @@
         <i class="fa-brands fa-instagram"></i>
         <i class="fa-brands fa-youtube"></i>
     </footer>
+<script>
+        document.getElementById('form-login').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que a página recarregue
+            
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const password = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('error-msg');
 
+            // Busca os usuários no localStorage
+            const usuarios = JSON.parse(localStorage.getItem('agendacar_usuarios')) || [];
+
+            // Verifica se existe um usuário com esse email E senha
+            const usuarioValido = usuarios.find(user => user.email === email && user.senha === password);
+
+            if (usuarioValido) {
+                // Cria a sessão se o login estiver correto
+                const sessao = {
+                    id: usuarioValido.id,
+                    nome: usuarioValido.nome,
+                    email: usuarioValido.email,
+                    tipo: usuarioValido.tipo
+                };
+
+                localStorage.setItem('agendacar_sessao', JSON.stringify(sessao));
+                
+                // Redireciona para a home
+                window.location.href = 'home.html'; 
+            } else {
+                // SE O LOGIN ESTIVER INCORRETO: Exibe a mensagem de erro!
+                errorMsg.textContent = 'E-mail ou senha incorretos. Verifique seus dados ou cadastre-se.';
+                errorMsg.style.display = 'block';
+            }
+        });
+    </script>
 
     
 </body>
