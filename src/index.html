@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaCar - A sua plataforma de serviços automotivos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1f3b7b;
+            --primary-orange: #ff7e15;
+            --orange-hover: #e06815;
+            --bg-gray: #f5f6f8;
+            --text-dark: #333;
+            --text-blue: #1f3b7b;
+            --light-blue: #e8eef9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+        
+        body { 
+            background-color: var(--bg-gray); 
+            color: var(--text-dark); 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+
+        /* HEADER PÚBLICO */
+        header { 
+            background-color: var(--primary-blue); 
+            height: 100px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 40px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-container { display: flex; align-items: center; height: 100%; text-decoration: none; }
+        .logo-container img { height: 85px; width: auto; object-fit: contain; } 
+        
+        .header-buttons { display: flex; gap: 15px; }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover { background-color: rgba(255,255,255,0.1); }
+
+        .btn-primary { 
+            background-color: var(--primary-orange); 
+            color: white; 
+            border: 2px solid var(--primary-orange); 
+            padding: 10px 24px; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            text-decoration: none;
+            transition: all 0.3s; 
+        }
+        .btn-primary:hover { 
+            background-color: var(--orange-hover); 
+            border-color: var(--orange-hover);
+        }
+
+        /* HERO SECTION (Seção Principal) */
+        .hero {
+            margin-top: 100px; 
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #2a4c9d 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+        }
+
+        .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 20px; max-width: 800px; line-height: 1.2; }
+        .hero p { font-size: 20px; font-weight: 400; margin-bottom: 40px; max-width: 600px; opacity: 0.9; line-height: 1.5; }
+        .hero .btn-hero { font-size: 20px; padding: 15px 40px; border-radius: 50px; }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+        }
+
+        .section-title {
+            color: var(--text-blue);
+            font-size: 32px;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .section-title span { color: var(--primary-orange); }
+
+        .cards-container {
+            display: flex;
+            gap: 30px;
+            max-width: 1100px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: var(--bg-gray);
+            border-radius: 12px;
+            padding: 40px 30px;
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-10px); }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px auto;
+        }
+
+        .feature-card h3 { color: var(--text-blue); font-size: 22px; margin-bottom: 15px; }
+        .feature-card p { color: #555; line-height: 1.6; }
+
+        /* FOOTER SIMPLES */
+        footer { 
+            background-color: #1f3b7b; 
+            color: white;
+            padding: 30px 40px; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            gap: 15px; 
+            margin-top: auto;
+        }
+        
+        .footer-links { display: flex; gap: 20px; }
+        .footer-links a { color: white; text-decoration: none; font-size: 14px; opacity: 0.8; transition: 0.3s; }
+        .footer-links a:hover { opacity: 1; text-decoration: underline; }
+        
+        .social-icons { display: flex; gap: 15px; font-size: 24px; }
+        .social-icons i { cursor: pointer; transition: color 0.3s; }
+        .social-icons i:hover { color: var(--primary-orange); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .header-buttons .btn-outline { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <header> 
+        <a href="index.html" class="logo-container">
+            <img src="img/Logo.jpg" alt="Logo AgendaCar" onerror="this.src='https://via.placeholder.com/150x50?text=AgendaCar'"> 
+        </a>
+        <div class="header-buttons">
+            <a href="cadastro.html" class="btn-outline">Cadastre-se</a>
+            <a href="login.html" class="btn-primary"><i class="fa-solid fa-right-to-bracket"></i> Fazer Login</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>O cuidado que seu carro precisa, a um clique de distância.</h1>
+            <p>Conectamos você aos melhores mecânicos e oficinas da região. Agende serviços de forma rápida, segura e sem dor de cabeça.</p>
+            <a href="login.html" class="btn-primary btn-hero">Começar Agora</a>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">Por que escolher o <span>AgendaCar</span>?</h2>
+            
+            <div class="cards-container">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                    <h3>Praticidade 24h</h3>
+                    <p>Agende a revisão, troca de óleo ou manutenção do seu veículo a qualquer hora do dia ou da noite, direto do seu celular ou computador.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
+                    <h3>Profissionais Avaliados</h3>
+                    <p>Escolha o profissional ideal baseado em avaliações e comentários reais de outros motoristas que já utilizaram o serviço.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3>Para Oficinas</h3>
+                    <p>Tem uma oficina? Cadastre-se para digitalizar sua agenda, atrair novos clientes e profissionalizar a gestão do seu negócio.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-icons">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+        </div>
+        <div class="footer-links">
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="termos-uso.html">Termos de Uso</a>
+            <a href="politica-privacidade.html">Privacidade</a>
+            <a href="fale-conosco.html">Fale Conosco</a>
+        </div>
+        <p style="font-size: 12px; opacity: 0.6; margin-top: 10px;">&copy; 2024 AgendaCar. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

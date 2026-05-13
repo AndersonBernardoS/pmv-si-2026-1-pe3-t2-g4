@@ -134,7 +134,7 @@
 <body>
 
     <header> 
-        <a href="home.html" class="logo-container">
+        <a href="#" class="logo-container" onclick="deslogarEIrParaLanding(event)">
             <img src="img/Logo.jpg" alt="Logo AgendaCar">
         </a>
         <button class="btn-header" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
@@ -249,6 +249,27 @@
                 alert(`Buscando por: ${termo}`);
             } else {
                 alert('Por favor, digite um serviço para buscar!');
+            }
+        }
+        function realizarBusca() {
+            const termo = document.querySelector('.search-bar input').value;
+            if(termo) {
+                alert(`Buscando por: ${termo}`);
+            } else {
+                alert('Por favor, digite um serviço para buscar!');
+            }
+        }
+
+        // ==========================================
+        // TESTANDO FUNÇÃO: Deslogar ao clicar na logo
+        // ==========================================
+        function deslogarEIrParaLanding(event) {
+            event.preventDefault(); // Impede o link de recarregar a página atual
+            
+            // Pergunta opcional para evitar cliques acidentais (se for direto, tirar o if)
+            if(confirm('Isso irá desconectar sua conta e voltar para a tela inicial. Deseja continuar?')) {
+                localStorage.removeItem('agendacar_sessao'); // Destroi o login
+                window.location.href = 'index.html'; // Manda para a Landing Page
             }
         }
     </script>
