@@ -174,7 +174,7 @@
                 const primeiroNome = (usuario.nome || 'Usuário').split(' ')[0];
                 
                 // Se estiver logado, o botão leva para a Home (Painel)
-                btnHeader.innerHTML = `<i class="fa-solid fa-user"></i> Olá, ${primeiroNome} (Painel)`;
+                btnHeader.innerHTML = `<i class="fa-solid fa-user"></i> Painel`;
                 btnHeader.onclick = function() {
                     window.location.href = 'home.html'; 
                 };
