@@ -29,7 +29,6 @@
             overflow: hidden; 
         }
 
-        /* CABEÇALHO CORRIGIDO: width 100% e flex-shrink 0 garantem que ele ocupe a tela toda no topo */
         header { 
             background-color: var(--primary-blue); 
             height: 80px; 
@@ -48,14 +47,26 @@
         .Logo img { height: 80px; width: auto; display: block; }
 
         .login-container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 40px 20px; position: relative; z-index: 10; }
-        .login-card { background: white; width: 100%; max-width: 450px; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eaeaea; text-align: center; }
+        
+        /* Card com leve efeito "Glassmorphism" (Vidro) */
+        .login-card { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            width: 100%; 
+            max-width: 450px; 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.5); 
+            text-align: center; 
+        }
         .login-card h2 { color: var(--text-blue); margin-bottom: 10px; font-size: 28px; }
         .login-card p { color: #666; margin-bottom: 30px; font-size: 14px; }
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-blue); }
         .input-wrapper { position: relative; display: flex; align-items: center; }
         .input-wrapper i { position: absolute; left: 15px; color: #999; }
-        .input-wrapper input { width: 100%; padding: 12px 12px 12px 40px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; outline: none; transition: border-color 0.3s; }
+        .input-wrapper input { width: 100%; padding: 12px 12px 12px 40px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; outline: none; transition: border-color 0.3s; background: white;}
         .input-wrapper input:focus { border-color: var(--primary-blue); }
         .btn-login { width: 100%; background-color: var(--primary-orange); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 10px; transition: background 0.3s, transform 0.1s; }
         .btn-login:hover { background-color: var(--orange-hover); }
@@ -66,7 +77,7 @@
         .login-links a:hover { color: var(--primary-orange); text-decoration: underline; }
 
         /* =========================================
-           ANIMAÇÕES DE FUNDO (MENORES E MAIS ELEMENTOS)
+           ANIMAÇÕES DE FUNDO (PULSANDO E FLUTUANDO)
            ========================================= */
         .background-visuals {
             position: absolute;
@@ -76,82 +87,142 @@
             height: 100%;
             z-index: 1; 
             pointer-events: none; 
+            background: linear-gradient(135deg, #f5f6f8 0%, #e4e9f2 100%);
+            overflow: hidden;
         }
 
-        .visual-element {
+        /* Grade Tecnológica Sutil no Fundo */
+        .tech-grid {
             position: absolute;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(18, 54, 138, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 54, 138, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
         }
 
-        .color-blue { color: rgba(20, 60, 136, 0.15); }
-        .color-orange { color: rgba(244, 121, 32, 0.18); }
-        .color-gray { color: rgba(150, 150, 150, 0.25); }
+        /* Orbes de Luz com Animação de Pulso */
+        .glowing-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: floatOrb infinite alternate ease-in-out;
+            z-index: 2;
+            /* A opacidade agora é controlada inteiramente pelos @keyframes */
+        }
 
-        /* Lado Esquerdo - Itens Menores */
-        .item-1 { font-size: 100px; top: 15%; left: 3%; animation-duration: 35s; animation-name: rotate; }
-        .item-3 { font-size: 60px; top: 45%; left: 8%; animation-duration: 25s; animation-name: rotateReverse; }
-        .item-5 { font-size: 45px; bottom: 20%; left: 5%; animation-duration: 15s; animation-name: floatReverse; animation-timing-function: ease-in-out; }
-        .item-7 { font-size: 70px; bottom: 5%; left: 15%; animation-duration: 28s; animation-name: rotate; }
-        .item-9 { font-size: 50px; top: 65%; left: 12%; animation-duration: 18s; animation-name: float; animation-timing-function: ease-in-out; }
+        .orb-blue {
+            width: 400px; height: 400px;
+            background: var(--primary-blue);
+            top: -10%; left: -10%;
+            animation-duration: 18s; /* Tempos ajustados para fluidez */
+        }
 
-        /* Lado Direito - Itens Menores */
-        .item-2 { font-size: 120px; bottom: 10%; right: 2%; animation-duration: 40s; animation-name: rotateReverse; }
-        .item-4 { font-size: 55px; top: 20%; right: 8%; animation-duration: 12s; animation-name: float; animation-timing-function: ease-in-out; }
-        .item-6 { font-size: 75px; bottom: 40%; right: 10%; animation-duration: 22s; animation-name: rotate; }
-        .item-8 { font-size: 45px; top: 50%; right: 4%; animation-duration: 16s; animation-name: floatReverse; animation-timing-function: ease-in-out; }
-        .item-10 { font-size: 65px; top: 5%; right: 12%; animation-duration: 30s; animation-name: rotateReverse; }
+        .orb-orange {
+            width: 350px; height: 350px;
+            background: var(--primary-orange);
+            bottom: -15%; right: -5%;
+            animation-duration: 22s;
+            animation-direction: alternate-reverse;
+        }
 
-        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes rotateReverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
-        @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(8deg); } }
-        @keyframes floatReverse { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(15px) rotate(-8deg); } }
+        .orb-light {
+            width: 300px; height: 300px;
+            background: #badfe9;
+            top: 30%; left: 40%;
+            animation-duration: 26s;
+        }
 
-        /* OVERLAY DO CARRO NO LOGIN */
-        .loader-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--primary-blue); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; }
+        /* Nova Animação: Flutua E muda a opacidade (apagando e acendendo) */
+        @keyframes floatOrb {
+            0% { 
+                transform: translate(0, 0) scale(1); 
+                opacity: 0.1; /* Luz quase apagada */
+            }
+            50% { 
+                opacity: 0.8; /* Luz acesa/forte no meio do trajeto */
+            }
+            100% { 
+                transform: translate(60px, -60px) scale(1.15); 
+                opacity: 0.1; /* Luz apaga novamente no final */
+            }
+        }
+
+        /* =========================================
+           OVERLAY DE CARREGAMENTO (ANÉIS + ENGRENAGEM)
+           ========================================= */
+        .loader-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background-color: rgba(18, 54, 138, 0.95); 
+            backdrop-filter: blur(5px); 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; 
+        }
         .loader-overlay.active { opacity: 1; visibility: visible; }
-        .car-animation-container { position: relative; width: 120px; height: 60px; margin-bottom: 30px; }
-        .car-icon { font-size: 60px; color: var(--primary-orange); position: absolute; right: 0; bottom: 0; z-index: 2; animation: carDrive 0.3s infinite alternate ease-in-out; }
-        .smoke { position: absolute; bottom: 5px; left: 10px; width: 14px; height: 14px; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; z-index: 1; opacity: 0; }
-        .smoke-1 { animation: exhaust 1s linear infinite; }
-        .smoke-2 { animation: exhaust 1s linear infinite 0.33s; }
-        .smoke-3 { animation: exhaust 1s linear infinite 0.66s; }
-        .loader-text { color: white; font-size: 20px; font-weight: 500; letter-spacing: 1px; animation: pulse 1.5s ease-in-out infinite; }
         
-        @keyframes carDrive { 0% { transform: translateY(0); } 100% { transform: translateY(-5px); } }
-        @keyframes exhaust { 0% { transform: translate(0, 0) scale(1); opacity: 0.8; } 100% { transform: translate(-60px, -20px) scale(3); opacity: 0; } }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .cyber-loader {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cyber-loader::before, .cyber-loader::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid transparent;
+        }
+        .cyber-loader::before {
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-top-color: var(--primary-orange);
+            border-bottom-color: var(--primary-orange);
+            animation: spin 1.5s linear infinite;
+        }
+        .cyber-loader::after {
+            top: 12px; left: 12px; right: 12px; bottom: 12px;
+            border-left-color: #fff;
+            border-right-color: #fff;
+            animation: spinReverse 1s linear infinite;
+        }
+
+        .loader-gear {
+            font-size: 28px;
+            color: #fff;
+            animation: spin 3s linear infinite;
+            z-index: 2;
+        }
+
+        .loader-text { color: white; font-size: 18px; font-weight: 500; letter-spacing: 2px; animation: pulseText 1.5s ease-in-out infinite; text-transform: uppercase;}
+        
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spinReverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+        @keyframes pulseText { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     </style>
 </head>
 <body>
 
     <div class="loader-overlay" id="loaderOverlay">
-        <div class="car-animation-container">
-            <div class="smoke smoke-1"></div>
-            <div class="smoke smoke-2"></div>
-            <div class="smoke smoke-3"></div>
-            <i class="fa-solid fa-car-side car-icon"></i>
+        <div class="cyber-loader">
+            <i class="fa-solid fa-gear loader-gear"></i>
         </div>
-        <div class="loader-text">Acessando o sistema...</div>
+        <div class="loader-text">Autenticando</div>
     </div>
 
     <div class="background-visuals">
-        <i class="fa-solid fa-gear visual-element color-blue item-1"></i>
-        <i class="fa-solid fa-cog visual-element color-gray item-3"></i>
-        <i class="fa-solid fa-screwdriver-wrench visual-element color-orange item-5"></i>
-        <i class="fa-solid fa-wrench visual-element color-blue item-7"></i>
-        <i class="fa-solid fa-hammer visual-element color-gray item-9"></i>
-
-        <i class="fa-solid fa-gear visual-element color-orange item-2"></i>
-        <i class="fa-solid fa-wrench visual-element color-blue item-4"></i>
-        <i class="fa-solid fa-cog visual-element color-gray item-6"></i>
-        <i class="fa-solid fa-hammer visual-element color-orange item-8"></i>
-        <i class="fa-solid fa-screwdriver-wrench visual-element color-blue item-10"></i>
+        <div class="tech-grid"></div>
+        <div class="glowing-orb orb-blue"></div>
+        <div class="glowing-orb orb-orange"></div>
+        <div class="glowing-orb orb-light"></div>
     </div>
     
     <header>
         <a href="index.html" class="Logo">
-            <img src="img/Logo.jpg" alt="Logo AgendaCar">
+            <img src="img/Logo.jpg" alt="Logo AgendaCar" onerror="this.style.display='none'">
         </a>
     </header>
 
