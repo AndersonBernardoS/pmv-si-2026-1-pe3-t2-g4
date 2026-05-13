@@ -10,7 +10,6 @@
     <style>
         :root {
             --primary-blue: #143c88;
-            --sidebar-blue: #2a56a6;
             --primary-orange: #f47920;
             --orange-hover: #e06815;
             --bg-gray: #f5f6f8;
@@ -20,8 +19,11 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
         body { background-color: var(--bg-gray); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; }
-        header { background-color: var(--primary-blue); height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10; }
+        header { background-color: var(--primary-blue); height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         
+        .Logo { display: flex; align-items: center; height: 100%; text-decoration: none;}
+        .Logo img { height: 60px; width: auto; display: block; }
+
         .login-container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
         .login-card { background: white; width: 100%; max-width: 450px; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eaeaea; text-align: center; }
         .login-card h2 { color: var(--text-blue); margin-bottom: 10px; font-size: 28px; }
@@ -37,78 +39,34 @@
         .login-links { margin-top: 25px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
         .login-links a { color: var(--primary-blue); text-decoration: none; font-weight: 500; transition: color 0.3s; }
         .login-links a:hover { color: var(--primary-orange); text-decoration: underline; }
-        footer { background-color: #e6e6e6; padding: 15px 40px; display: flex; justify-content: flex-start; align-items: center; gap: 15px; }
-        footer i { font-size: 28px; color: #333; cursor: pointer; transition: color 0.3s; }
-        footer i:hover { color: var(--primary-orange); }
-        
-        /* Ajuste para o container da logo */
-        .Logo {
-            display: flex;
-            align-items: left;
-            height: 100%;
-        }
+        footer { background-color: #e6e6e6; padding: 15px 40px; display: flex; gap: 15px; }
+        footer i { font-size: 24px; color: #333; cursor: pointer; }
 
-        .Logo img {
-            height: 80px;      
-            width: auto;        
-            display: block;
-        }
-
-        /* =========================================
-           OVERLAY DE CARREGAMENTO (ANIMAÇÃO)
-           ========================================= */
-        .loader-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--primary-blue);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease;
-        }
+        /* OVERLAY E ANIMAÇÃO DO CARRO */
+        .loader-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--primary-blue); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; }
+        .loader-overlay.active { opacity: 1; visibility: visible; }
+        .car-animation-container { position: relative; width: 120px; height: 60px; margin-bottom: 30px; }
+        .car-icon { font-size: 60px; color: var(--primary-orange); position: absolute; right: 0; bottom: 0; z-index: 2; animation: carDrive 0.3s infinite alternate ease-in-out; }
+        .smoke { position: absolute; bottom: 5px; left: 10px; width: 14px; height: 14px; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; z-index: 1; opacity: 0; }
+        .smoke-1 { animation: exhaust 1s linear infinite; }
+        .smoke-2 { animation: exhaust 1s linear infinite 0.33s; }
+        .smoke-3 { animation: exhaust 1s linear infinite 0.66s; }
+        .loader-text { color: white; font-size: 20px; font-weight: 500; letter-spacing: 1px; animation: pulse 1.5s ease-in-out infinite; }
         
-        .loader-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .loader-icon {
-            font-size: 60px;
-            color: var(--primary-orange);
-            margin-bottom: 20px;
-            animation: spin 2s linear infinite; 
-        }
-        
-        .loader-text {
-            color: white;
-            font-size: 20px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+        @keyframes carDrive { 0% { transform: translateY(0); } 100% { transform: translateY(-5px); } }
+        @keyframes exhaust { 0% { transform: translate(0, 0) scale(1); opacity: 0.8; } 100% { transform: translate(-60px, -20px) scale(3); opacity: 0; } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     </style>
 </head>
 <body>
 
     <div class="loader-overlay" id="loaderOverlay">
-        <i class="fa-solid fa-gear loader-icon"></i>
+        <div class="car-animation-container">
+            <div class="smoke smoke-1"></div>
+            <div class="smoke smoke-2"></div>
+            <div class="smoke smoke-3"></div>
+            <i class="fa-solid fa-car-side car-icon"></i>
+        </div>
         <div class="loader-text">Acessando o sistema...</div>
     </div>
     
@@ -127,7 +85,7 @@
                 <div id="error-msg" style="color: red; font-size: 14px; margin-bottom: 15px; display: none; font-weight: 500;"></div>
 
                 <div class="form-group">
-                    <label for="email">E-mail</label>
+                    <label>E-mail</label>
                     <div class="input-wrapper">
                         <i class="fa-solid fa-user"></i>
                         <input type="email" id="email" placeholder="Digite seu e-mail" required>
@@ -135,7 +93,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Senha</label>
+                    <label>Senha</label>
                     <div class="input-wrapper">
                         <i class="fa-solid fa-lock"></i>
                         <input type="password" id="password" placeholder="Digite sua senha" required>
@@ -159,43 +117,34 @@
 
     <script>
         document.getElementById('form-login').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que a página recarregue
+            event.preventDefault(); 
             
             const email = document.getElementById('email').value.trim().toLowerCase();
             const password = document.getElementById('password').value.trim();
             const errorMsg = document.getElementById('error-msg');
 
-            // Busca os usuarios no localStorage
             const usuarios = JSON.parse(localStorage.getItem('agendacar_usuarios')) || [];
-
-            // Verifica se existe um usuário com esse email E senha
             const usuarioValido = usuarios.find(user => user.email === email && user.senha === password);
 
             if (usuarioValido) {
-                // Cria a sessão se o login estiver correto
                 const sessao = {
                     id: usuarioValido.id,
                     nome: usuarioValido.nome,
                     email: usuarioValido.email,
                     tipo: usuarioValido.tipo
-                }; // <-- ESTA CHAVE ESTAVA FALTANDO NO SEU CÓDIGO
+                }; 
 
                 localStorage.setItem('agendacar_sessao', JSON.stringify(sessao));
                 
-                // ==========================================
-                // ATIVA A ANIMAÇÃO DE CARREGAMENTO
-                // ==========================================
                 const loader = document.getElementById('loaderOverlay');
-                loader.classList.add('active'); // Mostra a tela azul
+                loader.classList.add('active'); 
                 
-                // Aguarda 2 segundos (2000 milissegundos) antes de ir pra Home
                 setTimeout(() => {
                     window.location.href = 'home.html'; 
                 }, 2000);
 
             } else {
-                // SE O LOGIN ESTIVER INCORRETO: Exibe a mensagem de erro
-                errorMsg.textContent = 'E-mail ou senha incorretos. Verifique seus dados ou cadastre-se.';
+                errorMsg.textContent = 'E-mail ou senha incorretos. Tente novamente.';
                 errorMsg.style.display = 'block';
             }
         });
