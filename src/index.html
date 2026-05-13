@@ -1,11 +1,9 @@
-*/ futura landing */
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - AgendaCar</title>
+    <title>AgendaCar - Plataforma Automotiva</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
@@ -19,3 +17,83 @@
             --text-dark: #333;
             --text-blue: #1c3d7a;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+        
+        body {
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .landing-card {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #eaeaea;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .landing-card img {
+            width: 250px;
+            max-height: 100px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .landing-card h1 {
+            color: var(--text-blue);
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .landing-card p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s;
+            color: white;
+        }
+
+        .btn-login { background-color: var(--primary-orange); }
+        .btn-login:hover { background-color: var(--orange-hover); }
+
+        .btn-cadastro { background-color: var(--primary-blue); }
+        .btn-cadastro:hover { background-color: var(--sidebar-blue); }
+    </style>
+</head>
+<body>
+
+    <div class="landing-card">
+        <img src="img/Logo.jpg" alt="AgendaCar Logo" onerror="this.style.display='none'">
+        <h1>Bem-vindo ao AgendaCar</h1>
+        <p>A forma mais rápida e prática de encontrar os melhores serviços automotivos perto de você.</p>
+        
+        <div class="buttons">
+            <a href="login.html" class="btn btn-login">Acessar Conta</a>
+            <a href="cadastro.html" class="btn btn-cadastro">Criar Conta</a>
+        </div>
+    </div>
+
+</body>
+</html>

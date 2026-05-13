@@ -28,215 +28,56 @@
             min-height: 100vh; 
         }
 
-        /* HEADER */
-        header { 
-            background-color: var(--primary-blue); 
-            height: 80px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 0 40px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
-            z-index: 10; 
-        }
-
-        .Logo { display: flex; align-items: center; height: 100%; }
+        header { background-color: var(--primary-blue); height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10; }
+        .Logo { display: flex; align-items: center; height: 100%; text-decoration: none;}
         .Logo img { height: 80px; width: auto; display: block; }
         
         .header-buttons { display: flex; gap: 15px; }
-        .btn-header { 
-            background-color: var(--primary-orange); 
-            color: white; 
-            border: none; 
-            padding: 10px 24px; 
-            border-radius: 4px; 
-            font-size: 16px; 
-            font-weight: 500; 
-            cursor: pointer; 
-            transition: background 0.3s; 
-            text-decoration: none;
-        }
+        .btn-header { background-color: var(--primary-orange); color: white; border: none; padding: 10px 24px; border-radius: 4px; font-size: 16px; font-weight: 500; cursor: pointer; transition: background 0.3s; text-decoration: none; }
         .btn-header:hover { background-color: var(--orange-hover); }
 
-        /* CONTAINER PRINCIPAL */
-        .main-container {
-            flex: 1;
-            width: 100%;
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+        .main-container { flex: 1; width: 100%; max-width: 1000px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 20px; }
+        .card { background: white; border-radius: 8px; border: 1px solid var(--card-border); padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
 
-        /* CARDS */
-        .card {
-            background: white;
-            border-radius: 8px;
-            border: 1px solid var(--card-border);
-            padding: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-        }
+        .type-selector { display: flex; gap: 30px; justify-content: space-between; }
+        .type-option { display: flex; align-items: flex-start; gap: 10px; flex: 1; cursor: pointer; }
+        .type-option input[type="radio"] { margin-top: 4px; transform: scale(1.2); cursor: pointer; }
+        .type-text strong { display: block; font-size: 15px; color: var(--text-dark); margin-bottom: 3px; }
+        .type-text p { font-size: 14px; color: var(--text-light); }
 
-        /* SELETOR DE TIPO DE CONTA */
-        .type-selector {
-            display: flex;
-            gap: 30px;
-            justify-content: space-between;
-        }
-
-        .type-option {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            flex: 1;
-            cursor: pointer;
-        }
-
-        .type-option input[type="radio"] {
-            margin-top: 4px;
-            transform: scale(1.2);
-            cursor: pointer;
-        }
-
-        .type-text strong {
-            display: block;
-            font-size: 15px;
-            color: var(--text-dark);
-            margin-bottom: 3px;
-        }
-
-        .type-text p {
-            font-size: 14px;
-            color: var(--text-light);
-        }
-
-        /* FORMULARIO GRID */
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
         .left-column { display: flex; flex-direction: column; gap: 20px; }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 400;
-            font-size: 14px;
-            color: var(--text-dark);
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 400; font-size: 14px; color: var(--text-dark); }
+        .form-group input { width: 100%; padding: 12px 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; outline: none; transition: border-color 0.3s; }
         .form-group input:focus { border-color: var(--primary-blue); }
 
-        /* LISTA DE SERVIÇOS E TOGGLES */
         .right-column { display: flex; flex-direction: column; gap: 20px; }
         .right-column h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; color: var(--text-dark); }
-        
-        .service-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
+        .service-item { display: flex; justify-content: space-between; align-items: center; }
         .service-info strong { font-size: 14px; font-weight: 500; color: var(--text-dark); display: block; margin-bottom: 2px;}
         .service-info p { font-size: 13px; color: var(--text-light); }
 
-        /* TOGGLE SWITCH CSS */
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 44px;
-            height: 24px;
-        }
+        .toggle-switch { position: relative; display: inline-block; width: 44px; height: 24px; }
         .toggle-switch input { opacity: 0; width: 0; height: 0; }
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 18px; width: 18px;
-            left: 3px; bottom: 3px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
         input:checked + .slider { background-color: var(--text-light); }
         input:checked + .slider:before { transform: translateX(20px); }
 
-        /* RODAPE DO FORMULARIO */
-        .form-footer {
-            grid-column: span 2;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .terms-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .terms-group input[type="checkbox"] {
-            margin-top: 4px;
-            transform: scale(1.2);
-            cursor: pointer;
-        }
-
+        .form-footer { grid-column: span 2; display: flex; flex-direction: column; gap: 30px; margin-top: 20px; }
+        .terms-group { display: flex; align-items: flex-start; gap: 10px; }
+        .terms-group input[type="checkbox"] { margin-top: 4px; transform: scale(1.2); cursor: pointer; }
         .terms-group label strong { font-size: 14px; color: var(--text-dark); font-weight: 500;}
         .terms-group label span { font-size: 13px; color: var(--text-light); }
 
-        .btn-submit {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            margin: 0 auto;
-            display: block;
-            width: 250px;
-            transition: background 0.3s;
-        }
+        .btn-submit { background-color: #333; color: white; border: none; padding: 15px 40px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; margin: 0 auto; display: block; width: 250px; transition: background 0.3s; }
         .btn-submit:hover { background-color: #000; }
 
-        /* MENSAGENS FEEDBACK */
         #msg-feedback { font-size: 14px; padding: 10px; border-radius: 6px; display: none; font-weight: 500; text-align: center; grid-column: span 2;}
         .msg-error { background-color: #ffeaea; color: #d93025; border: 1px solid #d93025; }
         .msg-success { background-color: #e6f4ea; color: #1e8e3e; border: 1px solid #1e8e3e; }
 
-        /* FOOTER DA PAGINA */
-        footer { 
-            background-color: #e0e0e0; 
-            padding: 15px 40px; 
-            display: flex; 
-            justify-content: flex-start; 
-            align-items: center; 
-            gap: 15px; 
-            margin-top: auto;
-        }
+        footer { background-color: #e0e0e0; padding: 15px 40px; display: flex; justify-content: flex-start; align-items: center; gap: 15px; margin-top: auto; }
         footer i { font-size: 28px; color: #333; cursor: pointer; transition: color 0.3s; }
         footer i:hover { color: var(--primary-orange); }
 
@@ -245,47 +86,21 @@
             .type-selector { flex-direction: column; gap: 15px; }
             .form-footer { grid-column: span 1; }
         }
-        /* Card para paginas de texto (Quem somos, Termos, etc) */
-.content-card {
-    background: white;
-    width: 100%;
-    max-width: 900px;
-    padding: 40px 50px;
-    border-radius: 12px;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    text-align: left;
-    margin-bottom: 40px;
-}
-.content-card h1 { color: var(--text-blue); margin-bottom: 20px; font-size: 28px; border-bottom: 2px solid var(--primary-orange); padding-bottom: 10px; display: inline-block;}
-.content-card h2 { color: var(--text-blue); margin-top: 25px; margin-bottom: 15px; font-size: 20px; }
-.content-card p { margin-bottom: 15px; line-height: 1.6; color: #555; }
-.content-card ul { margin-left: 20px; margin-bottom: 15px; color: #555; line-height: 1.6; }
-
-/* Estilos para o formulario de contato */
-.contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
-.contact-form label { font-weight: 500; color: var(--text-blue); }
-.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; outline: none; font-family: 'Roboto', sans-serif; }
-.contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary-blue); }
-.btn-submit { background-color: var(--primary-orange); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.3s; width: 200px; }
-.btn-submit:hover { background-color: var(--orange-hover); }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="Logo">
-            <img src="img/Logo.jpg" alt="Logo AgendaCar">
-        </div>
+        <a href="index.html" class="Logo">
+            <img src="img/Logo.jpg" alt="Logo AgendaCar" onerror="this.style.display='none'">
+        </a>
         <div class="header-buttons">
-            <button class="btn-header" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
+            <button class="btn-header" onclick="window.location.href='login.html'">Entrar</button>
         </div>
     </header>
 
     <div class="main-container">
-        
         <form id="form-cadastro">
-            <!-- SELETOR DE TIPO DE CONTA -->
             <div class="card type-selector">
                 <label class="type-option">
                     <input type="radio" name="tipo_conta" value="cliente" checked>
@@ -304,40 +119,32 @@
                 </label>
             </div>
 
-            <!-- FORMULARIO PRINCIPAL -->
             <div class="card form-grid">
-                
                 <div id="msg-feedback"></div>
 
-                <!-- COLUNA ESQUERDA: DADOS -->
                 <div class="left-column">
                     <div class="form-group">
                         <label for="nome_cad">Nome completo</label>
                         <input type="text" id="nome_cad" placeholder="Nome completo" required>
                     </div>
-
                     <div class="form-group">
                         <label for="email_cad">Email</label>
                         <input type="email" id="email_cad" placeholder="Email" required>
                     </div>
-
                     <div class="form-group">
                         <label for="celular_cad">Celular</label>
                         <input type="tel" id="celular_cad" placeholder="(00) 00000-0000" required>
                     </div>
-
                     <div class="form-group">
                         <label for="nascimento_cad">Data de nascimento</label>
                         <input type="text" id="nascimento_cad" placeholder="DD/MM/AAAA" required>
                     </div>
-
                     <div class="form-group">
                         <label for="senha_cad">Senha</label>
                         <input type="password" id="senha_cad" placeholder="Crie sua senha de acesso" required>
                     </div>
                 </div>
 
-                <!-- COLUNA DIREITA: SERVIÇOS -->
                 <div class="right-column">
                     <h3>Quais tipos de serviços você procura/oferece?</h3>
                     
@@ -351,7 +158,6 @@
                             <span class="slider"></span>
                         </label>
                     </div>
-
                     <div class="service-item">
                         <div class="service-info">
                             <strong>Motores</strong>
@@ -362,7 +168,6 @@
                             <span class="slider"></span>
                         </label>
                     </div>
-
                     <div class="service-item">
                         <div class="service-info">
                             <strong>Suspensão</strong>
@@ -373,7 +178,6 @@
                             <span class="slider"></span>
                         </label>
                     </div>
-
                     <div class="service-item">
                         <div class="service-info">
                             <strong>Lanternagem e pintura</strong>
@@ -384,7 +188,6 @@
                             <span class="slider"></span>
                         </label>
                     </div>
-
                     <div class="service-item">
                         <div class="service-info">
                             <strong>Outros serviços</strong>
@@ -397,7 +200,6 @@
                     </div>
                 </div>
 
-                <!-- RODAPE DO FORMULARIO -->
                 <div class="form-footer">
                     <div class="terms-group">
                         <input type="checkbox" id="termos" required>
@@ -406,10 +208,8 @@
                             <span>Leia nossos termos e política de privacidade.</span>
                         </label>
                     </div>
-
                     <button type="submit" class="btn-submit">CADASTRAR</button>
                 </div>
-
             </div>
         </form>
     </div>
@@ -430,14 +230,12 @@
             const password = document.getElementById('senha_cad').value.trim();
             const tipoConta = document.querySelector('input[name="tipo_conta"]:checked').value;
             
-            // Capturando os serviços selecionados
             const servicosSelecionados = [];
             document.querySelectorAll('input[name="servicos"]:checked').forEach((checkbox) => {
                 servicosSelecionados.push(checkbox.value);
             });
 
             const feedback = document.getElementById('msg-feedback');
-
             let usuarios = JSON.parse(localStorage.getItem('agendacar_usuarios')) || [];
             const emailExiste = usuarios.find(u => u.email === email);
 
@@ -472,24 +270,18 @@
         });
 
         // Mascara para o Celular: (XX) XXXXX-XXXX
-document.getElementById('celular_cad').addEventListener('input', function (e) {
+        document.getElementById('celular_cad').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '').slice(0, 11);
+            let x = value.match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
 
-    let value = e.target.value.replace(/\D/g, '').slice(0, 11);
-    
-    
-    let x = value.match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-    e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-});
-
-// Mascara para Data de Nascimento: DD/MM/AAAA
-document.getElementById('nascimento_cad').addEventListener('input', function (e) {
-    
-    let value = e.target.value.replace(/\D/g, '').slice(0, 8);
-    
-    
-    let x = value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
-    e.target.value = !x[2] ? x[1] : x[1] + '/' + x[2] + (x[3] ? '/' + x[3] : '');
-});
+        // Mascara para Data de Nascimento: DD/MM/AAAA
+        document.getElementById('nascimento_cad').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '').slice(0, 8);
+            let x = value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : x[1] + '/' + x[2] + (x[3] ? '/' + x[3] : '');
+        });
     </script>
 </body>
 </html>
