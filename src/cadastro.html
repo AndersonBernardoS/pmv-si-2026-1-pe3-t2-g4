@@ -245,6 +245,30 @@
             .type-selector { flex-direction: column; gap: 15px; }
             .form-footer { grid-column: span 1; }
         }
+        /* Card para paginas de texto (Quem somos, Termos, etc) */
+.content-card {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    text-align: left;
+    margin-bottom: 40px;
+}
+.content-card h1 { color: var(--text-blue); margin-bottom: 20px; font-size: 28px; border-bottom: 2px solid var(--primary-orange); padding-bottom: 10px; display: inline-block;}
+.content-card h2 { color: var(--text-blue); margin-top: 25px; margin-bottom: 15px; font-size: 20px; }
+.content-card p { margin-bottom: 15px; line-height: 1.6; color: #555; }
+.content-card ul { margin-left: 20px; margin-bottom: 15px; color: #555; line-height: 1.6; }
+
+/* Estilos para o formulario de contato */
+.contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.contact-form label { font-weight: 500; color: var(--text-blue); }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; outline: none; font-family: 'Roboto', sans-serif; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary-blue); }
+.btn-submit { background-color: var(--primary-orange); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.3s; width: 200px; }
+.btn-submit:hover { background-color: var(--orange-hover); }
     </style>
 </head>
 <body>
@@ -406,7 +430,7 @@
             const password = document.getElementById('senha_cad').value.trim();
             const tipoConta = document.querySelector('input[name="tipo_conta"]:checked').value;
             
-            // Capturando os serviços selecionados nos toggles
+            // Capturando os serviços selecionados
             const servicosSelecionados = [];
             document.querySelectorAll('input[name="servicos"]:checked').forEach((checkbox) => {
                 servicosSelecionados.push(checkbox.value);
@@ -449,20 +473,20 @@
 
         // Mascara para o Celular: (XX) XXXXX-XXXX
 document.getElementById('celular_cad').addEventListener('input', function (e) {
-    // Remove tudo que não é dígito e limita a 11 caracteres
+
     let value = e.target.value.replace(/\D/g, '').slice(0, 11);
     
-    // Aplica a formatação via Regex
+    
     let x = value.match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
     e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
 });
 
 // Mascara para Data de Nascimento: DD/MM/AAAA
 document.getElementById('nascimento_cad').addEventListener('input', function (e) {
-    // Remove tudo que não é dígito e limita a 8 caracteres
+    
     let value = e.target.value.replace(/\D/g, '').slice(0, 8);
     
-    // Aplica a formatação via Regex
+    
     let x = value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
     e.target.value = !x[2] ? x[1] : x[1] + '/' + x[2] + (x[3] ? '/' + x[3] : '');
 });

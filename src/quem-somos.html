@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos - AgendaCar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #103c8f;
+            --primary-orange: #f47920;
+            --orange-hover: #e06815;
+            --bg-gray: #f5f6f8;
+            --text-dark: #333;
+            --text-blue: #1c3d7a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+        
+        body { 
+            background-color: var(--bg-gray); 
+            color: var(--text-dark); 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+
+        /* HEADER PADRÃO */
+        header { 
+            background-color: var(--primary-blue); 
+            height: 80px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 40px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+            z-index: 10; 
+        }
+        
+        .Logo { display: flex; align-items: center; height: 100%; text-decoration: none; }
+        .Logo img { height: 80px; width: auto; display: block; }
+        
+        .btn-header { 
+            background-color: var(--primary-orange); 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            font-size: 15px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            transition: background 0.3s; 
+        }
+        .btn-header:hover { background-color: var(--orange-hover); }
+
+        /* ÁREA DE CONTEÚDO */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        /* CARD DE TEXTO (Padrão Figma) */
+        .content-card {
+            background: white;
+            width: 100%;
+            max-width: 900px;
+            padding: 50px;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+        }
+
+        .content-card h1 { 
+            color: var(--text-blue); 
+            margin-bottom: 25px; 
+            font-size: 32px; 
+            border-bottom: 3px solid var(--primary-orange); 
+            padding-bottom: 8px; 
+            display: inline-block;
+        }
+
+        .content-card h2 { 
+            color: var(--text-blue); 
+            margin-top: 35px; 
+            margin-bottom: 15px; 
+            font-size: 22px; 
+            font-weight: 700;
+        }
+
+        .content-card p { 
+            margin-bottom: 18px; 
+            line-height: 1.7; 
+            color: #444; 
+            font-size: 16px;
+        }
+
+        .content-card ul { 
+            margin-left: 25px; 
+            margin-bottom: 20px; 
+            color: #444; 
+            line-height: 1.7; 
+        }
+
+        .content-card li { margin-bottom: 8px; }
+        .content-card strong { color: var(--text-blue); }
+
+        /* FOOTER PADRÃO */
+        footer { 
+            background-color: #e6e6e6; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: flex-start; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        footer i { font-size: 24px; color: #333; cursor: pointer; transition: color 0.3s; }
+        footer i:hover { color: var(--primary-orange); }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .content-card { padding: 30px 20px; }
+            header { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="Logo">
+            <img src="img/Logo.jpg" alt="Logo AgendaCar">
+        </div>
+        <button id="btn-header" class="btn-header" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
+    </header>
+
+    <main class="content-wrapper">
+        <div class="content-card">
+            <h1>Quem Somos</h1>
+            
+            <p>O <strong>AgendaCar</strong> nasceu da necessidade de simplificar a vida dos motoristas e otimizar a rotina das oficinas mecânicas. Nossa plataforma é a ponte tecnológica que conecta quem precisa de um serviço automotivo de confiança aos melhores profissionais do mercado.</p>
+            
+            <h2>Nossa Missão</h2>
+            <p>Tornar a manutenção automotiva transparente, acessível e ágil, garantindo que nossos usuários encontrem mecânicos qualificados com apenas alguns cliques, enquanto ajudamos oficinas a modernizarem suas gestões de agenda.</p>
+            
+            <h2>Nossa Visão</h2>
+            <p>Ser a maior plataforma de agendamento e avaliação de serviços automotivos do Brasil, reconhecida pela segurança, qualidade e inovação.</p>
+            
+            <h2>Por que escolher o AgendaCar?</h2>
+            <ul>
+                <li><strong>Praticidade:</strong> Agende serviços 24 horas por dia, 7 dias por semana, direto do seu celular ou computador.</li>
+                <li><strong>Confiança:</strong> Avaliações e comentários reais feitos por outros clientes que já utilizaram os serviços.</li>
+                <li><strong>Para Profissionais:</strong> Uma vitrine digital poderosa para atrair, gerenciar e fidelizar clientes de forma profissional.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+    </footer>
+
+    <script>
+        // Inteligência do Cabeçalho: Muda o botão dependendo se o usuário está logado
+        document.addEventListener('DOMContentLoaded', function() {
+            const sessaoStr = localStorage.getItem('agendacar_sessao');
+            const btnHeader = document.getElementById('btn-header');
+            
+            if (sessaoStr && btnHeader) {
+                const usuario = JSON.parse(sessaoStr);
+                const primeiroNome = (usuario.nome || 'Usuário').split(' ')[0];
+                
+                // Se estiver logado, o botão leva para a Home (Painel)
+                btnHeader.innerHTML = `<i class="fa-solid fa-user"></i> Painel`;
+                btnHeader.onclick = function() {
+                    window.location.href = 'home.html'; 
+                };
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - AgendaCar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #103c8f;
+            --primary-orange: #f47920;
+            --orange-hover: #e06815;
+            --bg-gray: #f5f6f8;
+            --text-dark: #333;
+            --text-blue: #1c3d7a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+        
+        body { 
+            background-color: var(--bg-gray); 
+            color: var(--text-dark); 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+
+        header { 
+            background-color: var(--primary-blue); 
+            height: 80px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 40px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+            z-index: 10; 
+        }
+        
+        .Logo { display: flex; align-items: center; height: 100%; text-decoration: none; }
+        .Logo img { height: 60px; width: auto; display: block; }
+        
+        .btn-header { 
+            background-color: var(--primary-orange); 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            font-size: 15px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            transition: background 0.3s; 
+        }
+        .btn-header:hover { background-color: var(--orange-hover); }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        .content-card {
+            background: white;
+            width: 100%;
+            max-width: 900px;
+            padding: 50px;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+        }
+
+        .content-card h1 { 
+            color: var(--text-blue); 
+            margin-bottom: 25px; 
+            font-size: 32px; 
+            border-bottom: 3px solid var(--primary-orange); 
+            padding-bottom: 8px; 
+            display: inline-block;
+        }
+
+        .content-card h2 { 
+            color: var(--text-blue); 
+            margin-top: 35px; 
+            margin-bottom: 15px; 
+            font-size: 22px; 
+            font-weight: 700;
+        }
+
+        .content-card p { 
+            margin-bottom: 18px; 
+            line-height: 1.7; 
+            color: #444; 
+            font-size: 16px;
+        }
+
+        .content-card ul { 
+            margin-left: 25px; 
+            margin-bottom: 20px; 
+            color: #444; 
+            line-height: 1.7; 
+        }
+
+        .content-card li { margin-bottom: 8px; }
+        .content-card strong { color: var(--text-blue); }
+
+        footer { 
+            background-color: #e6e6e6; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: flex-start; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        footer i { font-size: 24px; color: #333; cursor: pointer; transition: color 0.3s; }
+        footer i:hover { color: var(--primary-orange); }
+
+        @media (max-width: 768px) {
+            .content-card { padding: 30px 20px; }
+            header { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="Logo">
+            <img src="img/Logo.jpg" alt="Logo AgendaCar">
+        </div>
+        <button id="btn-header" class="btn-header" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
+    </header>
+
+    <main class="content-wrapper">
+        <div class="content-card">
+            <h1>Política de Privacidade</h1>
+            <p>A sua privacidade é fundamental para nós. Esta política descreve como o AgendaCar coleta, usa e protege seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+            
+            <h2>1. Coleta de Dados</h2>
+            <p>Coletamos dados essenciais para o funcionamento seguro e eficiente da plataforma, incluindo:</p>
+            <ul>
+                <li>Informações de cadastro (Nome, E-mail, Telefone, Senha criptografada).</li>
+                <li>Informações do veículo (Placa, modelo, ano) informadas opcionalmente durante o agendamento.</li>
+                <li>Para profissionais: Dados do estabelecimento, endereço e serviços oferecidos.</li>
+            </ul>
+            
+            <h2>2. Uso das Informações</h2>
+            <p>Utilizamos seus dados exclusivamente para os seguintes propósitos:</p>
+            <ul>
+                <li>Viabilizar os agendamentos e a comunicação entre clientes e profissionais.</li>
+                <li>Melhorar a experiência de uso da plataforma.</li>
+                <li>Enviar notificações importantes sobre seus horários, status de serviços ou atualizações da conta.</li>
+            </ul>
+            
+            <h2>3. Compartilhamento de Dados</h2>
+            <p>O AgendaCar <strong>não vende</strong> seus dados pessoais para terceiros sob nenhuma circunstância. Compartilhamos apenas os dados estritamente necessários (como nome e contato) com a oficina ou o profissional escolhido para que o serviço possa ser realizado.</p>
+            
+            <h2>4. Segurança</h2>
+            <p>Implementamos medidas de segurança técnicas e organizacionais rigorosas para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição acidental.</p>
+            
+            <h2>5. Seus Direitos</h2>
+            <p>Você tem o direito de solicitar o acesso, a correção, a portabilidade ou a exclusão definitiva dos seus dados pessoais armazenados em nossa base a qualquer momento, bastando entrar em contato através da nossa página de Fale Conosco.</p>
+        </div>
+    </main>
+
+    <footer>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sessaoStr = localStorage.getItem('agendacar_sessao');
+            const btnHeader = document.getElementById('btn-header');
+            
+            if (sessaoStr && btnHeader) {
+                const usuario = JSON.parse(sessaoStr);
+                const primeiroNome = (usuario.nome || 'Usuário').split(' ')[0];
+                
+                btnHeader.innerHTML = `<i class="fa-solid fa-user"></i> Painel`;
+                btnHeader.onclick = function() {
+                    window.location.href = 'home.html'; 
+                };
+            }
+        });
+    </script>
+</body>
+</html>
