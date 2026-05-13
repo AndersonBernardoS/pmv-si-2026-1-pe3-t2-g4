@@ -9,7 +9,7 @@
     
     <style>
         :root {
-            --primary-blue: #143c88;
+            --primary-blue: #12368a;
             --primary-orange: #f47920;
             --orange-hover: #e06815;
             --bg-gray: #f5f6f8;
@@ -19,7 +19,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
         
-        /* Ajuste do Body para receber os elementos absolutos do fundo */
         body { 
             background-color: var(--bg-gray); 
             color: var(--text-dark); 
@@ -30,13 +29,26 @@
             overflow: hidden; 
         }
 
-        header { background-color: var(--primary-blue); height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); position: relative; z-index: 5; }
+        /* CABEÇALHO CORRIGIDO: width 100% e flex-shrink 0 garantem que ele ocupe a tela toda no topo */
+        header { 
+            background-color: var(--primary-blue); 
+            height: 80px; 
+            width: 100%;
+            flex-shrink: 0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 40px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+            position: relative; 
+            z-index: 10; 
+        }
         
         .Logo { display: flex; align-items: center; height: 100%; text-decoration: none;}
         .Logo img { height: 80px; width: auto; display: block; }
 
-        .login-container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 40px 20px; position: relative; z-index: 5; }
-        .login-card { background: white; width: 100%; max-width: 450px; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eaeaea; text-align: center; }
+        .login-container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 40px 20px; position: relative; z-index: 10; }
+        .login-card { background: white; width: 100%; max-width: 450px; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eaeaea; text-align: center; }
         .login-card h2 { color: var(--text-blue); margin-bottom: 10px; font-size: 28px; }
         .login-card p { color: #666; margin-bottom: 30px; font-size: 14px; }
         .form-group { margin-bottom: 20px; text-align: left; }
@@ -45,14 +57,16 @@
         .input-wrapper i { position: absolute; left: 15px; color: #999; }
         .input-wrapper input { width: 100%; padding: 12px 12px 12px 40px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; outline: none; transition: border-color 0.3s; }
         .input-wrapper input:focus { border-color: var(--primary-blue); }
-        .btn-login { width: 100%; background-color: var(--primary-orange); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 10px; transition: background 0.3s; }
+        .btn-login { width: 100%; background-color: var(--primary-orange); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 10px; transition: background 0.3s, transform 0.1s; }
         .btn-login:hover { background-color: var(--orange-hover); }
+        .btn-login:active { transform: scale(0.98); }
+        
         .login-links { margin-top: 25px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
         .login-links a { color: var(--primary-blue); text-decoration: none; font-weight: 500; transition: color 0.3s; }
         .login-links a:hover { color: var(--primary-orange); text-decoration: underline; }
 
         /* =========================================
-           ELEMENTOS DE FUNDO (ANIMAÇÃO)
+           ANIMAÇÕES DE FUNDO (MENORES E MAIS ELEMENTOS)
            ========================================= */
         .background-visuals {
             position: absolute;
@@ -66,62 +80,34 @@
 
         .visual-element {
             position: absolute;
-            color: rgba(200, 200, 200, 0.25); 
-            /* CORREÇÃO AQUI: Separar as propriedades para o navegador entender */
             animation-iteration-count: infinite;
             animation-timing-function: linear;
         }
 
-        /* Definição das Engrenagens */
-        .gear {
-            font-size: 120px;
-            animation-name: rotate;
-        }
+        .color-blue { color: rgba(20, 60, 136, 0.15); }
+        .color-orange { color: rgba(244, 121, 32, 0.18); }
+        .color-gray { color: rgba(150, 150, 150, 0.25); }
 
-        .gear-orange {
-            color: rgba(244, 121, 32, 0.1); 
-            font-size: 180px;
-        }
+        /* Lado Esquerdo - Itens Menores */
+        .item-1 { font-size: 100px; top: 15%; left: 3%; animation-duration: 35s; animation-name: rotate; }
+        .item-3 { font-size: 60px; top: 45%; left: 8%; animation-duration: 25s; animation-name: rotateReverse; }
+        .item-5 { font-size: 45px; bottom: 20%; left: 5%; animation-duration: 15s; animation-name: floatReverse; animation-timing-function: ease-in-out; }
+        .item-7 { font-size: 70px; bottom: 5%; left: 15%; animation-duration: 28s; animation-name: rotate; }
+        .item-9 { font-size: 50px; top: 65%; left: 12%; animation-duration: 18s; animation-name: float; animation-timing-function: ease-in-out; }
 
-        /* Definição das Ferramentas */
-        .tool {
-            font-size: 60px;
-            animation-name: float;
-            /* Suavizando o movimento das ferramentas */
-            animation-timing-function: ease-in-out; 
-        }
+        /* Lado Direito - Itens Menores */
+        .item-2 { font-size: 120px; bottom: 10%; right: 2%; animation-duration: 40s; animation-name: rotateReverse; }
+        .item-4 { font-size: 55px; top: 20%; right: 8%; animation-duration: 12s; animation-name: float; animation-timing-function: ease-in-out; }
+        .item-6 { font-size: 75px; bottom: 40%; right: 10%; animation-duration: 22s; animation-name: rotate; }
+        .item-8 { font-size: 45px; top: 50%; right: 4%; animation-duration: 16s; animation-name: floatReverse; animation-timing-function: ease-in-out; }
+        .item-10 { font-size: 65px; top: 5%; right: 12%; animation-duration: 30s; animation-name: rotateReverse; }
 
-        /* Posicionamento Individual e Timings das Animações */
-        .gear-1 { top: 10%; left: 5%; animation-duration: 25s; }
-        .gear-2 { bottom: 15%; right: 10%; animation-duration: 20s; }
-        .gear-orange-1 { top: 50%; right: 5%; animation-duration: 35s; animation-direction: reverse; }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes rotateReverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(8deg); } }
+        @keyframes floatReverse { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(15px) rotate(-8deg); } }
 
-        .tool-1 { top: 25%; right: 20%; animation-duration: 8s; }
-        .tool-2 { bottom: 30%; left: 15%; animation-duration: 7s; animation-name: rotate; animation-timing-function: linear; }
-        .tool-3 { top: 70%; left: 30%; animation-duration: 9s; animation-name: floatReverse; }
-
-        /* KEYFRAMES DAS ANIMAÇÕES */
-        
-        /* 1. Rotação (para engrenagens e algumas ferramentas) */
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* 2. Flutuação (sobe e desce suavemente) */
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        @keyframes floatReverse {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(-10deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        /* OVERLAY E ANIMAÇÃO DO CARRO NO LOGIN */
+        /* OVERLAY DO CARRO NO LOGIN */
         .loader-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--primary-blue); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; }
         .loader-overlay.active { opacity: 1; visibility: visible; }
         .car-animation-container { position: relative; width: 120px; height: 60px; margin-bottom: 30px; }
@@ -150,19 +136,23 @@
     </div>
 
     <div class="background-visuals">
-        <i class="fa-solid fa-gear visual-element gear gear-1"></i>
-        <i class="fa-solid fa-cog visual-element gear gear-2"></i>
-        <i class="fa-solid fa-gear visual-element gear gear-orange gear-orange-1"></i>
+        <i class="fa-solid fa-gear visual-element color-blue item-1"></i>
+        <i class="fa-solid fa-cog visual-element color-gray item-3"></i>
+        <i class="fa-solid fa-screwdriver-wrench visual-element color-orange item-5"></i>
+        <i class="fa-solid fa-wrench visual-element color-blue item-7"></i>
+        <i class="fa-solid fa-hammer visual-element color-gray item-9"></i>
 
-        <i class="fa-solid fa-wrench visual-element tool tool-1"></i>
-        <i class="fa-solid fa-screwdriver-wrench visual-element tool tool-2"></i>
-        <i class="fa-solid fa-wrench visual-element tool tool-3"></i>
+        <i class="fa-solid fa-gear visual-element color-orange item-2"></i>
+        <i class="fa-solid fa-wrench visual-element color-blue item-4"></i>
+        <i class="fa-solid fa-cog visual-element color-gray item-6"></i>
+        <i class="fa-solid fa-hammer visual-element color-orange item-8"></i>
+        <i class="fa-solid fa-screwdriver-wrench visual-element color-blue item-10"></i>
     </div>
     
     <header>
-        <div class="Logo">
+        <a href="index.html" class="Logo">
             <img src="img/Logo.jpg" alt="Logo AgendaCar">
-        </div>
+        </a>
     </header>
 
     <div class="login-container">

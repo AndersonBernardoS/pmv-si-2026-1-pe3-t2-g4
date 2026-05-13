@@ -9,9 +9,9 @@
     
     <style>
         :root {
-            --primary-blue: #1f3b7b;
-            --sidebar-blue: #1f3b7b;
-            --institucional-start: #1f3b7b; 
+            --primary-blue: #12368a;
+            --sidebar-blue: #12368a;
+            --institucional-start: #12368a; 
             --institucional-end: #badfe9;   
             --primary-orange: #ff7e15;
             --orange-hover: #e06815;
@@ -25,11 +25,23 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
         body { background-color: var(--bg-gray); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; }
         
-        header { background-color: var(--primary-blue); height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10; }
+        /* CABEÇALHO */
+        header { 
+            background-color: var(--primary-blue); 
+            height: 80px; 
+            width: 100%;
+            flex-shrink: 0;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 40px; 
+            color: white; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+            z-index: 10; 
+        }
         
-        
-        .logo-container { display: flex; align-items: center; height: 100%; text-decoration: none; cursor: pointer; }
-        .logo-container img { height: 75px; width: auto; display: block; object-fit: contain; }
+        .Logo { display: flex; align-items: center; height: 100%; text-decoration: none; cursor: pointer; }
+        .Logo img { height: 80px; width: auto; display: block; }
         
         .btn-header { background-color: var(--primary-orange); color: white; border: none; padding: 12px 24px; border-radius: 5px; font-size: 16px; font-weight: 500; cursor: pointer; transition: background 0.3s; }
         .btn-header:hover { background-color: var(--orange-hover); }
@@ -42,7 +54,6 @@
         .service-btn:hover { transform: translateY(-2px); }
         .service-btn i { font-size: 24px; background-color: rgba(255,255,255,0.2); padding: 8px; border-radius: 5px; }
         
-       
         .institucional { background: linear-gradient(180deg, var(--institucional-start) 0%, var(--institucional-end) 100%); padding: 30px 20px; flex: 1; margin-top: 20px; }
         .institucional h3 { color: white; margin-bottom: 15px; font-size: 16px; font-weight: 700; }
         .institucional ul { list-style: none; }
@@ -51,7 +62,6 @@
         .institucional a:hover { opacity: 1; text-decoration: underline; }
 
         .content { flex: 1; padding: 40px; display: flex; flex-direction: column; align-items: center; }
-        
         
         .hero-card { 
             background: white; 
@@ -68,10 +78,16 @@
         .hero-card h1 { color: var(--text-blue); font-size: 32px; margin-bottom: 10px; }
         .hero-card p { color: var(--text-blue); font-size: 18px; font-weight: 500; margin-bottom: 30px; }
         
+        /* BARRA DE PESQUISA (CORRIGIDA) */
         .search-bar { display: flex; align-items: center; background: white; border: 1px solid #ccc; border-radius: 8px; padding: 5px; max-width: 700px; margin: 0 auto; }
-        .search-bar i.fa-search { color: #999; margin: 0 15px; font-size: 20px; }
+        
+        /* CSS ajustado para mirar diretamente na lupa da barra, com margem à esquerda e direita */
+        .search-bar > i.fa-magnifying-glass { color: #999; margin: 0 15px; font-size: 20px; } 
+        
         .search-bar input { flex: 1; border: none; outline: none; font-size: 16px; padding: 10px 0; }
-        .btn-search { background-color: var(--primary-orange); color: white; border: none; padding: 12px 30px; border-radius: 6px; font-size: 18px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.3s; }
+        
+        /* Gap garante 10px entre a lupa branca e o texto "Buscar" no botão */
+        .btn-search { background-color: var(--primary-orange); color: white; border: none; padding: 12px 30px; border-radius: 6px; font-size: 18px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.3s; }
         .btn-search:hover { background-color: var(--orange-hover); }
 
         .how-it-works-title { color: var(--text-blue); font-size: 20px; margin-bottom: 20px; font-weight: 700; }
@@ -105,37 +121,13 @@
             .menu-services { flex-direction: row; flex-wrap: wrap; justify-content: center; }
             .institucional { width: 100%; }
         }
-        /* Card para páginas de texto (Quem somos, Termos, etc) */
-.content-card {
-    background: white;
-    width: 100%;
-    max-width: 900px;
-    padding: 40px 50px;
-    border-radius: 12px;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    text-align: left;
-    margin-bottom: 40px;
-}
-.content-card h1 { color: var(--text-blue); margin-bottom: 20px; font-size: 28px; border-bottom: 2px solid var(--primary-orange); padding-bottom: 10px; display: inline-block;}
-.content-card h2 { color: var(--text-blue); margin-top: 25px; margin-bottom: 15px; font-size: 20px; }
-.content-card p { margin-bottom: 15px; line-height: 1.6; color: #555; }
-.content-card ul { margin-left: 20px; margin-bottom: 15px; color: #555; line-height: 1.6; }
-
-/* Estilos para o formulário de contato */
-.contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
-.contact-form label { font-weight: 500; color: var(--text-blue); }
-.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; outline: none; font-family: 'Roboto', sans-serif; }
-.contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary-blue); }
-.btn-submit { background-color: var(--primary-orange); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.3s; width: 200px; }
-.btn-submit:hover { background-color: var(--orange-hover); }
     </style>
 </head>
 <body>
 
     <header> 
-        <a href="#" class="logo-container" onclick="deslogarEIrParaLanding(event)">
-            <img src="img/Logo.jpg" alt="Logo AgendaCar">
+        <a href="#" class="Logo" onclick="deslogarEIrParaLanding(event)">
+            <img src="img/Logo.jpg" alt="Logo AgendaCar" onerror="this.style.display='none'">
         </a>
         <button class="btn-header" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
     </header>
@@ -153,15 +145,10 @@
             <div class="institucional">
                 <h3>Institucional</h3>
                 <ul>
-                    <div class="institucional">
-                <h3>Institucional</h3>
-                <ul>
-        <li><a href="quem-somos.html">Quem somos?</a></li>
-        <li><a href="fale-conosco.html">Fale conosco</a></li>
-        <li><a href="termos-uso.html">Termos de Uso</a></li>
-        <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
-               </ul>
-            </div>
+                    <li><a href="quem-somos.html">Quem somos?</a></li>
+                    <li><a href="fale-conosco.html">Fale conosco</a></li>
+                    <li><a href="termos-uso.html">Termos de Uso</a></li>
+                    <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
                 </ul>
             </div>
         </aside>
@@ -175,7 +162,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Buscar por serviços (ex: suspensão, motor, pintura...)">
                     <button class="btn-search" onclick="realizarBusca()">
-                        <i class="fa-solid fa-magnifying-glass" style="color:white; margin:0"></i> Buscar
+                        <i class="fa-solid fa-magnifying-glass" style="color:white;"></i> Buscar
                     </button>
                 </div>
             </div>
@@ -209,19 +196,13 @@
 
    <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Tenta buscar a sessão salva
             const sessaoStr = localStorage.getItem('agendacar_sessao');
             
-            // ==========================================
             // ROUTE GUARD: Proteção da Rota
-            // ==========================================
             if (!sessaoStr) {
-                // Se não existir sessão, redireciona imediatamente para o login
                 window.location.href = 'login.html';
-                return; // Interrompe a execução do restante do script
+                return; 
             }
-            // ==========================================
-
 
             const usuario = JSON.parse(sessaoStr);
             const btnHeader = document.querySelector('.btn-header');
@@ -251,25 +232,14 @@
                 alert('Por favor, digite um serviço para buscar!');
             }
         }
-        function realizarBusca() {
-            const termo = document.querySelector('.search-bar input').value;
-            if(termo) {
-                alert(`Buscando por: ${termo}`);
-            } else {
-                alert('Por favor, digite um serviço para buscar!');
-            }
-        }
 
-        // ==========================================
-        // TESTANDO FUNÇÃO: Deslogar ao clicar na logo
-        // ==========================================
+        // Função de Deslogar ao clicar na logo (se o usuário preferir esse atalho)
         function deslogarEIrParaLanding(event) {
-            event.preventDefault(); // Impede o link de recarregar a página atual
+            event.preventDefault(); 
             
-            // Pergunta opcional para evitar cliques acidentais (se for direto, tirar o if)
             if(confirm('Isso irá desconectar sua conta e voltar para a tela inicial. Deseja continuar?')) {
-                localStorage.removeItem('agendacar_sessao'); // Destroi o login
-                window.location.href = 'index.html'; // Manda para a Landing Page
+                localStorage.removeItem('agendacar_sessao'); 
+                window.location.href = 'index.html'; 
             }
         }
     </script>
