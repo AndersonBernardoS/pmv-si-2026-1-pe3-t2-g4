@@ -207,29 +207,39 @@
         <i class="fa-brands fa-youtube"></i>
     </footer>
 
-    <script>
+   <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Tenta buscar a sessão salva
             const sessaoStr = localStorage.getItem('agendacar_sessao');
             
-            if (sessaoStr) {
-                const usuario = JSON.parse(sessaoStr);
-                const btnHeader = document.querySelector('.btn-header');
+            // ==========================================
+            // ROUTE GUARD: Proteção da Rota
+            // ==========================================
+            if (!sessaoStr) {
+                // Se não existir sessão, redireciona imediatamente para o login
+                window.location.href = 'login.html';
+                return; // Interrompe a execução do restante do script
+            }
+            // ==========================================
+
+
+            const usuario = JSON.parse(sessaoStr);
+            const btnHeader = document.querySelector('.btn-header');
+            
+            if (btnHeader) {
+                const nomeSeguro = usuario.nome || 'Usuário'; 
+                const primeiroNome = nomeSeguro.split(' ')[0];
                 
-                if (btnHeader) {
-                    const nomeSeguro = usuario.nome || 'Usuário'; 
-                    const primeiroNome = nomeSeguro.split(' ')[0];
-                    
-                    btnHeader.innerHTML = `<i class="fa-solid fa-user-check"></i> Olá, ${primeiroNome} (Sair)`;
-                    btnHeader.style.backgroundColor = 'transparent';
-                    btnHeader.style.border = '1px solid white';
-                    
-                    btnHeader.onclick = function() {
-                        if(confirm('Deseja realmente sair da sua conta?')) {
-                            localStorage.removeItem('agendacar_sessao');
-                            window.location.href = 'login.html'; 
-                        }
-                    };
-                }
+                btnHeader.innerHTML = `<i class="fa-solid fa-user-check"></i> Olá, ${primeiroNome} (Sair)`;
+                btnHeader.style.backgroundColor = 'transparent';
+                btnHeader.style.border = '1px solid white';
+                
+                btnHeader.onclick = function() {
+                    if(confirm('Deseja realmente sair da sua conta?')) {
+                        localStorage.removeItem('agendacar_sessao');
+                        window.location.href = 'login.html'; 
+                    }
+                };
             }
         });
 

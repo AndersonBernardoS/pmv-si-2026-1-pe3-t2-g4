@@ -1,59 +1,134 @@
 <main class="content">
     <div class="content-card">
         <h1>Fale Conosco</h1>
-        <p>Tem alguma dúvida, sugestão ou encontrou algum problema no AgendaCar? Nossa equipe está pronta para te ajudar. Preencha o formulário abaixo ou entre em contato pelas nossas redes sociais.</p>
+        <p>Tem alguma dúvida, sugestão ou encontrou algum problema? Nossa equipe está pronta para te ajudar.</p>
         
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Nossa equipe retornará em breve.'); this.reset();">
-            <div>
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" placeholder="Seu nome" required>
-            </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Mensagem enviada!'); this.reset();">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" placeholder="Seu nome" required>
             
-            <div>
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
-            </div>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
             
-            <div>
-                <label for="assunto">Assunto</label>
-                <input type="text" id="assunto" placeholder="Ex: Dúvida sobre agendamento" required>
-            </div>
+            <label for="mensagem">Como podemos te ajudar?</label>
+            <textarea id="mensagem" rows="5" placeholder="Digite sua mensagem aqui..." required></textarea>
             
-            <div>
-                <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem" rows="5" placeholder="Como podemos te ajudar?" required></textarea>
-            </div>
-            
-            <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Enviar Mensagem</button>
+            <button type="submit" class="btn-submit">
+                <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem
+            </button>
         </form>
     </div>
+</main>
         <head>
+        <body>
         <style>
-/* Card para paginas de texto (Quem somos, Termos, etc) */
+:root {
+    --primary-blue: #1f3b7b;
+    --sidebar-blue: #1f3b7b;
+    --primary-orange: #ff7e15;
+    --orange-hover: #e06815;
+    --bg-gray: #f5f6f8;
+    --text-dark: #333;
+    --text-blue: #1f3b7b;
+}
+
+/* Estrutura do Card baseada no Hero Card do Figma */
 .content-card {
     background: white;
     width: 100%;
     max-width: 900px;
     padding: 40px 50px;
     border-radius: 12px;
+    /* Borda grossa e suave como no Figma */
+    border: 10px solid rgba(0, 0, 0, 0.04); 
+    background-clip: padding-box;
     box-shadow: 0 4px 25px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0, 0, 0, 0.04);
     text-align: left;
-    margin-bottom: 40px;
+    margin: 20px auto 40px auto;
 }
-.content-card h1 { color: var(--text-blue); margin-bottom: 20px; font-size: 28px; border-bottom: 2px solid var(--primary-orange); padding-bottom: 10px; display: inline-block;}
-.content-card h2 { color: var(--text-blue); margin-top: 25px; margin-bottom: 15px; font-size: 20px; }
-.content-card p { margin-bottom: 15px; line-height: 1.6; color: #555; }
-.content-card ul { margin-left: 20px; margin-bottom: 15px; color: #555; line-height: 1.6; }
 
-/* Estilos para o formulario de contato */
-.contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
-.contact-form label { font-weight: 500; color: var(--text-blue); }
-.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; outline: none; font-family: 'Roboto', sans-serif; }
-.contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary-blue); }
-.btn-submit { background-color: var(--primary-orange); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.3s; width: 200px; }
-.btn-submit:hover { background-color: var(--orange-hover); }
-        </style>
+.content-card h1 { 
+    color: var(--text-blue); 
+    margin-bottom: 25px; 
+    font-size: 32px; 
+    border-bottom: 3px solid var(--primary-orange); 
+    padding-bottom: 8px; 
+    display: inline-block;
+}
+
+.content-card h2 { 
+    color: var(--text-blue); 
+    margin-top: 30px; 
+    margin-bottom: 15px; 
+    font-size: 22px; 
+    font-weight: 700;
+}
+
+.content-card p { 
+    margin-bottom: 18px; 
+    line-height: 1.7; 
+    color: #444; 
+    font-size: 16px;
+}
+
+.content-card ul { 
+    margin-left: 25px; 
+    margin-bottom: 20px; 
+    color: #444; 
+    line-height: 1.7; 
+}
+
+.content-card li { margin-bottom: 8px; }
+
+/* Formulário Estilo Figma (Inputs limpos) */
+.contact-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    margin-top: 30px; 
+}
+
+.contact-form label { 
+    font-weight: 500; 
+    color: var(--text-blue); 
+    margin-bottom: -15px; 
+}
+
+.contact-form input, .contact-form textarea { 
+    width: 100%; 
+    padding: 14px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    background-color: #fafafa;
+    transition: all 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus { 
+    border-color: var(--primary-orange); 
+    background-color: white;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 126, 21, 0.1);
+}
+
+.btn-submit { 
+    background-color: var(--primary-orange); 
+    color: white; 
+    border: none; 
+    padding: 16px 32px; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: background 0.3s; 
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-submit:hover { background-color: var(--orange-hover); }</style>
     </head>
     </body>
+    </style>
 </main>
