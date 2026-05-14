@@ -1,0 +1,21 @@
+:root {
+  --primary-blue: #12368a;
+  --sidebar-blue: #12368a;
+  --institucional-start: #12368a;
+  --institucional-end: #badfe9;
+  --primary-orange: #ff7e15;
+  --orange-hover: #e06815;
+  --bg-gray: #f5f6f8;
+  --text-dark: #333;
+  --text-blue: #1f3b7b;
+  --text-light: #777;
+  --client-bg: #f8f9fb; /* Restaurado para a cor original */
+  --pro-bg: #ffeadd; /* Restaurado para a cor original */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
