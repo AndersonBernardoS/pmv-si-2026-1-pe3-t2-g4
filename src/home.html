@@ -19,7 +19,7 @@
         }
         
         /* =========================================
-           FUNDO FUTURISTA LIMPO (Sem luzes laterais)
+           FUNDO LIMPO (Sem luzes laterais)
            ========================================= */
         .background-visuals {
             position: fixed; 
@@ -80,7 +80,7 @@
 
         .content { flex: 1; padding: 40px; display: flex; flex-direction: column; align-items: center; }
         
-        /* CARTÃO PRINCIPAL RESTAURADO */
+    
         .hero-card { 
             background: white; 
             width: 100%; 
@@ -107,7 +107,7 @@
         
         .cards-container { display: flex; gap: 20px; width: 100%; max-width: 1100px; }
         
-        /* CARTÕES "COMO FUNCIONA" RESTAURADOS */
+        
         .info-card { 
             flex: 1; 
             padding: 30px; 
@@ -226,7 +226,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const sessaoStr = localStorage.getItem('agendacar_sessao');
             
-            // ROUTE GUARD: Proteção da Rota
+            // TESTE DE ROUTE GUARD: Proteção da Rota
             if (!sessaoStr) {
                 window.location.href = 'login.html';
                 return; 

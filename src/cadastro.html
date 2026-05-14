@@ -16,7 +16,6 @@
             flex-direction: column; 
             min-height: 100vh; 
             position: relative;
-            /* Evita barra de rolagem horizontal devido aos efeitos de luz */
             overflow-x: hidden; 
         }
 
@@ -51,7 +50,7 @@
             flex-direction: column; 
             gap: 20px; 
             position: relative; 
-            z-index: 20; /* Fica acima do fundo animado */
+            z-index: 20; 
         }
 
         /* Aplicação do Glassmorphism nos Cartões */
@@ -109,7 +108,7 @@
            ANIMAÇÕES DE FUNDO (LATERAIS E ESTÁTICAS)
            ========================================= */
         .background-visuals {
-            position: fixed; /* Fixo para que o formulário role sobre ele */
+            position: fixed; 
             top: 0;
             left: 0;
             width: 100%;
@@ -128,7 +127,7 @@
             background-size: 50px 50px;
         }
 
-        /* Colunas de Brilho */
+        
         .side-glow {
             position: absolute;
             top: 0;
@@ -163,7 +162,7 @@
         }
 
         /* =========================================
-           NOVO LOADER: CARRO ESPORTIVO EM ALTA VELOCIDADE
+           NOVO LOADER: CARRO
            ========================================= */
         .loader-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
@@ -184,17 +183,17 @@
             align-items: center;
         }
 
-        /* Ícone do carro com inclinação para parecer esportivo e rápido */
+        /* Ícone do carro  */
         .loader-car {
             font-size: 60px;
             color: var(--primary-orange);
             z-index: 2;
-            transform: skewX(-15deg); /* Dá a aerodinâmica agressiva */
+            transform: skewX(-15deg); /* Dá a aerodinâmica*/
             filter: drop-shadow(0 5px 15px rgba(244, 121, 32, 0.5));
             animation: revvingEngine 0.1s infinite alternate; /* Trepidação do motor */
         }
 
-        /* Linhas de Velocidade (vento/neon passando rápido) */
+        /* Linhas de Velocidade (vento/neon) */
         .speed-line {
             position: absolute;
             height: 4px;
@@ -209,7 +208,7 @@
         .line-2 { top: 40px; left: 10px; width: 40px; animation-delay: 0.2s; }
         .line-3 { top: 60px; left: -10px; width: 80px; animation-delay: 0.4s; }
 
-        /* FONTE PADRONIZADA: Exatamente igual ao "Autenticando" da tela de Login */
+        
         .loader-text { 
             color: white; 
             font-size: 18px; 
@@ -431,11 +430,11 @@
             usuarios.push(novoUsuario);
             localStorage.setItem('agendacar_usuarios', JSON.stringify(usuarios));
 
-            // Esconde mensagens de erro (se houver) e ativa o overlay animado com o carro esportivo
+            // Esconde mensagens de erro (se houver) e ativa o overlay animado com o carro 
             feedback.style.display = 'none';
             document.getElementById('loaderOverlay').classList.add('active');
 
-            // Aguarda a animação de alta velocidade por 2.5s e redireciona
+            // Aguarda a animação de velocidade por 2.5s e redireciona
             setTimeout(() => {
                 window.location.href = 'login.html';
             }, 2500);
