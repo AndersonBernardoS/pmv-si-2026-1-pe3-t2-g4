@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgendaCar - Serviços Automotivos</title>
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
@@ -24,12 +23,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
         body { background-color: var(--bg-gray); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; position: relative; overflow-x: hidden; }
 
-        /* FUNDO - GRADE 3D */
         .background-visuals { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; background: linear-gradient(135deg, #e4e9f2 0%, #d8dfea 100%); overflow: hidden; }
         .tech-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(16, 60, 143, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 60, 143, 0.08) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: gridMove 20s linear infinite; }
         @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(60px) translateZ(-200px); } }
 
-        /* HEADER E FOOTER */
         header { 
             background: rgba(7, 53, 138, 0.932); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             height: 80px; width: 100%; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; 
@@ -41,14 +38,11 @@
         .btn-header { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 10px 24px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }
         .btn-header:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
 
-        /* CONTAINER PRINCIPAL */
         .main-container { display: flex; flex: 1; position: relative; z-index: 20; }
         
-        /* SIDEBAR COM DEGRADÊ AJUSTADO */
         .sidebar { 
             width: 280px; 
             background: linear-gradient(180deg, rgba(11, 57, 143, 0.95) 0%, rgba(6, 45, 92, 0.95) 45%, rgba(1, 6, 15, 0.8) 100%); 
-            
             backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             display: flex; flex-direction: column; justify-content: space-between; 
             box-shadow: 4px 0 20px rgba(0,0,0,0.1); border-right: 1px solid rgba(255,255,255,0.1);
@@ -63,7 +57,6 @@
         .service-btn:hover { transform: translateX(5px); box-shadow: 0 6px 20px rgba(244, 121, 32, 0.4); }
         .service-btn i { font-size: 20px; background-color: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; }
         
-        
         .institucional { padding: 30px 20px; flex: 1; }
         .institucional h3 { color: white; margin-bottom: 15px; font-size: 18px; font-weight: 800; }
         .institucional ul { list-style: none; }
@@ -71,7 +64,6 @@
         .institucional a { text-decoration: none; color: white; font-size: 14px; font-weight: 500; opacity: 0.7; transition: opacity 0.3s; }
         .institucional a:hover { opacity: 1; text-decoration: underline; }
 
-        /* conteudo */
         .content { flex: 1; padding: 50px 40px; display: flex; flex-direction: column; align-items: center; }
         .hero-card { 
             background: rgba(255, 255, 255, 0.404);
@@ -118,20 +110,64 @@
         .btn-pro { width: 100%; background: linear-gradient(135deg, var(--primary-orange), #ff9040); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 16px; border-radius: 12px; font-size: 18px; font-weight: 800; cursor: pointer; margin-top: 15px; transition: all 0.3s; box-shadow: 0 6px 15px rgba(244, 121, 32, 0.3);}
         .btn-pro:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(244, 121, 32, 0.5); }
 
-        
         footer { 
-            background: rgb(42, 50, 59); 
-            backdrop-filter: blur(10px); 
-            border-top: 1px solid rgba(0,0,0,0.05); 
-            padding: 10px 40px; 
-            display: flex; justify-content: flex-start; align-items: center; 
+            background: rgb(42, 50, 59); backdrop-filter: blur(10px); border-top: 1px solid rgba(0,0,0,0.05); 
+            padding: 10px 40px; display: flex; justify-content: flex-start; align-items: center; 
             gap: 20px; position: relative; z-index: 20;
         }
-        footer i { 
-            font-size: 22px; 
-            color: #718096; cursor: pointer; transition: color 0.3s, transform 0.2s; 
-        }
+        footer i { font-size: 22px; color: #718096; cursor: pointer; transition: color 0.3s, transform 0.2s; }
         footer i:hover { color: var(--primary-orange); transform: scale(1.15) translateY(-2px); }
+
+        /* ======== ESTILOS DO MODAL DE LOGOUT ANIMADO ======== */
+        .logout-modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(1, 6, 15, 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        
+        .logout-modal-overlay.active {
+            opacity: 1; visibility: visible;
+        }
+
+        .logout-modal {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+            padding: 40px; border-radius: 24px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            max-width: 400px; width: 90%;
+            /* Animação do balão */
+            transform: scale(0.8) translateY(30px); 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .logout-modal-overlay.active .logout-modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .logout-modal i.icon-alert {
+            font-size: 55px; color: var(--primary-orange); margin-bottom: 20px;
+            filter: drop-shadow(0 4px 6px rgba(244, 121, 32, 0.3));
+        }
+
+        .logout-modal h3 { color: var(--text-blue); font-size: 24px; margin-bottom: 15px; font-weight: 800;}
+        .logout-modal p { color: var(--text-light); margin-bottom: 30px; font-size: 16px; line-height: 1.5;}
+
+        .logout-buttons { display: flex; gap: 15px; justify-content: center; }
+        
+        .btn-cancel { 
+            flex: 1; padding: 12px; border-radius: 12px; border: 2px solid #cbd5e1; 
+            background: transparent; color: var(--text-light); font-size: 16px; font-weight: 700; 
+            cursor: pointer; transition: 0.3s; 
+        }
+        .btn-cancel:hover { background: rgba(0,0,0,0.05); color: var(--text-dark); border-color: #a0aec0;}
+        
+        .btn-confirm { 
+            flex: 1; padding: 12px; border-radius: 12px; border: none; 
+            background: linear-gradient(135deg, var(--primary-orange), #ff9040); 
+            color: white; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; 
+            box-shadow: 0 4px 15px rgba(244,121,32,0.3); 
+        }
+        .btn-confirm:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(244,121,32,0.5); }
 
         @media (max-width: 900px) {
             .cards-container, .main-container { flex-direction: column; }
@@ -151,7 +187,7 @@
         <a href="#" class="Logo" onclick="deslogarEIrParaLanding(event)">
             <img src="img/Logo.jpg" alt="Logo AgendaCar" onerror="this.style.display='none'">
         </a>
-        <button class="btn-header" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
+        <button class="btn-header" onclick="showLogoutModal()">Entrar / Cadastrar</button>
     </header>
 
     <div class="main-container">
@@ -205,7 +241,7 @@
                     <div class="step"><div class="step-number">1</div><div class="step-icon"><i class="fa-solid fa-file-pen"></i></div><div class="step-text"><h4>Cadastre-se</h4><p>Crie sua vitrine digital e os serviços oferecidos.</p></div></div>
                     <div class="step"><div class="step-number">2</div><div class="step-icon"><i class="fa-regular fa-clock"></i></div><div class="step-text"><h4>Defina sua agenda</h4><p>Configure horários de atendimento dinamicamente.</p></div></div>
                     <div class="step"><div class="step-number">3</div><div class="step-icon"><i class="fa-regular fa-bell"></i></div><div class="step-text"><h4>Receba agendamentos</h4><p>Clientes marcam com você e avaliam seus serviços.</p></div></div>
-                    <button class="btn-pro" onclick="window.location.href='cadastro.html'">Cadastrar como prestador</button>
+                    <button class="btn-pro" onclick="window.location.href='cadastro.html?tipo=prestador'">Cadastrar como prestador</button>
                 </div>
             </div>
         </main>
@@ -216,15 +252,30 @@
         <i class="fa-brands fa-youtube"></i>
     </footer>
 
+    <div class="logout-modal-overlay" id="logoutModal">
+        <div class="logout-modal">
+            <i class="fa-solid fa-person-walking-arrow-right icon-alert"></i>
+            <h3>Já vai embora?</h3>
+            <p>Tem certeza que deseja sair da sua conta ?</p>
+            
+            <div class="logout-buttons">
+                <button class="btn-cancel" onclick="hideLogoutModal()">Cancelar</button>
+                <button class="btn-confirm" onclick="confirmLogout()">Sim, sair</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sessaoStr = localStorage.getItem('agendacar_sessao');
             
+            // Protege a rota: Se não tiver sessão, manda pro login
             if (!sessaoStr) {
                 window.location.href = 'login.html';
                 return; 
             }
 
+            // Exibe a saudação no header
             const usuario = JSON.parse(sessaoStr);
             const btnHeader = document.querySelector('.btn-header');
             
@@ -232,31 +283,52 @@
                 const nomeSeguro = usuario.nome || 'Usuário'; 
                 const primeiroNome = nomeSeguro.split(' ')[0];
                 
+                // nova função do modal
                 btnHeader.innerHTML = `<i class="fa-solid fa-user-check"></i> Olá, ${primeiroNome} (Sair)`;
-                
-                btnHeader.onclick = function() {
-                    if(confirm('Deseja realmente sair da sua conta?')) {
-                        localStorage.removeItem('agendacar_sessao');
-                        window.location.href = 'login.html'; 
-                    }
-                };
+                btnHeader.onclick = showLogoutModal;
             }
         });
 
+      
+        // FUNÇÕES DO MODAL DE LOGOUT
+        const modalOverlay = document.getElementById('logoutModal');
+
+        function showLogoutModal(event) {
+            if(event) event.preventDefault();
+            modalOverlay.classList.add('active');
+        }
+
+        function hideLogoutModal() {
+            modalOverlay.classList.remove('active');
+        }
+
+        function confirmLogout() {
+            localStorage.removeItem('agendacar_sessao'); 
+            // direciona de volta para a Landing Page
+            window.location.href = 'index.html'; 
+        }
+
+        // Se clicar fora da caixa do modal, ele fecha
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                hideLogoutModal();
+            }
+        });
+
+        // Clicar no logo também exibe o modal caso queira sair
+        function deslogarEIrParaLanding(event) {
+            showLogoutModal(event);
+        }
+
+        
+        // OUTRAS FUNÇÕES
+       
         function realizarBusca() {
             const termo = document.querySelector('.search-bar input').value;
             if(termo) {
                 alert(`Buscando por: ${termo}`);
             } else {
                 alert('Por favor, digite um serviço para buscar!');
-            }
-        }
-
-        function deslogarEIrParaLanding(event) {
-            event.preventDefault(); 
-            if(confirm('Isso irá desconectar sua conta e voltar para a tela inicial. Deseja continuar?')) {
-                localStorage.removeItem('agendacar_sessao'); 
-                window.location.href = 'index.html'; 
             }
         }
     </script>
