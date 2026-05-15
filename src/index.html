@@ -38,9 +38,7 @@
             scroll-behavior: smooth;
         }
 
-        /* =========================================
-           ANIMAÇÕES DE FUNDO - PADRÃO LOGIN
-           ========================================= */
+        /*ANIMAÇÕES DE FUNDO - TESTE PADRÃO LOGIN */
         .background-visuals {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1; pointer-events: none; 
@@ -89,9 +87,7 @@
             100% { opacity: 0.6; }
         }
 
-        /* =========================================
-           HEADER GLASSMORPHISM
-           ========================================= */
+        /* HEADER GLASSMORPHISM*/
         header { 
             background: rgba(16, 60, 143, 0.85); 
             backdrop-filter: blur(12px);
@@ -120,9 +116,7 @@
             box-shadow: 0 6px 20px rgba(244, 121, 32, 0.6); 
         }
 
-        /* =========================================
-           CONTEÚDO PRINCIPAL (LANDING PAGE)
-           ========================================= */
+        /* CONTEÚDO PRINCIPAL (LANDING PAGE)*/
         .main-container { 
             flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; 
             padding: 60px 20px; display: flex; flex-direction: column; 
@@ -130,7 +124,7 @@
             gap: 100px; 
         }
 
-        /* Hero Section Glassmorphism Premium */
+        /* Hero Section Glassmorphism */
         .hero-section {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
             backdrop-filter: blur(20px);
@@ -201,7 +195,7 @@
             box-shadow: 0 12px 25px rgba(16, 60, 143, 0.3);
         }
 
-        /* Estilo Compartilhado de Títulos de Seção */
+        /* Estilo  Títulos de Seção */
         .section-wrapper { width: 100%; display: flex; flex-direction: column; align-items: center; position: relative;}
         .section-title { 
             text-align: center; color: var(--text-blue); font-size: 36px; 
@@ -238,7 +232,7 @@
         .benefit-card h3 { color: var(--text-blue); margin-bottom: 15px; font-size: 22px; font-weight: 700;}
         .benefit-card p { color: #4a5568; font-size: 15px; line-height: 1.6; }
 
-        /* How it works */
+        /* como funciona*/
         .cards-container { display: flex; gap: 30px; width: 100%; flex-wrap: wrap; justify-content: center;}
         
         .info-card { 
@@ -282,7 +276,7 @@
         .step-text h4 { font-size: 19px; color: var(--text-blue); margin-bottom: 8px; font-weight: 700;}
         .step-text p { font-size: 15px; color: #4a5568; line-height: 1.6; }
 
-        /* CTA Final - Dark Glassmorphism */
+        /* CTA Final Glassmorphism */
         .cta-bottom { 
             background: linear-gradient(135deg, rgba(16, 60, 143, 0.8), rgba(42, 86, 166, 0.85)); 
             backdrop-filter: blur(25px);
@@ -316,9 +310,7 @@
             box-shadow: 0 0 20px rgba(255,255,255,0.2);
         }
 
-        /* =========================================
-           RODAPÉ REDUZIDO E PADRONIZADO (HOME)
-           ========================================= */
+
         footer { 
             background: rgb(42, 50, 59); 
             backdrop-filter: blur(10px); 
@@ -484,7 +476,7 @@
     </footer>
 
     <script>
-        // Lógica inteligente para o header: se já estiver logado, muda o botão para ir ao painel
+        // teste de Lógica inteligente para o header: se já estiver logado, muda o botão para ir ao painel
         document.addEventListener('DOMContentLoaded', function() {
             const sessaoStr = localStorage.getItem('agendacar_sessao');
             const btnHeader = document.getElementById('btn-header');

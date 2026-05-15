@@ -24,7 +24,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
         body { background-color: var(--bg-gray); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; position: relative; overflow-x: hidden; }
 
-        /* FUNDO - APENAS A GRADE 3D */
+        /* FUNDO - GRADE 3D */
         .background-visuals { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; background: linear-gradient(135deg, #e4e9f2 0%, #d8dfea 100%); overflow: hidden; }
         .tech-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(16, 60, 143, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 60, 143, 0.08) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: gridMove 20s linear infinite; }
         @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(60px) translateZ(-200px); } }
@@ -63,7 +63,7 @@
         .service-btn:hover { transform: translateX(5px); box-shadow: 0 6px 20px rgba(244, 121, 32, 0.4); }
         .service-btn i { font-size: 20px; background-color: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; }
         
-        /* CORREÇÃO APLICADA AQUI: REMOVIDOS MARGIN, BORDER E BACKGROUND */
+        
         .institucional { padding: 30px 20px; flex: 1; }
         .institucional h3 { color: white; margin-bottom: 15px; font-size: 18px; font-weight: 800; }
         .institucional ul { list-style: none; }
@@ -71,7 +71,7 @@
         .institucional a { text-decoration: none; color: white; font-size: 14px; font-weight: 500; opacity: 0.7; transition: opacity 0.3s; }
         .institucional a:hover { opacity: 1; text-decoration: underline; }
 
-        /* CONTENT */
+        /* conteudo */
         .content { flex: 1; padding: 50px 40px; display: flex; flex-direction: column; align-items: center; }
         .hero-card { 
             background: rgba(255, 255, 255, 0.404);
@@ -118,7 +118,7 @@
         .btn-pro { width: 100%; background: linear-gradient(135deg, var(--primary-orange), #ff9040); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 16px; border-radius: 12px; font-size: 18px; font-weight: 800; cursor: pointer; margin-top: 15px; transition: all 0.3s; box-shadow: 0 6px 15px rgba(244, 121, 32, 0.3);}
         .btn-pro:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(244, 121, 32, 0.5); }
 
-        /* RODAPÉ REDUZIDO */
+        
         footer { 
             background: rgb(42, 50, 59); 
             backdrop-filter: blur(10px); 
