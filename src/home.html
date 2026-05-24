@@ -6,23 +6,9 @@
     <title>AgendaCar - Serviços Automotivos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     
     <style>
-        :root {
-            --primary-blue: #103c8f;
-            --primary-orange: #f47920;
-            --orange-hover: #e06815;
-            --bg-gray: #f5f6f8;
-            --text-dark: #2d3748;
-            --text-light: #4a5568;
-            --text-blue: #1c3d7a;
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
-        body { background-color: var(--bg-gray); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; position: relative; overflow-x: hidden; }
-
         .background-visuals { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; background: linear-gradient(135deg, #e4e9f2 0%, #d8dfea 100%); overflow: hidden; }
         .tech-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(16, 60, 143, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 60, 143, 0.08) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: gridMove 20s linear infinite; }
         @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(60px) translateZ(-200px); } }
@@ -185,7 +171,7 @@
 
     <header> 
         <a href="#" class="Logo" onclick="deslogarEIrParaLanding(event)">
-            <img src="img/Logo.jpg" alt="Logo AgendaCar" onerror="this.style.display='none'">
+            <img src="img/HLogo.png" alt="Logo AgendaCar" onerror="this.style.display='none'">
         </a>
         <button class="btn-header" onclick="showLogoutModal()">Entrar / Cadastrar</button>
     </header>
