@@ -2,13 +2,13 @@
 
 ## 4.1 Personas
 
-![Persona - Pedro Paulo](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/Persona-Pedro-Paulo.jpg)
+![Persona - Pedro Paulo](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/Persona-Pedro-Paulo.jpg) 
 
-![Persona - Nathalia](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/persona-nathalia-enfermeira.jpg)
+![Persona - Nathalia](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/persona-nathalia-enfermeira.jpg)
 
-![Persona - Rafael Costa](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/image.png)
+![Persona - Rafael Costa](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/image.png)
 
-![Persona - Lucas Ferreira](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/PersonaLucasFerreira.png)
+![Persona - Lucas Ferreira](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/PersonaLucasFerreira.png)
 
 ![persona patricia](https://github.com/user-attachments/assets/478056ba-5026-4bcc-9b71-69349d44c7fc)
 
@@ -16,13 +16,13 @@
 ## 4.2 Mapa de Empatia
 Mapa da Empatia é um material utilizado para conhecer melhor o seu cliente. A partir do mapa da empatia é possível detalhar a personalidade do cliente e compreendê-la melhor. O objetivo é obter um nível mais profundo de compreensão de uma persona. A seguir um exemplo de template que pode ser usado para o mapa de empatia. Para cada persona deverá ser apresentado o seu respectivo mapa de empatia. Sugere-se a utilização do template apresentado em https://www.rdstation.com/blog/marketing/mapa-da-empatia/.
 
-![Mapa de empatia - Pedro Paulo](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/Mapa-de-empatia-Paulo.jpeg)
+![Mapa de empatia - Pedro Paulo](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/Mapa-de-empatia-Paulo.jpeg)
 
-![Mapa de empatia - Nathalia](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/mapa-empatia-nathalia-enfermeira.png)
+![Mapa de empatia - Nathalia](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/mapa-empatia-nathalia-enfermeira.png)
 
-![Mapa de empatia - Rafael Costa](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/rafael-costa0.png)
+![Mapa de empatia - Rafael Costa](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/rafael-costa0.png)
 
-![Mapa de empatia - Lucas Ferreira](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/MapaEmpatiaLucasFerreira.png)
+![Mapa de empatia - Lucas Ferreira](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/MapaEmpatiaLucasFerreira.png)
 
 <img width="4705" height="4921" alt="Mapa de empatia - Patricia" src="https://github.com/user-attachments/assets/835683b6-c642-437f-9630-ccae508c6e8d" />
 
@@ -65,7 +65,7 @@ Além disso, está disponível o link "Ainda não se cadastrou? Cadastre-se" que
 
 **Carga de Memória de Trabalho:** Por seguir padrões e fluxos intuitivos a memorização não se torna necessária por parte do usuário.
 
-![Tela de Login](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/Tela%20de%20Login.png)
+![Tela de Login](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/Tela%20de%20Login.png)
 
 ### 4.3.2 Tela Inicial (Homepage)
 
@@ -97,7 +97,7 @@ A tela inicial (homepage) tem como objetivo atrair e orientar o usuário na util
 
 **Reduzir a Carga de Memória de Trabalho**: O fluxo explicativo ("Como funciona?") explica tudo na tela, não é necessário lembrar etapas.
 
-![Tela inicial (homepage)](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/img/Homepage.png)
+![Tela inicial (homepage)](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/src/img/Design/Homepage.png)
 
 
 
