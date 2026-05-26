@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgendaCar - Serviços Automotivos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <style>
+      .background-visuals {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(135deg, #e4e9f2 0%, #d8dfea 100%);
+        overflow: hidden;
+      }
+      .tech-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+          linear-gradient(rgba(16, 60, 143, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(16, 60, 143, 0.08) 1px, transparent 1px);
+        background-size: 60px 60px;
+        transform: perspective(500px) rotateX(60deg) translateY(-100px)
+          translateZ(-200px);
+        animation: gridMove 20s linear infinite;
+      }
+      @keyframes gridMove {
+        0% {
+          transform: perspective(500px) rotateX(60deg) translateY(0)
+            translateZ(-200px);
+        }
+        100% {
+          transform: perspective(500px) rotateX(60deg) translateY(60px)
+            translateZ(-200px);
+        }
+      }
+
+      header {
+        background: rgba(7, 53, 138, 0.932);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        height: 80px;
+        width: 100%;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .Logo {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        text-decoration: none;
+      }
+      .Logo img {
+        height: 60px;
+        width: auto;
+        display: block;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        border-radius: 8px;
+      }
+      .btn-header {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 10px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .btn-header:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .main-container {
+        display: flex;
+        flex: 1;
+        position: relative;
+        z-index: 20;
+      }
+
+      .sidebar {
+        width: 280px;
+        background: linear-gradient(
+          180deg,
+          rgba(11, 57, 143, 0.95) 0%,
+          rgba(6, 45, 92, 0.95) 45%,
+          rgba(1, 6, 15, 0.8) 100%
+        );
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .menu-services {
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .service-btn {
+        background: linear-gradient(
+          135deg,
+          rgba(244, 121, 32, 0.9),
+          rgba(224, 104, 21, 0.9)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        color: white;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        text-align: left;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s;
+      }
+      .service-btn:hover {
+        transform: translateX(5px);
+        box-shadow: 0 6px 20px rgba(244, 121, 32, 0.4);
+      }
+      .service-btn i {
+        font-size: 20px;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      .institucional {
+        padding: 30px 20px;
+        flex: 1;
+      }
+      .institucional h3 {
+        color: white;
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 800;
+      }
+      .institucional ul {
+        list-style: none;
+      }
+      .institucional li {
+        margin-bottom: 12px;
+      }
+      .institucional a {
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+      }
+      .institucional a:hover {
+        opacity: 1;
+        text-decoration: underline;
+      }
+
+      .content {
+        flex: 1;
+        padding: 50px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .content h1 {
+        font-size: 24px;
+        margin-bottom: 48px;
+      }
+
+      .content .content-body {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 16px;
+      }
+
+      .content .content-body > * {
+        flex: 1;
+      }
+
+      .card-prestador-container {
+        padding: 16px;
+      }
+
+      .card-prestador {
+        border: 1px solid #d9d9d9;
+        border-radius: 8px;
+        padding: 24px;
+        position: relative;
+      }
+
+      .card-prestador h3 {
+        font-size: 24px;
+      }
+
+      .card-prestador span {
+        font-size: 16px;
+        font-weight: 600;
+        color: #757575;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .card-prestador p {
+        font-size: 16px;
+        font-weight: 400;
+        color: #1e1e1e;
+        margin-bottom: 24px;
+      }
+
+      .card-prestador img {
+        position: absolute;
+        top: -30px;
+        right: -10px;
+        width: 100px;
+        height: 100px;
+        border-radius: 60px;
+      }
+
+      footer {
+        background: rgb(42, 50, 59);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 10px 40px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        z-index: 20;
+      }
+      footer i {
+        font-size: 22px;
+        color: #718096;
+        cursor: pointer;
+        transition:
+          color 0.3s,
+          transform 0.2s;
+      }
+      footer i:hover {
+        color: var(--primary-orange);
+        transform: scale(1.15) translateY(-2px);
+      }
+
+      /* ======== ESTILOS DO MODAL DE LOGOUT ANIMADO ======== */
+      .logout-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(1, 6, 15, 0.6);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .logout-modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .logout-modal {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(255, 255, 255, 0.8)
+        );
+        padding: 40px;
+        border-radius: 24px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        width: 90%;
+        /* Animação do balão */
+        transform: scale(0.8) translateY(30px);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .logout-modal-overlay.active .logout-modal {
+        transform: scale(1) translateY(0);
+      }
+
+      .logout-modal i.icon-alert {
+        font-size: 55px;
+        color: var(--primary-orange);
+        margin-bottom: 20px;
+        filter: drop-shadow(0 4px 6px rgba(244, 121, 32, 0.3));
+      }
+
+      .logout-modal h3 {
+        color: var(--text-blue);
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: 800;
+      }
+      .logout-modal p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .logout-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      .btn-cancel {
+        flex: 1;
+        padding: 12px;
+        border-radius: 12px;
+        border: 2px solid #cbd5e1;
+        background: transparent;
+        color: var(--text-light);
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn-cancel:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--text-dark);
+        border-color: #a0aec0;
+      }
+
+      .btn-confirm {
+        flex: 1;
+        padding: 12px;
+        border-radius: 12px;
+        border: none;
+        background: linear-gradient(135deg, var(--primary-orange), #ff9040);
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 4px 15px rgba(244, 121, 32, 0.3);
+      }
+      .btn-confirm:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(244, 121, 32, 0.5);
+      }
+
+      @media (max-width: 900px) {
+        .cards-container,
+        .main-container {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          flex-direction: row;
+          flex-wrap: wrap;
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .menu-services {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .institucional {
+          width: 100%;
+          border-top: none;
+          border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+      }
+
+        .page-header {
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .page-header-left .breadcrumb { 
+            color: var(--text-light);
+            font-size: 14px;
+             margin-bottom: 6px; 
+            }
+
+        .page-header-left .breadcrumb a { 
+            color: var(--primary-blue);
+            text-decoration: none; 
+            font-weight: 600; 
+        }
+        .page-header-left h2 { 
+            color: var(--text-blue); 
+            font-size: 26px; 
+            font-weight: 800; 
+        }
+
+        .resultado-count { 
+            background: rgba(255,255,255,0.6); 
+            backdrop-filter: 
+            blur(10px); 
+            border: 1px solid var(--glass-border); 
+            border-radius: 10px; 
+            padding: 10px 20px; 
+            font-size: 14px; 
+            font-weight: 600; 
+            color: var(--text-light); 
+        }
+        .resultado-count span { 
+            color: var(--primary-blue); 
+            font-weight: 800; 
+            font-size: 18px; 
+        }
+
+        .catalogo-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+
+        .prestador-card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); 
+            border-top: 1px solid rgba(255,255,255,0.7); 
+            border-left: 1px solid rgba(255,255,255,0.7);
+            border-radius: 20px; 
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; flex-direction: column;
+        }
+        .prestador-card:hover { 
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(31, 38, 135, 0.22); 
+        }
+
+        .card-foto { 
+            width: 100%; 
+            height: 160px; 
+            object-fit: cover; 
+            display: block; 
+          }
+
+        .card-body { 
+            padding: 20px 22px 22px; 
+            flex: 1; display: flex; 
+            flex-direction: column; 
+        }
+
+        .prestador-nome { 
+            font-size: 17px; 
+            font-weight: 800; 
+            color: var(--text-blue); 
+            margin-bottom: 6px; 
+          }
+        .prestador-categoria { 
+            display: inline-block; 
+            background: rgba(16,60,143,0.08); 
+            border: 1px solid rgba(16,60,143,0.15); 
+            color: var(--primary-blue); 
+            font-size: 11px; 
+            font-weight: 700; 
+            padding: 3px 12px; 
+            border-radius: 12px; 
+            margin-bottom: 12px; 
+            text-transform: uppercase; 
+          }
+        .prestador-descricao { 
+            font-size: 13px; 
+            color: var(--text-light); 
+            line-height: 1.6; 
+            margin-bottom: 18px; 
+            flex: 1; 
+            display: -webkit-box; 
+            max-height: 88px;
+            -webkit-box-orient: vertical; 
+            overflow: hidden; 
+          }
+
+        .card-actions { 
+            display: flex; 
+            gap: 10px; 
+        }
+
+        .btn-agendar { 
+            flex: 1; 
+            background: linear-gradient(135deg, var(--primary-blue), #1a4fa0); 
+            color: white; 
+            border: none; 
+            border-radius: 10px; 
+            padding: 11px; 
+            font-size: 13px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 7px; transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(16,60,143,0.3); 
+            text-decoration: none;
+        }
+
+        .btn-agendar:hover { 
+            transform: translateY(-2px); 
+        }
+
+        .btn-orcamento { 
+            flex: 1; 
+            background: linear-gradient(135deg, var(--primary-orange), #ff9040); 
+            color: white; 
+            border: none; 
+            border-radius: 10px; 
+            padding: 11px; 
+            font-size: 13px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 7px; transition: all 0.3s; 
+            box-shadow: 0 4px 12px rgba(244,121,32,0.3); 
+            text-decoration: none;
+        }
+
+        .btn-orcamento:hover { 
+            transform: translateY(-2px); 
+        }
+        
+        .empty-state { 
+            display: none; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 80px 20px; 
+            text-align: center; 
+        }
+        .empty-state.visible { 
+            display: flex; 
+        }
+        .empty-state i { 
+            font-size: 60px; 
+            color: rgba(16,60,143,0.15); 
+            margin-bottom: 20px; 
+        }
+        .empty-state h3 { 
+            color: var(--text-blue); 
+            font-size: 22px; font-weight: 800; 
+            margin-bottom: 8px; 
+        }
+        .empty-state p { 
+            color: var(--text-light); 
+            font-size: 15px; 
+        }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="background-visuals">
+      <div class="tech-grid"></div>
+    </div>
+
+    <header>
+      <a href="#" class="Logo" onclick="deslogarEIrParaLanding(event)">
+        <img
+          src="img/HLogo.png"
+          alt="Logo AgendaCar"
+          onerror="this.style.display = 'none'"
+        />
+      </a>
+      <button class="btn-header" onclick="showLogoutModal()">
+        Entrar / Cadastrar
+      </button>
+    </header>
+
+    <div class="main-container">
+      <aside class="sidebar">
+        <div class="menu-services">
+          <button class="service-btn" data-categoria="Mecânica Geral">
+            <i class="fa-solid fa-wrench"></i> Mecânica Geral
+          </button>
+          <button class="service-btn" data-categoria="Motores">
+            <i class="fa-solid fa-cogs"></i> Motores
+          </button>
+          <button class="service-btn" data-categoria="Suspensão">
+            <i class="fa-solid fa-car-burst"></i> Suspensão
+          </button>
+          <button class="service-btn" data-categoria="Lanternagem/Pintura">
+            <i class="fa-solid fa-spray-can"></i> Lanternagem/Pintura
+          </button>
+          <button class="service-btn" data-categoria="Outros Serviços">
+            <i class="fa-solid fa-toolbox"></i> Outros serviços
+          </button>
+        </div>
+
+        <div class="institucional">
+          <h3>Institucional</h3>
+          <ul>
+            <li><a href="quem-somos.html">Quem somos?</a></li>
+            <li><a href="fale-conosco.html">Fale conosco</a></li>
+            <li><a href="termos-uso.html">Termos de Uso</a></li>
+            <li>
+              <a href="politica-privacidade.html">Política de Privacidade</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="page-header">
+            <div class="page-header-left">
+                <div class="breadcrumb">
+                    <a href="home.html"><i class="fa-solid fa-house"></i> Início</a>
+                    &nbsp;›&nbsp; Catálogo de Prestadores
+                </div>
+                <h2 id="tituloPagina">Mecânica Geral — Prestadores disponíveis</h2>
+            </div>
+            <div class="resultado-count">
+                <span id="contadorResultados">4</span> prestadores encontrados
+            </div>
+        </div>
+
+        <div class="catalogo-grid" id="catalogoGrid"></div>
+        
+        <div class="empty-state" id="emptyState">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>Nenhum prestador encontrado</h3>
+            <p>Não há prestadores cadastrados nessa categoria ainda.</p>
+        </div>   
+
+      </main>
+    </div>
+
+    <footer>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-youtube"></i>
+    </footer>
+
+    <div class="logout-modal-overlay" id="logoutModal">
+      <div class="logout-modal">
+        <i class="fa-solid fa-person-walking-arrow-right icon-alert"></i>
+        <h3>Já vai embora?</h3>
+        <p>Tem certeza que deseja sair da sua conta ?</p>
+
+        <div class="logout-buttons">
+          <button class="btn-cancel" onclick="hideLogoutModal()">
+            Cancelar
+          </button>
+          <button class="btn-confirm" onclick="confirmLogout()">
+            Sim, sair
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="prestadores.js"></script>
+    <script>
+
+      function criarCard(p) {
+        return '<div class="prestador-card">' +
+                    '<img class="card-foto" src="' + p.imagemUrl + '" alt="' + p.nome + '" onerror="this.src=\'https://via.placeholder.com/400x160?text=Sem+foto\'">' +
+                    '<div class="card-body">' +
+                        '<div class="prestador-nome">' + p.nome + '</div>' +
+                        '<span class="prestador-categoria">' + p.categoria + '</span>' +
+                        '<p class="prestador-descricao">' + p.descricao + '</p>' +
+                        '<div class="card-actions">' +
+                            '<a href="agendar-servico.html" class="btn-agendar"><i class="fa-regular fa-calendar-check"></i> Agendar</a>' +
+                            '<a href="solicitar-orcamento.html" class="btn-orcamento"><i class="fa-solid fa-file-invoice"></i> Orçamento</a>' +
+                        '</div>' +
+                    '</div>' +
+               '</div>';
+      }
+
+      var categoriaAtiva = "Mecânica Geral";
+    
+      function renderizar(categoria) {
+          var grid    = document.getElementById('catalogoGrid');
+          var empty   = document.getElementById('emptyState');
+          var contador = document.getElementById('contadorResultados');
+          var filtrados = prestadores.filter(function(p) {
+              return p.categoria === categoria;
+          });
+
+          contador.textContent = filtrados.length;
+          document.getElementById('tituloPagina').textContent = categoria + ' — Prestadores disponíveis';
+
+          if (filtrados.length === 0) {
+              grid.innerHTML = '';
+              empty.classList.add('visible');
+              return;
+          }
+
+          empty.classList.remove('visible');
+
+          var html = '';
+          filtrados.forEach(function(p) {
+              html += criarCard(p);
+          });
+          grid.innerHTML = html;
+      }
+
+      document.querySelectorAll('.service-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+              document.querySelectorAll('.service-btn').forEach(function(b) {
+                  b.classList.remove('active');
+              });
+              this.classList.add('active');
+
+              categoriaAtiva = this.dataset.categoria;
+              renderizar(categoriaAtiva);
+          });
+      });
+
+
+      renderizar(categoriaAtiva);
+
+          //  VERIFICAÇÃO DE SESSÃO
+      document.addEventListener("DOMContentLoaded", function () {
+        const sessaoStr = localStorage.getItem("agendacar_sessao");
+
+        // Protege a rota: Se não tiver sessão, manda pro login
+        if (!sessaoStr) {
+          window.location.href = "login.html";
+          return;
+        }
+
+        // Exibe a saudação no header
+        const usuario = JSON.parse(sessaoStr);
+        const btnHeader = document.querySelector(".btn-header");
+
+        if (btnHeader) {
+          const nomeSeguro = usuario.nome || "Usuário";
+          const primeiroNome = nomeSeguro.split(" ")[0];
+
+          // nova função do modal
+          btnHeader.innerHTML = `<i class="fa-solid fa-user-check"></i> Olá, ${primeiroNome} (Sair)`;
+          btnHeader.onclick = showLogoutModal;
+        }
+      });
+
+      const params = new URLSearchParams(window.location.search);
+      const categoriaURL = params.get('categoria');
+
+      if(categoriaURL) {
+        document.querySelectorAll('.service-btn').forEach(function(btn) {
+          if (btn.dataset.categoria === categoriaURL) btn.classList.add('active');
+        });
+        renderizar(categoriaURL);
+      }
+
+      // FUNÇÕES DO MODAL DE LOGOUT
+      const modalOverlay = document.getElementById("logoutModal");
+
+      function showLogoutModal(event) {
+        if (event) event.preventDefault();
+        modalOverlay.classList.add("active");
+      }
+
+      function hideLogoutModal() {
+        modalOverlay.classList.remove("active");
+      }
+
+      function confirmLogout() {
+        localStorage.removeItem("agendacar_sessao");
+        // direciona de volta para a Landing Page
+        window.location.href = "index.html";
+      }
+
+      // Se clicar fora da caixa do modal, ele fecha
+      modalOverlay.addEventListener("click", function (e) {
+        if (e.target === modalOverlay) {
+          hideLogoutModal();
+        }
+      });
+
+      // Clicar no logo também exibe o modal caso queira sair
+      function deslogarEIrParaLanding(event) {
+        showLogoutModal(event);
+      }
+
+      function getURLParameter(param) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split("&");
+        for (var i = 0; i < sURLVariables.length; i++) {
+          var sParameterName = sURLVariables[i].split("=");
+          if (sParameterName[0] == param) {
+            return sParameterName[1];
+          }
+        }
+      }
+
+      const prestadorId = getURLParameter("prestador");
+      if (prestadorId) {
+        const prestador = getPrestadorById(prestadorId);
+        if (prestador) {
+          document.querySelector(".card-prestador-container h3").textContent =
+            prestador.nome;
+          document.querySelector(".card-prestador-container span").textContent =
+            prestador.categoria;
+          document.querySelector(".card-prestador-container p").textContent =
+            prestador.descricao;
+          document.querySelector(".card-prestador-container img").src =
+            prestador.imagemUrl;
+        }
+      }
+    </script>
+  </body>
+</html>
