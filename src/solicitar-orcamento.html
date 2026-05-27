@@ -567,6 +567,11 @@
         }
       }
 
+      function notFound() {
+        document.querySelector("main.content").innerHTML =
+          "<h1>Ocorreu um erro ao buscar prestador.</h1>";
+      }
+
       const prestadorId = getURLParameter("prestador");
       if (prestadorId) {
         const prestador = getPrestadorById(prestadorId);
@@ -579,7 +584,11 @@
             prestador.descricao;
           document.querySelector(".card-prestador-container img").src =
             prestador.imagemUrl;
+        } else {
+          notFound();
         }
+      } else {
+        notFound();
       }
     </script>
   </body>
