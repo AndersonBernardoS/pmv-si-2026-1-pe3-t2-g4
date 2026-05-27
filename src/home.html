@@ -312,7 +312,7 @@
         function realizarBusca() {
             const termo = document.querySelector('.search-bar input').value;
             if(termo) {
-                alert(`Buscando por: ${termo}`);
+                window.location.href = "catalogo-prestadores.html?q=" + termo;
             } else {
                 alert('Por favor, digite um serviço para buscar!');
             }
