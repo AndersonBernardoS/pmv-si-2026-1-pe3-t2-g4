@@ -107,6 +107,25 @@ let prestadores = [
     imagemUrl:
       "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=687&auto=format&fit=crop",
   },
+  {
+    id: 13,
+    nome: "Rap Cinto de Segurança",
+    categoria: "Outros Serviços",
+    descricao:
+      "Loja especializada em cinto de segurança automotivo, com mais de 20 anos de experiência. Manutenção preventiva e corretiva, venda e instalação. Valor médio: R$170,00. O tempo de atendimento varia de 20 minutos a 2 horas.",
+    imagemUrl:
+      "https://images.unsplash.com/photo-1629898168297-c868a0d70ad0?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 14,
+    nome: "PP Auto Peças",
+    categoria: "Outros Serviços",
+    descricao:
+      "Venda no atacado e varejo de peças automotivas com foco em faróis e lanternas. Valor médio: R$120,00. O tempo de atendimento varia de 20 minutos a 1 hora.",
+    imagemUrl:
+      "https://plus.unsplash.com/premium_photo-1694206014500-f0b44630d92e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+
 ];
 
 function getPrestadorById(id) {
