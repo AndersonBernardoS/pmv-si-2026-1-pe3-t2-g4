@@ -121,7 +121,6 @@
             padding: 40px; border-radius: 24px; text-align: center;
             border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 15px 50px rgba(0,0,0,0.3);
             max-width: 400px; width: 90%;
-            /* Animação do balão */
             transform: scale(0.8) translateY(30px); 
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -155,35 +154,27 @@
         }
         .btn-confirm:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(244,121,32,0.5); }
 
-        /* ======== ESTILOS DA ANIMAÇÃO DE BUSCA ======== */
-        .loader-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(1, 6, 15, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 10000; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        /* ======== LOADER (ANIMAÇÃO DE BUSCA) ======== */
+        .loader-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            /* Fundo mais escuro/esmaecido combinando com a identidade visual */
+            background-color: rgba(4, 15, 40, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            z-index: 10000; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; 
         }
         .loader-overlay.active { opacity: 1; visibility: visible; }
         
-        .loader-spinner {
-            width: 60px; height: 60px;
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            border-top-color: var(--primary-orange);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .cyber-loader { position: relative; width: 100px; height: 100px; margin-bottom: 25px; display: flex; justify-content: center; align-items: center; }
+        .cyber-loader::before, .cyber-loader::after { content: ''; position: absolute; border-radius: 50%; border: 4px solid transparent; }
+        .cyber-loader::before { top: 0; left: 0; right: 0; bottom: 0; border-top-color: var(--primary-orange, #f47920); border-bottom-color: var(--primary-orange, #f47920); animation: spin 1.5s linear infinite; }
+        .cyber-loader::after { top: 15px; left: 15px; right: 15px; bottom: 15px; border-left-color: #9ad4e4; border-right-color: #9ad4e4; animation: spinReverse 1s linear infinite; }
         
-        .loader-overlay p { 
-            color: white; font-size: 20px; font-weight: 700; 
-            letter-spacing: 1px;
-            animation: pulseText 1.5s infinite;
-        }
-        @keyframes pulseText {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
-        }
+        .loader-gear { font-size: 32px; color: #9ad4e4; animation: spin 3s linear infinite; z-index: 2; }
+        .loader-text { color: #9ad4e4; font-size: 18px; font-weight: 500; letter-spacing: 3px; animation: pulseText 1.5s ease-in-out infinite; text-transform: uppercase;}
+        
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spinReverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+        @keyframes pulseText { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
         @media (max-width: 900px) {
             .cards-container, .main-container { flex-direction: column; }
@@ -194,6 +185,14 @@
     </style>
 </head>
 <body>
+
+    <!-- MODAL DE CARREGAMENTO (BUSCA) -->
+    <div class="loader-overlay" id="searchLoader">
+        <div class="cyber-loader">
+            <i class="fa-solid fa-gear loader-gear"></i>
+        </div>
+        <div class="loader-text">Buscando...</div>
+    </div>
 
     <div class="background-visuals">
         <div class="tech-grid"></div>
@@ -281,11 +280,6 @@
         </div>
     </div>
 
-    <div class="loader-overlay" id="searchLoader">
-        <div class="loader-spinner"></div>
-        <p>Buscando prestadores...</p>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sessaoStr = localStorage.getItem('agendacar_sessao');
@@ -355,13 +349,12 @@
                 btnSearch.style.pointerEvents = 'none'; // Evita que o usuário clique duas vezes
                 btnSearch.style.opacity = '0.8';
 
-                // 2. Mostra a tela de carregamento
+                // 2. Mostra a tela de carregamento animada com engrenagem
                 const loader = document.getElementById('searchLoader');
                 if (loader) loader.classList.add('active');
 
                 // 3. Aguarda 1.5 segundos (simulando a requisição) antes de redirecionar
                 setTimeout(() => {
-                    // Adicionado o encodeURIComponent para evitar bugs com espaços ou caracteres especiais na URL
                     window.location.href = "catalogo-prestadores.html?q=" + encodeURIComponent(termo);
                 }, 1500);
             } else {
