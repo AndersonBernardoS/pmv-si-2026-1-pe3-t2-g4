@@ -263,7 +263,7 @@
             }
             initDateList();
             initTimeSlotBehavior();
-            initLeaveModalBehavior(); // ADICIONADO: Iniciando a função dos botões laterais
+            initLeaveModalBehavior(); // ADICIONADO: Iniciando a função dos botões laterais e da logo
         });
 
         const modalOverlay = document.getElementById('logoutModal');
@@ -287,6 +287,7 @@
         let urlDestino = '';
 
         function initLeaveModalBehavior() {
+            // Lógica para os botões do menu lateral
             const serviceBtns = document.querySelectorAll('.service-btn');
             
             serviceBtns.forEach(function(btn) {
@@ -301,6 +302,20 @@
                     document.getElementById('leaveModal').classList.add('active');
                 });
             });
+
+            // Lógica para a Logo
+            const logo = document.querySelector('.Logo');
+            if (logo) {
+                logo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Salva a URL da home no destino
+                    urlDestino = this.getAttribute('href'); 
+                    
+                    // Exibe o modal
+                    document.getElementById('leaveModal').classList.add('active');
+                });
+            }
 
             // Se o usuário clicar em "Sim"
             document.getElementById('btnConfirmLeave').addEventListener('click', function() {
