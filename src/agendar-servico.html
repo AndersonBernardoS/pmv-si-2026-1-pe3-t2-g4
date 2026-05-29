@@ -152,11 +152,11 @@
     <div class="main-container">
         <aside class="sidebar">
             <div class="menu-services">
-                <button class="service-btn"><i class="fa-solid fa-wrench"></i> Mecânica Geral</button>
-                <button class="service-btn"><i class="fa-solid fa-cogs"></i> Motores</button>
-                <button class="service-btn"><i class="fa-solid fa-car-burst"></i> Suspensão</button>
-                <button class="service-btn"><i class="fa-solid fa-spray-can"></i> Lanternagem/Pintura</button>
-                <button class="service-btn"><i class="fa-solid fa-toolbox"></i> Outros serviços</button>
+                <button class="service-btn" data-categoria="Mecânica Geral"><i class="fa-solid fa-wrench"></i> Mecânica Geral</button>
+                <button class="service-btn" data-categoria="Motores"><i class="fa-solid fa-cogs"></i> Motores</button>
+                <button class="service-btn" data-categoria="Suspensão"><i class="fa-solid fa-car-burst"></i> Suspensão</button>
+                <button class="service-btn" data-categoria="Lanternagem/Pintura"><i class="fa-solid fa-spray-can"></i> Lanternagem/Pintura</button>
+                <button class="service-btn" data-categoria="Outros Serviços"><i class="fa-solid fa-toolbox"></i> Outros serviços</button>
             </div>
 
             <div class="institucional">
@@ -234,6 +234,18 @@
         </div>
     </div>
 
+    <div class="confirm-modal-overlay" id="leaveModal">
+        <div class="confirm-modal">
+            <i class="fa-solid fa-triangle-exclamation" style="font-size:48px;color:#f47120;margin-bottom:12px;"></i>
+            <h3 style="color:#0b4d8f;">Sair do agendamento?</h3>
+            <p style="color:#374151;">Todo o seu progresso atual será perdido. Tem certeza que deseja sair desta página?</p>
+            <div style="margin-top:18px;display:flex;gap:12px;justify-content:center;">
+                <button class="btn-cancel" onclick="hideLeaveModal()">Não</button>
+                <button class="btn-confirm" id="btnConfirmLeave">Sim</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sessaoStr = localStorage.getItem('agendacar_sessao');
@@ -251,6 +263,7 @@
             }
             initDateList();
             initTimeSlotBehavior();
+            initLeaveModalBehavior(); // ADICIONADO: Iniciando a função dos botões laterais
         });
 
         const modalOverlay = document.getElementById('logoutModal');
@@ -269,11 +282,40 @@
             window.location.href = 'index.html';
         }
 
-        modalOverlay.addEventListener('click', function(e) {
-            if (e.target === modalOverlay) {
-                hideLogoutModal();
-            }
-        });
+        /* * ADICIONADO: Lógica para o modal de Sair do Agendamento 
+         */
+        let urlDestino = '';
+
+        function initLeaveModalBehavior() {
+            const serviceBtns = document.querySelectorAll('.service-btn');
+            
+            serviceBtns.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const categoria = this.getAttribute('data-categoria');
+                    // Monta a URL de destino com o parâmetro da categoria clicada
+                    urlDestino = 'catalogo-prestadores.html?categoria=' + encodeURIComponent(categoria);
+                    
+                    // Exibe o modal
+                    document.getElementById('leaveModal').classList.add('active');
+                });
+            });
+
+            // Se o usuário clicar em "Sim"
+            document.getElementById('btnConfirmLeave').addEventListener('click', function() {
+                if (urlDestino) {
+                    window.location.href = urlDestino;
+                }
+            });
+        }
+
+        function hideLeaveModal() {
+            document.getElementById('leaveModal').classList.remove('active');
+            urlDestino = ''; // Limpa a URL se o usuário cancelar
+        }
+        /* Fim da lógica do modal de saída */
+
 
         function deslogarEIrParaLanding(event) {
             showLogoutModal(event);
