@@ -155,6 +155,36 @@
         }
         .btn-confirm:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(244,121,32,0.5); }
 
+        /* ======== ESTILOS DA ANIMAÇÃO DE BUSCA ======== */
+        .loader-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(1, 6, 15, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 10000; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .loader-overlay.active { opacity: 1; visibility: visible; }
+        
+        .loader-spinner {
+            width: 60px; height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--primary-orange);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        .loader-overlay p { 
+            color: white; font-size: 20px; font-weight: 700; 
+            letter-spacing: 1px;
+            animation: pulseText 1.5s infinite;
+        }
+        @keyframes pulseText {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
         @media (max-width: 900px) {
             .cards-container, .main-container { flex-direction: column; }
             .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1);}
@@ -251,6 +281,11 @@
         </div>
     </div>
 
+    <div class="loader-overlay" id="searchLoader">
+        <div class="loader-spinner"></div>
+        <p>Buscando prestadores...</p>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sessaoStr = localStorage.getItem('agendacar_sessao');
@@ -310,13 +345,37 @@
         // OUTRAS FUNÇÕES
        
         function realizarBusca() {
-            const termo = document.querySelector('.search-bar input').value;
+            const inputBusca = document.querySelector('.search-bar input');
+            const termo = inputBusca.value.trim();
+            const btnSearch = document.querySelector('.btn-search');
+            
             if(termo) {
-                window.location.href = "catalogo-prestadores.html?q=" + termo;
+                // 1. Altera o estado do botão para dar feedback imediato
+                btnSearch.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Buscando...';
+                btnSearch.style.pointerEvents = 'none'; // Evita que o usuário clique duas vezes
+                btnSearch.style.opacity = '0.8';
+
+                // 2. Mostra a tela de carregamento
+                const loader = document.getElementById('searchLoader');
+                if (loader) loader.classList.add('active');
+
+                // 3. Aguarda 1.5 segundos (simulando a requisição) antes de redirecionar
+                setTimeout(() => {
+                    // Adicionado o encodeURIComponent para evitar bugs com espaços ou caracteres especiais na URL
+                    window.location.href = "catalogo-prestadores.html?q=" + encodeURIComponent(termo);
+                }, 1500);
             } else {
                 alert('Por favor, digite um serviço para buscar!');
+                inputBusca.focus(); // Coloca o cursor de volta no campo
             }
         }
+
+        // Permite buscar pressionando a tecla "Enter" no campo de digitação
+        document.querySelector('.search-bar input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                realizarBusca();
+            }
+        });
     </script>
 </body>
 </html>
