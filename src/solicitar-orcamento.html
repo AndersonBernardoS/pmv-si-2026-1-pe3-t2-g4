@@ -311,7 +311,6 @@
         box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
         max-width: 400px;
         width: 90%;
-        /* Animação do balão */
         transform: scale(0.8) translateY(30px);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
@@ -322,19 +321,19 @@
 
       .logout-modal i.icon-alert {
         font-size: 55px;
-        color: var(--primary-orange);
+        color: #ff8a1a;
         margin-bottom: 20px;
         filter: drop-shadow(0 4px 6px rgba(244, 121, 32, 0.3));
       }
 
       .logout-modal h3 {
-        color: var(--text-blue);
+        color: #0b4d8f;
         font-size: 24px;
         margin-bottom: 15px;
         font-weight: 800;
       }
       .logout-modal p {
-        color: var(--text-light);
+        color: #374151;
         margin-bottom: 30px;
         font-size: 16px;
         line-height: 1.5;
@@ -352,7 +351,7 @@
         border-radius: 12px;
         border: 2px solid #cbd5e1;
         background: transparent;
-        color: var(--text-light);
+        color: #374151;
         font-size: 16px;
         font-weight: 700;
         cursor: pointer;
@@ -360,7 +359,7 @@
       }
       .btn-cancel:hover {
         background: rgba(0, 0, 0, 0.05);
-        color: var(--text-dark);
+        color: #1f2937;
         border-color: #a0aec0;
       }
 
@@ -369,7 +368,7 @@
         padding: 12px;
         border-radius: 12px;
         border: none;
-        background: linear-gradient(135deg, var(--primary-orange), #ff9040);
+        background: linear-gradient(135deg, #f47120, #ff9040);
         color: white;
         font-size: 16px;
         font-weight: 700;
@@ -381,6 +380,17 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(244, 121, 32, 0.5);
       }
+
+      /* ======== ESTILOS DO MODAL DE CONFIRMAÇÃO / SAÍDA (ADICIONADOS) ======== */
+      .confirm-modal-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center;
+        z-index: 10000; opacity: 0; visibility: hidden; transition: opacity 0.2s ease;
+      }
+      .confirm-modal-overlay.active { opacity: 1; visibility: visible; }
+      .confirm-modal { background: white; padding: 28px; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.25); max-width: 480px; width: 92%; text-align: center; }
+      .confirm-modal h3 { margin: 8px 0; color: #0b4d8f; font-size: 20px; }
+      .confirm-modal p { color: #374151; margin: 8px 0 0 0; }
 
       @media (max-width: 900px) {
         .cards-container,
@@ -413,7 +423,7 @@
     </div>
 
     <header>
-      <a href="#" class="Logo" onclick="deslogarEIrParaLanding(event)">
+      <a href="home.html" class="Logo">
         <img
           src="img/HLogo.png"
           alt="Logo AgendaCar"
@@ -428,19 +438,19 @@
     <div class="main-container">
       <aside class="sidebar">
         <div class="menu-services">
-          <button class="service-btn">
+          <button class="service-btn" data-categoria="Mecânica Geral">
             <i class="fa-solid fa-wrench"></i> Mecânica Geral
           </button>
-          <button class="service-btn">
+          <button class="service-btn" data-categoria="Motores">
             <i class="fa-solid fa-cogs"></i> Motores
           </button>
-          <button class="service-btn">
+          <button class="service-btn" data-categoria="Suspensão">
             <i class="fa-solid fa-car-burst"></i> Suspensão
           </button>
-          <button class="service-btn">
+          <button class="service-btn" data-categoria="Lanternagem/Pintura">
             <i class="fa-solid fa-spray-can"></i> Lanternagem/Pintura
           </button>
-          <button class="service-btn">
+          <button class="service-btn" data-categoria="Outros Serviços">
             <i class="fa-solid fa-toolbox"></i> Outros serviços
           </button>
         </div>
@@ -501,6 +511,18 @@
       </div>
     </div>
 
+    <div class="confirm-modal-overlay" id="leaveModal">
+        <div class="confirm-modal">
+            <i class="fa-solid fa-triangle-exclamation" style="font-size:48px;color:#f47120;margin-bottom:12px;"></i>
+            <h3 style="color:#0b4d8f;">Cancelar orçamento?</h3>
+            <p style="color:#374151;">Todo o seu progresso atual será perdido. Tem certeza que deseja sair desta página?</p>
+            <div style="margin-top:18px;display:flex;gap:12px;justify-content:center;">
+                <button class="btn-cancel" onclick="hideLeaveModal()">Não</button>
+                <button class="btn-confirm" id="btnConfirmLeave">Sim</button>
+            </div>
+        </div>
+    </div>
+
     <script src="prestadores.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -524,7 +546,54 @@
           btnHeader.innerHTML = `<i class="fa-solid fa-user-check"></i> Olá, ${primeiroNome} (Sair)`;
           btnHeader.onclick = showLogoutModal;
         }
+        
+        // Inicializa o modal de saída da página
+        initLeaveModalBehavior();
       });
+
+      // ==========================================
+      // LÓGICA DO MODAL DE SAIR DO ORÇAMENTO
+      // ==========================================
+      let urlDestino = '';
+
+      function initLeaveModalBehavior() {
+          // Lógica para os botões do menu lateral
+          const serviceBtns = document.querySelectorAll('.service-btn');
+          
+          serviceBtns.forEach(function(btn) {
+              btn.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  
+                  const categoria = this.getAttribute('data-categoria');
+                  urlDestino = 'catalogo-prestadores.html?categoria=' + encodeURIComponent(categoria);
+                  
+                  document.getElementById('leaveModal').classList.add('active');
+              });
+          });
+
+          // Lógica para a Logo
+          const logo = document.querySelector('.Logo');
+          if (logo) {
+              logo.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  urlDestino = this.getAttribute('href'); 
+                  document.getElementById('leaveModal').classList.add('active');
+              });
+          }
+
+          // Ação do botão "Sim" (Confirma a saída)
+          document.getElementById('btnConfirmLeave').addEventListener('click', function() {
+              if (urlDestino) {
+                  window.location.href = urlDestino;
+              }
+          });
+      }
+
+      function hideLeaveModal() {
+          document.getElementById('leaveModal').classList.remove('active');
+          urlDestino = ''; 
+      }
+      // ==========================================
 
       // FUNÇÕES DO MODAL DE LOGOUT
       const modalOverlay = document.getElementById("logoutModal");
@@ -551,7 +620,7 @@
         }
       });
 
-      // Clicar no logo também exibe o modal caso queira sair
+      // Clicar no logo também exibe o modal caso queira sair (foi substituído pela lógica initLeaveModalBehavior)
       function deslogarEIrParaLanding(event) {
         showLogoutModal(event);
       }
@@ -567,9 +636,14 @@
         }
       }
 
+      function notFound() {
+        document.querySelector("main.content").innerHTML =
+          "<h1>Ocorreu um erro ao buscar prestador.</h1>";
+      }
+
       const prestadorId = getURLParameter("prestador");
       if (prestadorId) {
-        const prestador = getPrestadorById(prestadorId);
+        const prestador = getPrestadorById(prestadorId); // Necessita do seu prestadores.js
         if (prestador) {
           document.querySelector(".card-prestador-container h3").textContent =
             prestador.nome;
@@ -579,7 +653,11 @@
             prestador.descricao;
           document.querySelector(".card-prestador-container img").src =
             prestador.imagemUrl;
+        } else {
+          notFound();
         }
+      } else {
+        notFound();
       }
     </script>
   </body>

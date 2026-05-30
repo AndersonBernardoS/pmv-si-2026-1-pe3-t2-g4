@@ -70,17 +70,18 @@
         .footer-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
         .footer-links a:hover { color: var(--primary-orange); }
 
-        /* LOADER */
+        /* ======== LOADER (ANIMAÇÃO DE AUTENTICAÇÃO) ======== */
         .loader-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background-color: rgba(18, 54, 138, 0.98); backdrop-filter: blur(8px); 
+            /* Fundo escurecido esmaecido no mesmo padrão da home */
+            background-color: rgba(4, 15, 40, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; 
+            z-index: 10000; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; 
         }
         .loader-overlay.active { opacity: 1; visibility: visible; }
         .cyber-loader { position: relative; width: 100px; height: 100px; margin-bottom: 25px; display: flex; justify-content: center; align-items: center; }
         .cyber-loader::before, .cyber-loader::after { content: ''; position: absolute; border-radius: 50%; border: 4px solid transparent; }
-        .cyber-loader::before { top: 0; left: 0; right: 0; bottom: 0; border-top-color: var(--primary-orange); border-bottom-color: var(--primary-orange); animation: spin 1.5s linear infinite; }
+        .cyber-loader::before { top: 0; left: 0; right: 0; bottom: 0; border-top-color: var(--primary-orange, #f47920); border-bottom-color: var(--primary-orange, #f47920); animation: spin 1.5s linear infinite; }
         .cyber-loader::after { top: 15px; left: 15px; right: 15px; bottom: 15px; border-left-color: #9ad4e4; border-right-color: #9ad4e4; animation: spinReverse 1s linear infinite; }
         .loader-gear { font-size: 32px; color: #9ad4e4; animation: spin 3s linear infinite; z-index: 2; }
         .loader-text { color: #9ad4e4; font-size: 18px; font-weight: 500; letter-spacing: 3px; animation: pulseText 1.5s ease-in-out infinite; text-transform: uppercase;}
@@ -138,7 +139,7 @@
         <div class="cyber-loader">
             <i class="fa-solid fa-gear loader-gear"></i>
         </div>
-        <div class="loader-text">Autenticando</div>
+        <div class="loader-text">Autenticando...</div>
     </div>
 
     <div class="background-visuals">
@@ -205,6 +206,7 @@
             const email = document.getElementById('email').value.trim().toLowerCase();
             const password = document.getElementById('password').value.trim();
             const errorMsg = document.getElementById('error-msg');
+            const btnLogin = document.querySelector('.btn-login');
 
             const usuarios = JSON.parse(localStorage.getItem('agendacar_usuarios')) || [];
             const usuarioValido = usuarios.find(user => user.email === email && user.senha === password);
@@ -218,6 +220,13 @@
                 }; 
 
                 localStorage.setItem('agendacar_sessao', JSON.stringify(sessao));
+                
+                // Feedback imediato no botão, igual na página home
+                btnLogin.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Autenticando...';
+                btnLogin.style.pointerEvents = 'none';
+                btnLogin.style.opacity = '0.8';
+
+                // Ativa a tela esmaecida de carregamento
                 document.getElementById('loaderOverlay').classList.add('active'); 
                 
                 setTimeout(() => {

@@ -513,7 +513,6 @@
             margin-bottom: 18px; 
             flex: 1; 
             display: -webkit-box; 
-            max-height: 88px;
             -webkit-box-orient: vertical; 
             overflow: hidden; 
           }
@@ -602,12 +601,14 @@
     </div>
 
     <header>
-      <a href="#" class="Logo" onclick="deslogarEIrParaLanding(event)">
-        <img
-          src="img/HLogo.png"
-          alt="Logo AgendaCar"
-          onerror="this.style.display = 'none'"
-        />
+      <a href="home.html" class="Logo">
+  <img
+    src="img/HLogo.png"
+    alt="Logo AgendaCar"
+    onerror="this.style.display = 'none'"
+  />
+</a>
+    
       </a>
       <button class="btn-header" onclick="showLogoutModal()">
         Entrar / Cadastrar
@@ -654,7 +655,7 @@
                     <a href="home.html"><i class="fa-solid fa-house"></i> Início</a>
                     &nbsp;›&nbsp; Catálogo de Prestadores
                 </div>
-                <h2 id="tituloPagina">Mecânica Geral — Prestadores disponíveis</h2>
+                <h2 id="tituloPagina">Prestadores disponíveis</h2>
             </div>
             <div class="resultado-count">
                 <span id="contadorResultados">4</span> prestadores encontrados
@@ -712,18 +713,88 @@
                '</div>';
       }
 
+      function normalizar(texto) {
+        return texto
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+      }
+
+      function levenshtein(a, b) {
+        const matrix = [];
+
+        for (let i = 0; i <= b.length; i++) {
+          matrix[i] = [i];
+        }
+
+        for (let j = 0; j <= a.length; j++) {
+          matrix[0][j] = j;
+        }
+
+        for (let i = 1; i <= b.length; i++) {
+          for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+              matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+              matrix[i][j] = Math.min(
+                matrix[i - 1][j - 1] + 1,
+                matrix[i][j - 1] + 1,
+                matrix[i - 1][j] + 1
+              );
+            }
+          }
+        }
+
+        return matrix[b.length][a.length];
+      }
+
       var categoriaAtiva = "Mecânica Geral";
     
-      function renderizar(categoria) {
+      function renderizar(categoria, query) {
           var grid    = document.getElementById('catalogoGrid');
           var empty   = document.getElementById('emptyState');
           var contador = document.getElementById('contadorResultados');
-          var filtrados = prestadores.filter(function(p) {
+          
+          let filtrados = prestadores;
+          
+          if (categoria) {
+            filtrados = filtrados.filter(function(p) {
               return p.categoria === categoria;
-          });
+            });
+          }
+
+          if (query) {
+            query = normalizar(query);
+            filtrados = filtrados.filter((prestador) => {
+              const campos = [
+                prestador.nome,
+                prestador.categoria,
+                prestador.descricao,
+              ];
+
+              return campos.some((campo) => {
+                const texto = normalizar(campo);
+
+                if (texto.includes(query)) {
+                  return true;
+                }
+
+                const palavras = texto.split(" ");
+
+                return palavras.some((palavra) => {
+                  return levenshtein(palavra, query) <= 2;
+                });
+              });
+            });
+          }
 
           contador.textContent = filtrados.length;
-          document.getElementById('tituloPagina').textContent = categoria + ' — Prestadores disponíveis';
+
+          if (categoria) {
+            document.getElementById('tituloPagina').textContent = categoria + ' — Prestadores disponíveis';
+          } else {
+            document.getElementById('tituloPagina').textContent = 'Prestadores disponíveis';
+          }
 
           if (filtrados.length === 0) {
               grid.innerHTML = '';
@@ -753,9 +824,7 @@
       });
 
 
-      renderizar(categoriaAtiva);
-
-          //  VERIFICAÇÃO DE SESSÃO
+      //  VERIFICAÇÃO DE SESSÃO
       document.addEventListener("DOMContentLoaded", function () {
         const sessaoStr = localStorage.getItem("agendacar_sessao");
 
@@ -781,12 +850,17 @@
 
       const params = new URLSearchParams(window.location.search);
       const categoriaURL = params.get('categoria');
+      const query = params.get("q");
 
-      if(categoriaURL) {
+      if (query) {
+        renderizar(undefined, query);
+      } else if(categoriaURL) {
         document.querySelectorAll('.service-btn').forEach(function(btn) {
           if (btn.dataset.categoria === categoriaURL) btn.classList.add('active');
         });
         renderizar(categoriaURL);
+      } else {
+        renderizar();
       }
 
       // FUNÇÕES DO MODAL DE LOGOUT
