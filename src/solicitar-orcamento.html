@@ -249,6 +249,41 @@
         border-radius: 60px;
       }
 
+      .texto-orcamento {
+        resize: none;
+        width: 100%;
+        flex: 1;
+        min-height: 190px;
+        border: 1px solid #d9d9d9;
+        border-radius: 8px;
+        padding: 12px;
+        background: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: medium;
+        box-sizing: border-box;
+      }
+
+      .grupo-input {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-orcamento {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .label-orcamento {
+        display: block;
+        font-size: 16px;
+        font-weight: 500;
+        color: #1e1e1e;
+        margin-bottom: 12px;
+      }
+
       footer {
         background: rgb(42, 50, 59);
         backdrop-filter: blur(10px);
@@ -479,10 +514,10 @@
               <img src="" alt="Imagem prestador" />
             </div>
           </div>
-          <form>
-            <div>
-              <label>Descreva o serviço que deseja solicitar orçamento.</label>
-              <input type="text" placeholder="Descreva aqui" />
+          <form class="form-orcamento">
+            <div class="form-input">
+              <label class="label-orcamento">Descreva o problema que precisa resolver.</label>
+              <textarea class="texto-orcamento" placeholder="Resumo do problema"></textarea>
             </div>
           </form>
         </div>
