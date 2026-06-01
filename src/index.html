@@ -96,7 +96,6 @@
         .user-chip:hover .painel-link { opacity: 1; color: var(--primary-orange); }
         @keyframes bounceInFade { to { opacity: 1; transform: translateY(0) scale(1); } }
 
-        /* CONTEÚDO PRINCIPAL (LANDING PAGE)*/
         .main-container { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 60px 20px; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 20; gap: 100px; }
 
         .hero-section {
@@ -283,7 +282,7 @@
                         <div class="step-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
                         <div class="step-text">
                             <h4>Aumente seu faturamento</h4>
-                            <p>Preste um ótimo serviço, receba avaliações positivas 5 estrelas e seja encontrado por novos clientes.</p>
+                            <p>Preste um ótimo serviço, receive avaliações positivas 5 estrelas e seja encontrado por novos clientes.</p>
                         </div>
                     </div>
                 </div>
@@ -319,7 +318,6 @@
                 const primeiroNome = (usuario.nome || 'Usuário').split(' ')[0];
                 const inicial = primeiroNome.charAt(0).toUpperCase();
                 
-                // Substitui os botões padrão pelo Profile Chip animado
                 headerButtons.innerHTML = `
                     <div class="user-chip" onclick="window.location.href='home.html'">
                         <div class="user-avatar">${inicial}</div>

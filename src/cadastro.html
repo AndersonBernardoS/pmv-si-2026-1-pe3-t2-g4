@@ -33,15 +33,24 @@
         .footer-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
         .footer-links a:hover { color: var(--primary-orange); }
 
-        .loader-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(18, 54, 138, 0.98); backdrop-filter: blur(8px); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; }
+        /* ======== LOADER COM CARRINHO ATUALIZADO (BRANCO TRANSLÚCIDO) ======== */
+        .loader-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; 
+        }
         .loader-overlay.active { opacity: 1; visibility: visible; }
         .sport-car-loader { position: relative; width: 150px; height: 80px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; }
-        .loader-car { font-size: 60px; color: var(--primary-orange); z-index: 2; transform: skewX(-15deg); filter: drop-shadow(0 5px 15px rgba(244, 121, 32, 0.5)); animation: revvingEngine 0.1s infinite alternate; }
-        .speed-line { position: absolute; height: 4px; background: rgba(255, 255, 255, 0.8); border-radius: 4px; z-index: 1; opacity: 0; animation: dashLines 0.8s linear infinite; }
+        .loader-car { font-size: 60px; color: var(--primary-orange); z-index: 2; transform: skewX(-15deg); filter: drop-shadow(0 5px 15px rgba(244, 121, 32, 0.3)); animation: revvingEngine 0.1s infinite alternate; }
+        
+        /* Linhas de velocidade ajustadas para azul escuro translúcido para darem contraste */
+        .speed-line { position: absolute; height: 4px; background: rgba(16, 60, 143, 0.4); border-radius: 4px; z-index: 1; opacity: 0; animation: dashLines 0.8s linear infinite; }
         .line-1 { top: 20px; left: 0; width: 60px; animation-delay: 0s; }
         .line-2 { top: 40px; left: 10px; width: 40px; animation-delay: 0.2s; }
         .line-3 { top: 60px; left: -10px; width: 80px; animation-delay: 0.4s; }
-        .loader-text { color: white; font-size: 18px; font-weight: 500; letter-spacing: 2px; animation: pulseText 1.5s ease-in-out infinite; text-transform: uppercase; }
+        .loader-text { color: #12368a; font-size: 18px; font-weight: 700; letter-spacing: 2px; animation: pulseText 1.5s ease-in-out infinite; text-transform: uppercase; }
+        
         @keyframes revvingEngine { 0% { transform: skewX(-15deg) translateY(0); } 100% { transform: skewX(-15deg) translateY(-2px); } }
         @keyframes dashLines { 0% { transform: translateX(80px); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateX(-80px); opacity: 0; } }
         @keyframes pulseText { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -103,7 +112,6 @@
         #msg-feedback { font-size: 15px; padding: 12px; border-radius: 8px; display: none; font-weight: 600; text-align: center; grid-column: span 2;}
         .msg-error { background-color: #ffeaea; color: #d93025; border: 1px solid #d93025; }
 
-        /* CLASSE AUXILIAR PARA OCULTAR O CAMPO CNPJ */
         .hidden { display: none !important; }
 
         @media (max-width: 768px) {
@@ -283,7 +291,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Lógica do Header
             const sessaoStr = localStorage.getItem('agendacar_sessao');
             if (sessaoStr) {
                 const btnLogin = document.getElementById('btnLogin');
@@ -295,7 +302,6 @@
                 }
             }
 
-            // Lógica para Mostrar/Esconder o campo CNPJ dependendo do tipo de conta
             const radiosTipoConta = document.querySelectorAll('input[name="tipo_conta"]');
             const grupoCnpj = document.getElementById('grupo_cnpj');
             const inputCnpj = document.getElementById('cnpj_cad');
@@ -317,7 +323,6 @@
                 });
             });
 
-            // LÊ A URL E SELECIONA O TIPO DE CONTA (SE VIER DA LANDING PAGE)
             const urlParams = new URLSearchParams(window.location.search);
             if(urlParams.get('tipo') === 'prestador') {
                 const prestadorRadio = document.querySelector('input[name="tipo_conta"][value="prestador"]');
@@ -328,7 +333,6 @@
             }
         });
 
-        // Lógica de Cadastro e Máscaras
         document.getElementById('form-cadastro').addEventListener('submit', function(event) {
             event.preventDefault();
             
@@ -338,7 +342,6 @@
             const nascimento = document.getElementById('nascimento_cad').value.trim();
             const password = document.getElementById('senha_cad').value.trim();
             const tipoConta = document.querySelector('input[name="tipo_conta"]:checked').value;
-            
             const cnpj = document.getElementById('cnpj_cad').value.trim();
             
             const servicosSelecionados = [];
@@ -380,7 +383,6 @@
             }, 2500);
         });
 
-        // Máscaras de input
         document.getElementById('celular_cad').addEventListener('input', function (e) {
             let value = e.target.value.replace(/\D/g, '').slice(0, 11);
             let x = value.match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
