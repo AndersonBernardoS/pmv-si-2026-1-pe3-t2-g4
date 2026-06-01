@@ -68,6 +68,40 @@
         .btn-search { background: linear-gradient(135deg, var(--primary-orange), #ff9040); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 12px 30px; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(244, 121, 32, 0.3);}
         .btn-search:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(244, 121, 32, 0.5); }
 
+        /* ======== NOVO COMPONENTE: BOTÃO "VER TODOS OS PRESTADORES" ======== */
+        .view-all-wrapper {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+        }
+        .btn-view-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-blue, #1c3d7a);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            background: rgba(16, 60, 143, 0.06);
+            border: 1px solid rgba(16, 60, 143, 0.15);
+            padding: 10px 24px;
+            border-radius: 30px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .btn-view-all:hover {
+            background: var(--primary-blue, #12368a);
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(16, 60, 143, 0.2);
+            border-color: transparent;
+        }
+        .btn-view-all i.arrow-icon {
+            transition: transform 0.3s ease;
+        }
+        .btn-view-all:hover i.arrow-icon {
+            transform: translateX(4px);
+        }
+
         .how-it-works-title { color: var(--text-blue); font-size: 26px; margin-bottom: 30px; font-weight: 800; }
         
         .cards-container { display: flex; gap: 30px; width: 100%; max-width: 1100px; }
@@ -227,7 +261,14 @@
                     </button>
                 </div>
 
-                <p><a href="catalogo-prestadores.html">Ver todos os prestadores</a></p>
+                <!-- ALTERAÇÃO FEITA AQUI: Botão muito mais limpo, integrado e detalhado -->
+                <div class="view-all-wrapper">
+                    <a href="catalogo-prestadores.html" class="btn-view-all">
+                        <i class="fa-solid fa-car-rear"></i>
+                        Ver todos os prestadores
+                        <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                    </a>
+                </div>
             </div>
 
             <h2 class="how-it-works-title">Como funciona?</h2>
