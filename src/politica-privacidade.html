@@ -48,9 +48,9 @@
             border-top: 1px solid rgba(255,255,255,0.9); border-left: 1px solid rgba(255,255,255,0.9);
         }
         
-        /* BOTÃO INTERATIVO DE RETORNO */
+        /* ALTERADO: display: none; POR PADRÃO */
         .btn-back-cadastro {
-            display: inline-flex;
+            display: none; 
             align-items: center;
             gap: 8px;
             color: var(--text-blue, #1c3d7a);
@@ -113,7 +113,6 @@
             <a href="cadastro.html" class="btn-back-cadastro">
                 <i class="fa-solid fa-arrow-left"></i> Voltar para o Cadastro
             </a>
-            <br>
             <h1>Política de Privacidade</h1>
             <p>A sua privacidade é fundamental para nós. Esta política descreve como o AgendaCar coleta, usa e protege seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
             
@@ -157,6 +156,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Verificação de sessão
             const sessaoStr = localStorage.getItem('agendacar_sessao');
             if (sessaoStr) {
                 const btnLogin = document.getElementById('btnLogin');
@@ -165,6 +165,15 @@
                 if (btnLogin && btnPanel) {
                     btnLogin.style.display = 'none';
                     btnPanel.style.display = 'flex';
+                }
+            }
+
+            // ADICIONADO: EXIBE O BOTÃO SE VIER DO CADASTRO
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('origem') === 'cadastro') {
+                const btnBack = document.querySelector('.btn-back-cadastro');
+                if (btnBack) {
+                    btnBack.style.display = 'inline-flex';
                 }
             }
         });

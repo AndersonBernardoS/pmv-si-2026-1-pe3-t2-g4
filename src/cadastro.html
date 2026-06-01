@@ -192,11 +192,6 @@
                         <input type="tel" id="celular_cad" placeholder="(00) 00000-0000" required>
                     </div>
                     
-                    <div class="form-group hidden" id="grupo_cnpj">
-                        <label for="cnpj_cad">CNPJ</label>
-                        <input type="text" id="cnpj_cad" placeholder="00.000.000/0000-00">
-                    </div>
-
                     <div class="form-group">
                         <label for="nascimento_cad">Data de nascimento</label>
                         <input type="text" id="nascimento_cad" placeholder="DD/MM/AAAA" required>
@@ -267,7 +262,7 @@
                         <input type="checkbox" id="termos" required>
                         <label for="termos">
                             <strong>Concordo com os termos e política de privacidade.</strong><br>
-                            <span>Leia nossos <a href="termos-uso.html" style="color:var(--primary-blue);">termos</a> e <a href="politica-privacidade.html" style="color:var(--primary-blue);">política de privacidade</a>.</span>
+                            <span>Leia nossos <a href="termos-uso.html?origem=cadastro" style="color:var(--primary-blue);">termos</a> e <a href="politica-privacidade.html?origem=cadastro" style="color:var(--primary-blue);">política de privacidade</a>.</span>
                         </label>
                     </div>
                     <button type="submit" class="btn-submit">CADASTRAR</button>
@@ -306,12 +301,14 @@
 
             function alternarTipoConta(tipo) {
                 if (tipo === 'prestador') {
-                    grupoCnpj.classList.remove('hidden');
-                    inputCnpj.required = true;
+                    if(grupoCnpj) grupoCnpj.classList.remove('hidden');
+                    if(inputCnpj) inputCnpj.required = true;
                 } else {
-                    grupoCnpj.classList.add('hidden');
-                    inputCnpj.required = false;
-                    inputCnpj.value = ''; 
+                    if(grupoCnpj) grupoCnpj.classList.add('hidden');
+                    if(inputCnpj) {
+                        inputCnpj.required = false;
+                        inputCnpj.value = ''; 
+                    }
                 }
             }
 
@@ -337,7 +334,6 @@
             const feedback = document.getElementById('msg-feedback');
             const checkboxTermos = document.getElementById('termos');
 
-            // Validação estrita do checkbox de termos e políticas
             if (!checkboxTermos.checked) {
                 feedback.textContent = 'Você precisa concordar com os termos e política de privacidade para prosseguir!';
                 feedback.className = 'msg-error';
@@ -352,7 +348,7 @@
             const nascimento = document.getElementById('nascimento_cad').value.trim();
             const password = document.getElementById('senha_cad').value.trim();
             const tipoConta = document.querySelector('input[name="tipo_conta"]:checked').value;
-            const cnpj = document.getElementById('cnpj_cad').value.trim();
+            const cnpj = document.getElementById('cnpj_cad') ? document.getElementById('cnpj_cad').value.trim() : null;
             
             const servicosSelecionados = [];
             document.querySelectorAll('input[name="servicos"]:checked').forEach((checkbox) => {
@@ -392,26 +388,21 @@
             }, 2500);
         });
 
-        document.getElementById('celular_cad').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '').slice(0, 11);
-            let x = value.match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-        });
+        if(document.getElementById('celular_cad')) {
+            document.getElementById('celular_cad').addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '').slice(0, 11);
+                let x = value.match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+            });
+        }
 
-        document.getElementById('nascimento_cad').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '').slice(0, 8);
-            let x = value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
-            e.target.value = !x[2] ? x[1] : x[1] + '/' + x[2] + (x[3] ? '/' + x[3] : '');
-        });
-
-        document.getElementById('cnpj_cad').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '').slice(0, 14);
-            value = value.replace(/^(\d{2})(\d)/, '$1.$2');
-            value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
-            value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
-            value = value.replace(/(\d{4})(\d)/, '$1-$2');
-            e.target.value = value;
-        });
+        if(document.getElementById('nascimento_cad')) {
+            document.getElementById('nascimento_cad').addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '').slice(0, 8);
+                let x = value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : x[1] + '/' + x[2] + (x[3] ? '/' + x[3] : '');
+            });
+        }
     </script>
 </body>
 </html>
