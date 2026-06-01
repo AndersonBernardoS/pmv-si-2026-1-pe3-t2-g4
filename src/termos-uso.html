@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termos de Uso - AgendaCar</title>
+    <title>AgendaCar - Termos de Uso</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='0' y='4' width='5' height='5' rx='2.5' fill='%23f47920'/%3E%3Crect x='0' y='13' width='5' height='5' rx='2.5' fill='%2312368a'/%3E%3Cg transform='skewX(-10) translate(6, 1)'%3E%3Crect x='0' y='0' width='25' height='30' rx='4' fill='%2312368a'/%3E%3Crect x='4' y='3' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3Crect x='4' y='12' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3Crect x='4' y='21' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
@@ -47,6 +48,30 @@
             box-shadow: var(--glass-shadow); border: 1px solid var(--glass-border); 
             border-top: 1px solid rgba(255,255,255,0.9); border-left: 1px solid rgba(255,255,255,0.9);
         }
+        
+        /* ALTERADO: display: none; POR PADRÃO */
+        .btn-back-cadastro {
+            display: none; 
+            align-items: center;
+            gap: 8px;
+            color: var(--text-blue, #1c3d7a);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding: 8px 16px;
+            background: rgba(16, 60, 143, 0.08);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(16, 60, 143, 0.1);
+        }
+        .btn-back-cadastro:hover {
+            background: var(--primary-blue, #12368a);
+            color: white;
+            transform: translateX(-4px);
+            box-shadow: 0 4px 12px rgba(16, 60, 143, 0.2);
+        }
+
         .content-card h1 { color: var(--text-blue); margin-bottom: 25px; font-size: 36px; border-bottom: 3px solid var(--primary-orange); padding-bottom: 8px; display: inline-block; font-weight: 800;}
         .content-card h2 { color: var(--text-blue); margin-top: 35px; margin-bottom: 15px; font-size: 22px; font-weight: 700; }
         .content-card p { margin-bottom: 18px; line-height: 1.7; color: var(--text-light); font-size: 16px; font-weight: 500;}
@@ -86,6 +111,9 @@
 
     <main class="content-wrapper">
         <div class="content-card">
+            <a href="cadastro.html" class="btn-back-cadastro">
+                <i class="fa-solid fa-arrow-left"></i> Voltar para o Cadastro
+            </a>
             <h1>Termos de Uso</h1>
             <p>Bem-vindo ao AgendaCar. Ao utilizar nossa plataforma, você concorda com os seguintes termos e condições. Leia-os atentamente.</p>
             
@@ -122,16 +150,24 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Verificação de sessão
             const sessaoStr = localStorage.getItem('agendacar_sessao');
             if (sessaoStr) {
                 const btnLogin = document.getElementById('btnLogin');
                 const btnPanel = document.getElementById('btnPanel');
                 
                 if (btnLogin && btnPanel) {
-                    // Oculta o botão de login se o usuário estiver logado
                     btnLogin.style.display = 'none';
-                    //botão painel
                     btnPanel.style.display = 'flex';
+                }
+            }
+
+            // ADICIONADO: EXIBE O BOTÃO SE VIER DO CADASTRO
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('origem') === 'cadastro') {
+                const btnBack = document.querySelector('.btn-back-cadastro');
+                if (btnBack) {
+                    btnBack.style.display = 'inline-flex';
                 }
             }
         });

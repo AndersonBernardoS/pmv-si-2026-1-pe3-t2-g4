@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgendaCar - Conectando você aos melhores serviços automotivos</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='0' y='4' width='5' height='5' rx='2.5' fill='%23f47920'/%3E%3Crect x='0' y='13' width='5' height='5' rx='2.5' fill='%2312368a'/%3E%3Cg transform='skewX(-10) translate(6, 1)'%3E%3Crect x='0' y='0' width='25' height='30' rx='4' fill='%2312368a'/%3E%3Crect x='4' y='3' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3Crect x='4' y='12' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3Crect x='4' y='21' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
@@ -96,7 +97,6 @@
         .user-chip:hover .painel-link { opacity: 1; color: var(--primary-orange); }
         @keyframes bounceInFade { to { opacity: 1; transform: translateY(0) scale(1); } }
 
-        /* CONTEÚDO PRINCIPAL (LANDING PAGE)*/
         .main-container { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 60px 20px; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 20; gap: 100px; }
 
         .hero-section {
@@ -283,7 +283,7 @@
                         <div class="step-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
                         <div class="step-text">
                             <h4>Aumente seu faturamento</h4>
-                            <p>Preste um ótimo serviço, receba avaliações positivas 5 estrelas e seja encontrado por novos clientes.</p>
+                            <p>Preste um ótimo serviço, receive avaliações positivas 5 estrelas e seja encontrado por novos clientes.</p>
                         </div>
                     </div>
                 </div>
@@ -319,7 +319,6 @@
                 const primeiroNome = (usuario.nome || 'Usuário').split(' ')[0];
                 const inicial = primeiroNome.charAt(0).toUpperCase();
                 
-                // Substitui os botões padrão pelo Profile Chip animado
                 headerButtons.innerHTML = `
                     <div class="user-chip" onclick="window.location.href='home.html'">
                         <div class="user-avatar">${inicial}</div>
