@@ -264,7 +264,7 @@
 
             
                 <div class="view-all-wrapper">
-                    <a href="catalogo-prestadores.html" class="btn-view-all">
+                    <a href="catalogo-prestadores.html" class="btn-view-all" onclick="verTodosPrestadores(event)">
                         <i class="fa-solid fa-car-rear"></i>
                         Ver todos os prestadores
                         <i class="fa-solid fa-arrow-right arrow-icon"></i>
@@ -370,7 +370,11 @@
                 btnSearch.style.opacity = '0.8';
 
                 const loader = document.getElementById('searchLoader');
-                if (loader) loader.classList.add('active');
+                if (loader) {
+                    
+                    document.querySelector('.loader-text').textContent = 'Buscando...';
+                    loader.classList.add('active');
+                }
 
                 setTimeout(() => {
                     window.location.href = "catalogo-prestadores.html?q=" + encodeURIComponent(termo);
@@ -379,6 +383,23 @@
                 alert('Por favor, digite um serviço para buscar!');
                 inputBusca.focus(); 
             }
+        }
+
+        // ANIMAÇÃO "VER TODOS OS PRESTADORES"
+        function verTodosPrestadores(event) {
+            if (event) event.preventDefault(); // Impede o redirecionamento imediato
+            
+            const loader = document.getElementById('searchLoader');
+            if (loader) {
+               
+                document.querySelector('.loader-text').textContent = 'Carregando...'; 
+                loader.classList.add('active'); 
+            }
+
+            // Redireciona após 1.5 segundos simulando o carregamento
+            setTimeout(() => {
+                window.location.href = "catalogo-prestadores.html";
+            }, 1500);
         }
 
         document.querySelector('.search-bar input').addEventListener('keypress', function(e) {
