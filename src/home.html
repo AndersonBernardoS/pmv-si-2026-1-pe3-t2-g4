@@ -378,7 +378,7 @@
 
                 setTimeout(() => {
                     window.location.href = "catalogo-prestadores.html?q=" + encodeURIComponent(termo);
-                }, 1500);
+                }, 1300);
             } else {
                 alert('Por favor, digite um serviço para buscar!');
                 inputBusca.focus(); 
@@ -399,7 +399,7 @@
             // Redireciona após 1.5 segundos simulando o carregamento
             setTimeout(() => {
                 window.location.href = "catalogo-prestadores.html";
-            }, 1500);
+            }, 1000);
         }
 
         document.querySelector('.search-bar input').addEventListener('keypress', function(e) {
