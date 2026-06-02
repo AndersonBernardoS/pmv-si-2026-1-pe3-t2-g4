@@ -634,6 +634,12 @@
           <button class="service-btn" data-categoria="Outros Serviços">
             <i class="fa-solid fa-toolbox"></i> Outros serviços
           </button>
+          <!-- BOTÃO VISÍVEL APENAS PARA PRESTADORES (controlado por JS) -->
+            <button class="service-btn" id="btn-gerenciar-perfil"
+                    style="display:none;"
+                    onclick="window.location.href='gerenciamento-perfil.html'">
+                <i class="fa-solid fa-user-gear"></i> Gerenciar Perfil
+            </button>
         </div>
 
         <div class="institucional">
@@ -846,6 +852,11 @@
           // nova função do modal
           btnHeader.innerHTML = `<i class="fa-solid fa-user-check"></i> Olá, ${primeiroNome} (Sair)`;
           btnHeader.onclick = showLogoutModal;
+          // ── Exibe botão de gerenciamento apenas para prestadores ──
+                    if (usuario.tipo === 'prestador') {
+                        const btnGerenciar = document.getElementById('btn-gerenciar-perfil');
+                        if (btnGerenciar) btnGerenciar.style.display = 'flex';
+                    }
         }
       });
 
