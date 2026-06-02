@@ -213,6 +213,12 @@
                 <button class="service-btn" data-categoria="Suspensão" onclick="window.location.href='catalogo-prestadores.html?categoria=Suspensão'"><i class="fa-solid fa-car-burst"></i> Suspensão</button>
                 <button class="service-btn" data-categoria="Lanternagem/Pintura" onclick="window.location.href='catalogo-prestadores.html?categoria=Lanternagem/Pintura'"><i class="fa-solid fa-spray-can"></i> Lanternagem/Pintura</button>
                 <button class="service-btn" data-categoria="Outros Serviços" onclick="window.location.href='catalogo-prestadores.html?categoria=Outros Serviços'"><i class="fa-solid fa-toolbox"></i> Outros serviços</button>
+                <!-- BOTÃO VISÍVEL APENAS PARA PRESTADORES (controlado por JS) -->
+                    <button class="service-btn" id="btn-gerenciar-perfil"
+                            style="display:none; background: linear-gradient(135deg,rgba(18,54,138,0.9),rgba(6,45,92,0.9));"
+                            onclick="window.location.href='gerenciamento-perfil.html'">
+                        <i class="fa-solid fa-user-gear"></i> Gerenciar Perfil
+                    </button>
             </div>
 
             <div class="institucional">
@@ -301,6 +307,12 @@
                 // nova função do modal
                 btnHeader.innerHTML = `<i class="fa-solid fa-user-check"></i> Olá, ${primeiroNome} (Sair)`;
                 btnHeader.onclick = showLogoutModal;
+
+                // ── Exibe botão de gerenciamento apenas para prestadores ──
+                if (usuario.tipo === 'prestador') {
+                    const btnGerenciar = document.getElementById('btn-gerenciar-perfil');
+                    if (btnGerenciar) btnGerenciar.style.display = 'flex';
+                }
             }
         });
 
