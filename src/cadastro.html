@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - AgendaCar</title>
+    <title>AgendaCar - Cadastro</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='0' y='4' width='5' height='5' rx='2.5' fill='%23f47920'/%3E%3Crect x='0' y='13' width='5' height='5' rx='2.5' fill='%2312368a'/%3E%3Cg transform='skewX(-10) translate(6, 1)'%3E%3Crect x='0' y='0' width='25' height='30' rx='4' fill='%2312368a'/%3E%3Crect x='4' y='3' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3Crect x='4' y='12' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3Crect x='4' y='21' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
@@ -33,15 +35,22 @@
         .footer-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
         .footer-links a:hover { color: var(--primary-orange); }
 
-        .loader-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(18, 54, 138, 0.98); backdrop-filter: blur(8px); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; }
+        .loader-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; 
+        }
         .loader-overlay.active { opacity: 1; visibility: visible; }
         .sport-car-loader { position: relative; width: 150px; height: 80px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; }
-        .loader-car { font-size: 60px; color: var(--primary-orange); z-index: 2; transform: skewX(-15deg); filter: drop-shadow(0 5px 15px rgba(244, 121, 32, 0.5)); animation: revvingEngine 0.1s infinite alternate; }
-        .speed-line { position: absolute; height: 4px; background: rgba(255, 255, 255, 0.8); border-radius: 4px; z-index: 1; opacity: 0; animation: dashLines 0.8s linear infinite; }
+        .loader-car { font-size: 60px; color: var(--primary-orange); z-index: 2; transform: skewX(-15deg); filter: drop-shadow(0 5px 15px rgba(244, 121, 32, 0.3)); animation: revvingEngine 0.1s infinite alternate; }
+        
+        .speed-line { position: absolute; height: 4px; background: rgba(16, 60, 143, 0.4); border-radius: 4px; z-index: 1; opacity: 0; animation: dashLines 0.8s linear infinite; }
         .line-1 { top: 20px; left: 0; width: 60px; animation-delay: 0s; }
         .line-2 { top: 40px; left: 10px; width: 40px; animation-delay: 0.2s; }
         .line-3 { top: 60px; left: -10px; width: 80px; animation-delay: 0.4s; }
-        .loader-text { color: white; font-size: 18px; font-weight: 500; letter-spacing: 2px; animation: pulseText 1.5s ease-in-out infinite; text-transform: uppercase; }
+        .loader-text { color: #12368a; font-size: 18px; font-weight: 700; letter-spacing: 2px; animation: pulseText 1.5s ease-in-out infinite; text-transform: uppercase; }
+        
         @keyframes revvingEngine { 0% { transform: skewX(-15deg) translateY(0); } 100% { transform: skewX(-15deg) translateY(-2px); } }
         @keyframes dashLines { 0% { transform: translateX(80px); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateX(-80px); opacity: 0; } }
         @keyframes pulseText { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -103,7 +112,6 @@
         #msg-feedback { font-size: 15px; padding: 12px; border-radius: 8px; display: none; font-weight: 600; text-align: center; grid-column: span 2;}
         .msg-error { background-color: #ffeaea; color: #d93025; border: 1px solid #d93025; }
 
-        /* CLASSE AUXILIAR PARA OCULTAR O CAMPO CNPJ */
         .hidden { display: none !important; }
 
         @media (max-width: 768px) {
@@ -186,6 +194,11 @@
                         <input type="tel" id="celular_cad" placeholder="(00) 00000-0000" required>
                     </div>
                     
+                    <div class="form-group" id="grupo_cpf">
+                        <label for="cpf_cad">CPF</label>
+                        <input type="text" id="cpf_cad" placeholder="000.000.000-00" required>
+                    </div>
+
                     <div class="form-group hidden" id="grupo_cnpj">
                         <label for="cnpj_cad">CNPJ</label>
                         <input type="text" id="cnpj_cad" placeholder="00.000.000/0000-00">
@@ -261,7 +274,7 @@
                         <input type="checkbox" id="termos" required>
                         <label for="termos">
                             <strong>Concordo com os termos e política de privacidade.</strong><br>
-                            <span>Leia nossos <a href="termos-uso.html" style="color:var(--primary-blue);">termos</a> e <a href="politica-privacidade.html" style="color:var(--primary-blue);">política de privacidade</a>.</span>
+                            <span>Leia nossos <a href="termos-uso.html?origem=cadastro" style="color:var(--primary-blue);">termos</a> e <a href="politica-privacidade.html?origem=cadastro" style="color:var(--primary-blue);">política de privacidade</a>.</span>
                         </label>
                     </div>
                     <button type="submit" class="btn-submit">CADASTRAR</button>
@@ -283,7 +296,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Lógica do Header
             const sessaoStr = localStorage.getItem('agendacar_sessao');
             if (sessaoStr) {
                 const btnLogin = document.getElementById('btnLogin');
@@ -295,19 +307,36 @@
                 }
             }
 
-            // Lógica para Mostrar/Esconder o campo CNPJ dependendo do tipo de conta
             const radiosTipoConta = document.querySelectorAll('input[name="tipo_conta"]');
             const grupoCnpj = document.getElementById('grupo_cnpj');
             const inputCnpj = document.getElementById('cnpj_cad');
+            const grupoCpf = document.getElementById('grupo_cpf');
+            const inputCpf = document.getElementById('cpf_cad');
 
+            // LÓGICA DE INTERCONEXÃO DE EXIBIÇÃO CONTEXTUAL DOS CAMPOS
             function alternarTipoConta(tipo) {
                 if (tipo === 'prestador') {
-                    grupoCnpj.classList.remove('hidden');
-                    inputCnpj.required = true;
+                    // Exibe CNPJ e o torna obrigatório
+                    if(grupoCnpj) grupoCnpj.classList.remove('hidden');
+                    if(inputCnpj) inputCnpj.required = true;
+                    
+                    // Esconde CPF, desativa obrigatoriedade e limpa dados antigos
+                    if(grupoCpf) grupoCpf.classList.add('hidden');
+                    if(inputCpf) {
+                        inputCpf.required = false;
+                        inputCpf.value = '';
+                    }
                 } else {
-                    grupoCnpj.classList.add('hidden');
-                    inputCnpj.required = false;
-                    inputCnpj.value = ''; 
+                    // Exibe CPF e o torna obrigatório
+                    if(grupoCpf) grupoCpf.classList.remove('hidden');
+                    if(inputCpf) inputCpf.required = true;
+                    
+                    // Esconde CNPJ, desativa obrigatoriedade e limpa dados antigos
+                    if(grupoCnpj) grupoCnpj.classList.add('hidden');
+                    if(inputCnpj) {
+                        inputCnpj.required = false;
+                        inputCnpj.value = ''; 
+                    }
                 }
             }
 
@@ -317,7 +346,6 @@
                 });
             });
 
-            // LÊ A URL E SELECIONA O TIPO DE CONTA (SE VIER DA LANDING PAGE)
             const urlParams = new URLSearchParams(window.location.search);
             if(urlParams.get('tipo') === 'prestador') {
                 const prestadorRadio = document.querySelector('input[name="tipo_conta"][value="prestador"]');
@@ -328,9 +356,19 @@
             }
         });
 
-        // Lógica de Cadastro e Máscaras
         document.getElementById('form-cadastro').addEventListener('submit', function(event) {
             event.preventDefault();
+            
+            const feedback = document.getElementById('msg-feedback');
+            const checkboxTermos = document.getElementById('termos');
+
+            if (!checkboxTermos.checked) {
+                feedback.textContent = 'Você precisa concordar com os termos e política de privacidade para prosseguir!';
+                feedback.className = 'msg-error';
+                feedback.style.display = 'block';
+                feedback.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
             
             const nome = document.getElementById('nome_cad').value.trim();
             const email = document.getElementById('email_cad').value.trim().toLowerCase();
@@ -339,14 +377,15 @@
             const password = document.getElementById('senha_cad').value.trim();
             const tipoConta = document.querySelector('input[name="tipo_conta"]:checked').value;
             
-            const cnpj = document.getElementById('cnpj_cad').value.trim();
+            // CAPTURA INTELIGENTE CONTEXTUAL DE DOCUMENTOS
+            const cpf = tipoConta === 'cliente' ? document.getElementById('cpf_cad').value.trim() : null;
+            const cnpj = tipoConta === 'prestador' ? document.getElementById('cnpj_cad').value.trim() : null;
             
             const servicosSelecionados = [];
             document.querySelectorAll('input[name="servicos"]:checked').forEach((checkbox) => {
                 servicosSelecionados.push(checkbox.value);
             });
 
-            const feedback = document.getElementById('msg-feedback');
             let usuarios = JSON.parse(localStorage.getItem('agendacar_usuarios')) || [];
             const emailExiste = usuarios.find(u => u.email === email);
 
@@ -365,7 +404,8 @@
                 nascimento: nascimento,
                 senha: password,
                 tipo: tipoConta,
-                cnpj: tipoConta === 'prestador' ? cnpj : null,
+                cpf: cpf,
+                cnpj: cnpj,
                 servicos: servicosSelecionados
             };
 
@@ -380,27 +420,46 @@
             }, 2500);
         });
 
-        // Máscaras de input
-        document.getElementById('celular_cad').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '').slice(0, 11);
-            let x = value.match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-        });
+        // MÁSCARA DO CAMPO CELULAR
+        if(document.getElementById('celular_cad')) {
+            document.getElementById('celular_cad').addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '').slice(0, 11);
+                let x = value.match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+            });
+        }
 
-        document.getElementById('nascimento_cad').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '').slice(0, 8);
-            let x = value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
-            e.target.value = !x[2] ? x[1] : x[1] + '/' + x[2] + (x[3] ? '/' + x[3] : '');
-        });
+        // MÁSCARA DO CAMPO CPF
+        if(document.getElementById('cpf_cad')) {
+            document.getElementById('cpf_cad').addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '').slice(0, 11);
+                value = value.replace(/^(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                e.target.value = value;
+            });
+        }
 
-        document.getElementById('cnpj_cad').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '').slice(0, 14);
-            value = value.replace(/^(\d{2})(\d)/, '$1.$2');
-            value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
-            value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
-            value = value.replace(/(\d{4})(\d)/, '$1-$2');
-            e.target.value = value;
-        });
+        // MÁSCARA DO CAMPO CNPJ
+        if(document.getElementById('cnpj_cad')) {
+            document.getElementById('cnpj_cad').addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '').slice(0, 14);
+                value = value.replace(/^(\d{2})(\d)/, '$1.$2');
+                value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+                value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
+                value = value.replace(/(\d{4})(\d)/, '$1-$2');
+                e.target.value = value;
+            });
+        }
+
+        // MÁSCARA DA DATA DE NASCIMENTO
+        if(document.getElementById('nascimento_cad')) {
+            document.getElementById('nascimento_cad').addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '').slice(0, 8);
+                let x = value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : x[1] + '/' + x[2] + (x[3] ? '/' + x[3] : '');
+            });
+        }
     </script>
 </body>
 </html>
