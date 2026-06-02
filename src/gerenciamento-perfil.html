@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaCar - Gerenciamento de Perfil</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='0' y='4' width='5' height='5' rx='2.5' fill='%23f47920'/%3E%3Crect x='0' y='13' width='5' height='5' rx='2.5' fill='%2312368a'/%3E%3Cg transform='skewX(-10) translate(6, 1)'%3E%3Crect x='0' y='0' width='25' height='30' rx='4' fill='%2312368a'/%3E%3Crect x='4' y='3' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3Crect x='4' y='12' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3Crect x='4' y='21' width='17' height='5' rx='2' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        :root {
+            --primary-blue: #12368a;
+            --primary-orange: #ff7e15;
+            --orange-hover: #e06815;
+            --bg-gray: #f5f6f8;
+            --text-dark: #333;
+            --text-blue: #1f3b7b;
+            --text-light: #777;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Roboto", sans-serif; }
+        body { background-color: var(--bg-gray); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+
+        /* BACKGROUND */
+        .background-visuals { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; pointer-events: none; background: linear-gradient(135deg, #e4e9f2 0%, #d8dfea 100%); overflow: hidden; }
+        .tech-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(16,60,143,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16,60,143,0.08) 1px, transparent 1px); background-size: 60px 60px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: gridMove 20s linear infinite; }
+        @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); } 100% { transform: perspective(500px) rotateX(60deg) translateY(60px) translateZ(-200px); } }
+
+        /* HEADER */
+        header { background: rgba(7,53,138,0.932); backdrop-filter: blur(12px); height: 80px; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; box-shadow: 0 4px 30px rgba(0,0,0,0.1); border-bottom: 1px solid rgba(255,255,255,0.2); position: sticky; top: 0; z-index: 100; flex-shrink: 0; }
+        .Logo { display: flex; align-items: center; height: 100%; text-decoration: none; }
+        .Logo img { height: 60px; width: auto; display: block; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); border-radius: 8px; }
+        .btn-header { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 10px 24px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }
+        .btn-header:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+
+        /* LAYOUT */
+        .main-container { display: flex; flex: 1 0 auto; position: relative; z-index: 20; }
+
+        /* SIDEBAR */
+        .sidebar { width: 280px; background: linear-gradient(180deg, rgba(11,57,143,0.95) 0%, rgba(6,45,92,0.95) 45%, rgba(1,6,15,0.8) 100%); backdrop-filter: blur(25px); display: flex; flex-direction: column; justify-content: space-between; box-shadow: 4px 0 20px rgba(0,0,0,0.1); border-right: 1px solid rgba(255,255,255,0.1); }
+        .menu-services { padding: 30px 20px; display: flex; flex-direction: column; gap: 15px; }
+        .service-btn { background: linear-gradient(135deg, rgba(244,121,32,0.9), rgba(224,104,21,0.9)); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; color: white; padding: 15px; display: flex; align-items: center; gap: 15px; font-size: 16px; font-weight: 700; cursor: pointer; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: all 0.3s; }
+        .service-btn:hover { transform: translateX(5px); box-shadow: 0 6px 20px rgba(244,121,32,0.4); }
+        .service-btn i { font-size: 20px; background-color: rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; }
+        .service-btn.ativo { background: linear-gradient(135deg, rgba(18,54,138,0.95), rgba(6,45,92,0.95)); box-shadow: 0 4px 15px rgba(18,54,138,0.4); }
+        .institucional { padding: 30px 20px; flex: 1; }
+        .institucional h3 { color: white; margin-bottom: 15px; font-size: 18px; font-weight: 800; }
+        .institucional ul { list-style: none; padding: 0; margin: 0; }
+        .institucional li { margin-bottom: 12px; }
+        .institucional a { text-decoration: none; color: white; font-size: 14px; font-weight: 500; opacity: 0.7; transition: opacity 0.3s; }
+        .institucional a:hover { opacity: 1; text-decoration: underline; }
+
+        /* CONTEÚDO */
+        .content { flex: 1; padding: 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+        /* CARD PERFIL */
+        .perfil-card { width: 100%; max-width: 1000px; background: white; border-radius: 16px; padding: 32px 40px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 2px solid rgba(11,115,255,0.08); display: flex; align-items: center; gap: 32px; }
+        .perfil-avatar-wrapper { position: relative; flex-shrink: 0; }
+        .perfil-avatar { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--primary-orange); background: #e0e7ef; display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--primary-blue); }
+        .perfil-avatar-edit { position: absolute; bottom: 4px; right: 4px; width: 28px; height: 28px; border-radius: 50%; background: var(--primary-orange); color: white; border: 2px solid white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: background 0.2s; }
+        .perfil-avatar-edit:hover { background: var(--orange-hover); }
+        .perfil-info h2 { font-size: 22px; color: var(--primary-blue); font-weight: 800; margin-bottom: 4px; }
+        .perfil-info .perfil-categoria { font-size: 14px; color: var(--text-light); margin-bottom: 8px; }
+        .perfil-info .perfil-avaliacao { display: flex; align-items: center; gap: 6px; }
+        .perfil-info .perfil-avaliacao .stars { color: var(--primary-orange); font-size: 16px; }
+        .perfil-info .perfil-avaliacao span { font-size: 13px; color: var(--text-light); }
+        .perfil-status-badge { display: inline-flex; align-items: center; gap: 6px; background: #e8f5e9; color: #2e7d32; border-radius: 20px; padding: 4px 14px; font-size: 13px; font-weight: 700; margin-top: 10px; }
+        .perfil-info { flex: 1; }
+
+        /* ABAS */
+        .tabs-wrapper { width: 100%; max-width: 1000px; }
+        .tabs { display: flex; gap: 4px; background: white; border-radius: 12px 12px 0 0; padding: 8px 8px 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.04); border: 2px solid rgba(11,115,255,0.08); border-bottom: none; }
+        .tab-btn { padding: 12px 28px; border: none; background: transparent; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 15px; font-weight: 700; color: var(--text-light); transition: all 0.25s; display: flex; align-items: center; gap: 8px; }
+        .tab-btn:hover { color: var(--primary-blue); background: var(--bg-gray); }
+        .tab-btn.active { color: var(--primary-blue); background: var(--bg-gray); border-bottom: 3px solid var(--primary-orange); }
+        .tab-btn.active i { color: var(--primary-orange); }
+        .tab-panel { display: none; width: 100%; max-width: 1000px; background: var(--bg-gray); border-radius: 0 0 16px 16px; padding: 32px 40px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 2px solid rgba(11,115,255,0.08); border-top: none; animation: fadeIn 0.25s ease; }
+        .tab-panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* SEÇÕES */
+        .section-title { font-size: 16px; font-weight: 800; color: var(--primary-blue); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid rgba(18,54,138,0.1); display: flex; align-items: center; gap: 8px; }
+        .section-title i { color: var(--primary-orange); }
+
+        /* FORMULÁRIOS */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+        .form-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group.full { grid-column: 1 / -1; }
+        label { font-size: 13px; font-weight: 700; color: #374151; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="password"], select, textarea { padding: 10px 14px; border: 1.5px solid #e5e7eb; border-radius: 8px; font-size: 14px; background: white; color: var(--text-dark); transition: border-color 0.2s, box-shadow 0.2s; width: 100%; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(18,54,138,0.08); }
+        textarea { resize: vertical; min-height: 90px; }
+
+        /* BOTÕES */
+        .btn-salvar { background: linear-gradient(135deg, #f47120, #ff8a1a); color: white; border: none; padding: 13px 36px; border-radius: 8px; font-size: 15px; font-weight: 800; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-salvar:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(244,121,32,0.4); }
+        .btn-secundario { background: white; color: var(--primary-blue); border: 2px solid var(--primary-blue); padding: 11px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+        .btn-secundario:hover { background: var(--primary-blue); color: white; }
+        .btn-row { display: flex; gap: 12px; justify-content: flex-end; margin-top: 8px; }
+
+        /* AGENDA */
+        .dias-semana { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+        .dia-toggle { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; }
+        .dia-toggle input[type="checkbox"] { display: none; }
+        .dia-label { width: 56px; height: 56px; border-radius: 12px; background: white; border: 2px solid #e5e7eb; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--text-light); transition: all 0.2s; cursor: pointer; user-select: none; }
+        .dia-toggle input:checked + .dia-label { background: var(--primary-blue); color: white; border-color: var(--primary-blue); box-shadow: 0 4px 12px rgba(18,54,138,0.3); }
+        .dia-nome { font-size: 11px; color: var(--text-light); font-weight: 700; }
+        .horarios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+        .horario-grupo { background: white; border-radius: 10px; padding: 16px; border: 1.5px solid #e5e7eb; }
+        .horario-grupo label { font-size: 13px; font-weight: 700; color: var(--primary-blue); display: block; margin-bottom: 10px; }
+        .horario-inputs { display: flex; align-items: center; gap: 8px; }
+        .horario-inputs input { width: 90px; text-align: center; }
+        .horario-inputs span { color: var(--text-light); font-weight: 700; }
+        .vagas-box { background: white; border-radius: 10px; padding: 16px 20px; border: 1.5px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+        .vagas-box label { font-size: 14px; font-weight: 700; color: var(--primary-blue); }
+        .vagas-controls { display: flex; align-items: center; gap: 12px; }
+        .vagas-btn { width: 34px; height: 34px; border-radius: 8px; background: var(--bg-gray); border: 1.5px solid #e5e7eb; font-size: 18px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .vagas-btn:hover { background: var(--primary-orange); color: white; border-color: var(--primary-orange); }
+        .vagas-num { font-size: 22px; font-weight: 800; color: var(--primary-blue); min-width: 28px; text-align: center; }
+
+        /* AGENDAMENTOS */
+        .agendamentos-lista { display: flex; flex-direction: column; gap: 14px; }
+        .agendamento-card { background: white; border-radius: 12px; padding: 20px 24px; border: 1.5px solid #e5e7eb; display: flex; align-items: center; gap: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: box-shadow 0.2s; }
+        .agendamento-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+        .agend-icone { width: 48px; height: 48px; border-radius: 12px; background: rgba(18,54,138,0.08); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--primary-blue); flex-shrink: 0; }
+        .agend-info { flex: 1; }
+        .agend-info .agend-cliente { font-weight: 800; color: var(--text-dark); font-size: 15px; }
+        .agend-info .agend-servico { font-size: 13px; color: var(--text-light); margin-top: 2px; }
+        .agend-info .agend-data { font-size: 13px; color: var(--primary-blue); font-weight: 700; margin-top: 4px; }
+        .agend-placa { background: var(--bg-gray); border-radius: 6px; padding: 4px 10px; font-size: 13px; font-weight: 700; color: var(--text-dark); border: 1px solid #e5e7eb; flex-shrink: 0; }
+        .agend-acoes { display: flex; gap: 8px; flex-shrink: 0; }
+        .btn-aceitar { background: #e8f5e9; color: #2e7d32; border: 1.5px solid #a5d6a7; border-radius: 8px; padding: 8px 18px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-aceitar:hover { background: #c8e6c9; }
+        .btn-recusar { background: #fff3f3; color: #c62828; border: 1.5px solid #ef9a9a; border-radius: 8px; padding: 8px 18px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-recusar:hover { background: #ffcdd2; }
+        .btn-propor { background: #fff8e1; color: #f57f17; border: 1.5px solid #ffe082; border-radius: 8px; padding: 8px 18px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-propor:hover { background: #fff3cd; }
+        .badge-status { display: inline-flex; align-items: center; gap: 5px; border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+        .badge-pendente { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+        .badge-confirmado { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+
+        /* FOOTER */
+        footer { background: rgb(42,50,59); backdrop-filter: blur(10px); border-top: 1px solid rgba(0,0,0,0.05); padding: 10px 40px; display: flex; justify-content: flex-start; align-items: center; gap: 20px; position: relative; z-index: 20; flex-shrink: 0; }
+        footer i { font-size: 22px; color: #718096; cursor: pointer; transition: color 0.3s, transform 0.2s; }
+        footer i:hover { color: #ff8a1a; transform: scale(1.15) translateY(-2px); }
+
+        /* MODAIS */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(1,6,15,0.6); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-box { background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.8)); padding: 40px; border-radius: 24px; text-align: center; border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 15px 50px rgba(0,0,0,0.3); max-width: 400px; width: 90%; transform: scale(0.8) translateY(30px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .modal-overlay.active .modal-box { transform: scale(1) translateY(0); }
+        .modal-box i.modal-icon { font-size: 55px; margin-bottom: 20px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
+        .modal-box h3 { color: var(--primary-blue); font-size: 22px; margin-bottom: 12px; font-weight: 800; }
+        .modal-box p { color: #374151; margin-bottom: 28px; font-size: 15px; line-height: 1.5; }
+        .modal-buttons { display: flex; gap: 12px; justify-content: center; }
+        .btn-modal-cancel { flex: 1; padding: 12px; border-radius: 12px; border: 2px solid #cbd5e1; background: transparent; color: #374151; font-size: 15px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn-modal-cancel:hover { background: rgba(0,0,0,0.05); }
+        .btn-modal-ok { flex: 1; padding: 12px; border-radius: 12px; border: none; background: linear-gradient(135deg, #f47120, #ff9040); color: white; font-size: 15px; font-weight: 700; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(244,121,32,0.3); }
+        .btn-modal-ok:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(244,121,32,0.5); }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .main-container { flex-direction: column; }
+            .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; }
+            .menu-services { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .form-grid, .form-grid.three-col { grid-template-columns: 1fr; }
+            .horarios-grid { grid-template-columns: 1fr; }
+            .perfil-card { flex-direction: column; align-items: flex-start; }
+            .agendamento-card { flex-direction: column; align-items: flex-start; }
+            .agend-acoes { width: 100%; justify-content: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-visuals"><div class="tech-grid"></div></div>
+
+    <!-- HEADER -->
+    <header>
+        <a href="home.html" class="Logo">
+            <img src="img/HLogo.png" alt="AgendaCar" onerror="this.style.display='none'">
+        </a>
+        <button class="btn-header" id="btnHeader" onclick="showModal('logout')">
+            <i class="fa-solid fa-user-check"></i> Carregando...
+        </button>
+    </header>
+
+    <div class="main-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="menu-services">
+                <button class="service-btn" onclick="window.location.href='catalogo-prestadores.html?categoria=Mecânica Geral'"><i class="fa-solid fa-wrench"></i> Mecânica Geral</button>
+                <button class="service-btn" onclick="window.location.href='catalogo-prestadores.html?categoria=Motores'"><i class="fa-solid fa-cogs"></i> Motores</button>
+                <button class="service-btn" onclick="window.location.href='catalogo-prestadores.html?categoria=Suspensão'"><i class="fa-solid fa-car-burst"></i> Suspensão</button>
+                <button class="service-btn" onclick="window.location.href='catalogo-prestadores.html?categoria=Lanternagem/Pintura'"><i class="fa-solid fa-spray-can"></i> Lanternagem/Pintura</button>
+                <button class="service-btn" onclick="window.location.href='catalogo-prestadores.html?categoria=Outros Serviços'"><i class="fa-solid fa-toolbox"></i> Outros serviços</button>
+                <!-- Botão de perfil destacado como ativo -->
+                <button class="service-btn ativo"><i class="fa-solid fa-user-gear"></i> Gerenciar Perfil</button>
+            </div>
+            <div class="institucional">
+                <h3>Institucional</h3>
+                <ul>
+                    <li><a href="quem-somos.html">Quem somos?</a></li>
+                    <li><a href="fale-conosco.html">Fale conosco</a></li>
+                    <li><a href="termos-uso.html">Termos de Uso</a></li>
+                    <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            <!-- CARD DE PERFIL -->
+            <div class="perfil-card">
+                <div class="perfil-avatar-wrapper">
+                    <div class="perfil-avatar"><i class="fa-solid fa-store"></i></div>
+                    <button class="perfil-avatar-edit" title="Alterar foto"><i class="fa-solid fa-camera"></i></button>
+                </div>
+                <div class="perfil-info">
+                    <h2 id="nomeExibido">Carregando...</h2>
+                    <div class="perfil-categoria"><i class="fa-solid fa-tag"></i> <span id="categoriaExibida">—</span></div>
+                    <div class="perfil-avaliacao">
+                        <span class="stars">★★★★☆</span>
+                        <span>Prestador de Serviços</span>
+                    </div>
+                    <div class="perfil-status-badge"><i class="fa-solid fa-circle"></i> Ativo na plataforma</div>
+                </div>
+            </div>
+
+            <!-- ABAS -->
+            <div class="tabs-wrapper">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="mudarAba('perfil', this)"><i class="fa-solid fa-user"></i> Meu Perfil</button>
+                    <button class="tab-btn" onclick="mudarAba('agenda', this)"><i class="fa-solid fa-calendar-days"></i> Minha Agenda</button>
+                    <button class="tab-btn" onclick="mudarAba('agendamentos', this)">
+                        <i class="fa-solid fa-list-check"></i> Agendamentos
+                        <span id="badgePendentes" style="background:var(--primary-orange);color:white;border-radius:12px;padding:2px 8px;font-size:11px;margin-left:4px;">0</span>
+                    </button>
+                </div>
+
+                <!-- ===== ABA PERFIL ===== -->
+                <div class="tab-panel active" id="tab-perfil">
+                    <div class="section-title"><i class="fa-solid fa-building"></i> Dados do estabelecimento</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Nome completo / Estabelecimento</label>
+                            <input type="text" id="campo-nome" placeholder="Seu nome ou nome do negócio">
+                        </div>
+                        <div class="form-group">
+                            <label>CNPJ</label>
+                            <input type="text" id="campo-cnpj" placeholder="00.000.000/0001-00">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone / WhatsApp</label>
+                            <input type="tel" id="campo-celular" placeholder="(31) 99999-0000">
+                        </div>
+                        <div class="form-group">
+                            <label>Categoria principal</label>
+                            <select id="campo-categoria">
+                                <option value="">Selecione...</option>
+                                <option value="Mecânica em geral">Mecânica em geral</option>
+                                <option value="Motores">Motores</option>
+                                <option value="Suspensão">Suspensão</option>
+                                <option value="Lanternagem e pintura">Lanternagem e pintura</option>
+                                <option value="Outros serviços">Outros serviços</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label>Descrição do negócio</label>
+                            <textarea id="campo-descricao" placeholder="Especialidades, diferenciais, anos de experiência..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="section-title"><i class="fa-solid fa-location-dot"></i> Endereço</div>
+                    <div class="form-grid three-col">
+                        <div class="form-group">
+                            <label>CEP</label>
+                            <input type="text" id="campo-cep" placeholder="00000-000">
+                        </div>
+                        <div class="form-group">
+                            <label>Logradouro</label>
+                            <input type="text" id="campo-logradouro" placeholder="Rua, Avenida...">
+                        </div>
+                        <div class="form-group">
+                            <label>Número</label>
+                            <input type="text" id="campo-numero" placeholder="123">
+                        </div>
+                        <div class="form-group">
+                            <label>Bairro</label>
+                            <input type="text" id="campo-bairro" placeholder="Bairro">
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade</label>
+                            <input type="text" id="campo-cidade" placeholder="Cidade">
+                        </div>
+                        <div class="form-group">
+                            <label>Estado</label>
+                            <select id="campo-estado">
+                                <option value="">UF</option>
+                                <option>AC</option><option>AL</option><option>AM</option><option>BA</option>
+                                <option>CE</option><option>DF</option><option>ES</option><option>GO</option>
+                                <option>MA</option><option>MG</option><option>MS</option><option>MT</option>
+                                <option>PA</option><option>PB</option><option>PE</option><option>PI</option>
+                                <option>PR</option><option>RJ</option><option>RN</option><option>RO</option>
+                                <option>RR</option><option>RS</option><option>SC</option><option>SE</option>
+                                <option>SP</option><option>TO</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="section-title"><i class="fa-solid fa-lock"></i> Acesso</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>E-mail de acesso</label>
+                            <input type="email" id="campo-email" placeholder="email@exemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Nova senha <small style="font-weight:400;color:#999">(deixe em branco para manter)</small></label>
+                            <input type="password" id="campo-senha" placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="btn-secundario" onclick="cancelarEdicao()">Cancelar</button>
+                        <button class="btn-salvar" onclick="salvarPerfil()"><i class="fa-solid fa-floppy-disk"></i> Salvar alterações</button>
+                    </div>
+                </div>
+
+                <!-- ===== ABA AGENDA ===== -->
+                <div class="tab-panel" id="tab-agenda">
+                    <div class="section-title"><i class="fa-solid fa-calendar-week"></i> Dias de atendimento</div>
+                    <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;">Selecione os dias em que você atende clientes.</p>
+                    <div class="dias-semana">
+                        <label class="dia-toggle"><input type="checkbox" id="dia-seg"><div class="dia-label">Seg</div><span class="dia-nome">Segunda</span></label>
+                        <label class="dia-toggle"><input type="checkbox" id="dia-ter"><div class="dia-label">Ter</div><span class="dia-nome">Terça</span></label>
+                        <label class="dia-toggle"><input type="checkbox" id="dia-qua"><div class="dia-label">Qua</div><span class="dia-nome">Quarta</span></label>
+                        <label class="dia-toggle"><input type="checkbox" id="dia-qui"><div class="dia-label">Qui</div><span class="dia-nome">Quinta</span></label>
+                        <label class="dia-toggle"><input type="checkbox" id="dia-sex"><div class="dia-label">Sex</div><span class="dia-nome">Sexta</span></label>
+                        <label class="dia-toggle"><input type="checkbox" id="dia-sab"><div class="dia-label">Sáb</div><span class="dia-nome">Sábado</span></label>
+                        <label class="dia-toggle"><input type="checkbox" id="dia-dom"><div class="dia-label">Dom</div><span class="dia-nome">Domingo</span></label>
+                    </div>
+
+                    <div class="section-title"><i class="fa-solid fa-clock"></i> Horários de funcionamento</div>
+                    <div class="horarios-grid">
+                        <div class="horario-grupo">
+                            <label><i class="fa-solid fa-sun"></i> Período da manhã</label>
+                            <div class="horario-inputs">
+                                <input type="text" id="manha-inicio" placeholder="08:00">
+                                <span>até</span>
+                                <input type="text" id="manha-fim" placeholder="12:00">
+                            </div>
+                        </div>
+                        <div class="horario-grupo">
+                            <label><i class="fa-solid fa-cloud-sun"></i> Período da tarde</label>
+                            <div class="horario-inputs">
+                                <input type="text" id="tarde-inicio" placeholder="13:00">
+                                <span>até</span>
+                                <input type="text" id="tarde-fim" placeholder="18:00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-title"><i class="fa-solid fa-users"></i> Vagas simultâneas</div>
+                    <p style="font-size:13px;color:var(--text-light);margin-bottom:12px;">Quantos clientes você consegue atender ao mesmo tempo?</p>
+                    <div class="vagas-box">
+                        <label>Vagas por horário</label>
+                        <div class="vagas-controls">
+                            <button class="vagas-btn" onclick="alterarVagas(-1)">−</button>
+                            <span class="vagas-num" id="qtdVagas">2</span>
+                            <button class="vagas-btn" onclick="alterarVagas(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="btn-secundario" onclick="carregarAgenda()">Descartar alterações</button>
+                        <button class="btn-salvar" onclick="salvarAgenda()"><i class="fa-solid fa-floppy-disk"></i> Salvar agenda</button>
+                    </div>
+                </div>
+
+                <!-- ===== ABA AGENDAMENTOS ===== -->
+                <div class="tab-panel" id="tab-agendamentos">
+                    <div class="section-title"><i class="fa-solid fa-hourglass-half"></i> Solicitações pendentes</div>
+                    <div class="agendamentos-lista" id="listaAgendamentos">
+                        <!-- Agendamentos de exemplo (em produção viriam do localStorage) -->
+                        <div class="agendamento-card">
+                            <div class="agend-icone"><i class="fa-solid fa-car"></i></div>
+                            <div class="agend-info">
+                                <div class="agend-cliente">Maria Souza</div>
+                                <div class="agend-servico">Troca de óleo e filtros</div>
+                                <div class="agend-data"><i class="fa-regular fa-calendar"></i> Seg, 02 Jun 2026 · 09:00</div>
+                            </div>
+                            <div class="agend-placa">ABC-1D23</div>
+                            <span class="badge-status badge-pendente"><i class="fa-solid fa-circle"></i> Pendente</span>
+                            <div class="agend-acoes">
+                                <button class="btn-aceitar" onclick="acaoAgendamento('aceitar',this)"><i class="fa-solid fa-check"></i> Aceitar</button>
+                                <button class="btn-propor" onclick="acaoAgendamento('propor',this)"><i class="fa-solid fa-calendar-xmark"></i> Propor data</button>
+                                <button class="btn-recusar" onclick="acaoAgendamento('recusar',this)"><i class="fa-solid fa-xmark"></i> Recusar</button>
+                            </div>
+                        </div>
+                        <div class="agendamento-card">
+                            <div class="agend-icone"><i class="fa-solid fa-car"></i></div>
+                            <div class="agend-info">
+                                <div class="agend-cliente">Carlos Pereira</div>
+                                <div class="agend-servico">Alinhamento e balanceamento</div>
+                                <div class="agend-data"><i class="fa-regular fa-calendar"></i> Ter, 03 Jun 2026 · 14:00</div>
+                            </div>
+                            <div class="agend-placa">XYZ-9K87</div>
+                            <span class="badge-status badge-pendente"><i class="fa-solid fa-circle"></i> Pendente</span>
+                            <div class="agend-acoes">
+                                <button class="btn-aceitar" onclick="acaoAgendamento('aceitar',this)"><i class="fa-solid fa-check"></i> Aceitar</button>
+                                <button class="btn-propor" onclick="acaoAgendamento('propor',this)"><i class="fa-solid fa-calendar-xmark"></i> Propor data</button>
+                                <button class="btn-recusar" onclick="acaoAgendamento('recusar',this)"><i class="fa-solid fa-xmark"></i> Recusar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /tabs-wrapper -->
+        </main>
+    </div>
+
+    <footer>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+    </footer>
+
+    <!-- MODAL LOGOUT -->
+    <div class="modal-overlay" id="modal-logout">
+        <div class="modal-box">
+            <i class="fa-solid fa-person-walking-arrow-right modal-icon" style="color:var(--primary-orange)"></i>
+            <h3>Já vai embora?</h3>
+            <p>Tem certeza que deseja sair da sua conta?</p>
+            <div class="modal-buttons">
+                <button class="btn-modal-cancel" onclick="hideModal('logout')">Cancelar</button>
+                <button class="btn-modal-ok" onclick="confirmarLogout()">Sim, sair</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FEEDBACK -->
+    <div class="modal-overlay" id="modal-feedback">
+        <div class="modal-box">
+            <i class="modal-icon" id="feedback-icon" style="color:#2e7d32"></i>
+            <h3 id="feedback-titulo">Salvo!</h3>
+            <p id="feedback-texto">Alterações salvas com sucesso.</p>
+            <div class="modal-buttons">
+                <button class="btn-modal-ok" onclick="hideModal('feedback')" style="flex:unset;padding:12px 40px;">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // ESTADO GLOBAL
+    // ================================================================
+    let usuarioLogado = null;   // objeto completo da sessão
+    let vagas = 2;
+
+    // INICIALIZAÇÃO — lê sessão e carrega dados
+    // ================================================================
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // 1. Verifica se há sessão ativa
+        const sessaoStr = localStorage.getItem('agendacar_sessao');
+        if (!sessaoStr) {
+            window.location.href = 'login.html';
+            return;
+        }
+        usuarioLogado = JSON.parse(sessaoStr);
+
+        // 2. Garante que é prestador — se for cliente, redireciona
+        if (usuarioLogado.tipo !== 'prestador') {
+            window.location.href = 'home.html';
+            return;
+        }
+
+        // 3. Atualiza saudação no header
+        const primeiroNome = (usuarioLogado.nome || 'Prestador').split(' ')[0];
+        const btnHeader = document.getElementById('btnHeader');
+        if (btnHeader) {
+            btnHeader.innerHTML = `<i class="fa-solid fa-user-check"></i> Olá, ${primeiroNome} (Sair)`;
+        }
+
+        // 4. Carrega dados nos formulários
+        carregarPerfil();
+        carregarAgenda();
+    });
+
+    // CARREGA PERFIL NO FORMULÁRIO
+    // ================================================================
+    function carregarPerfil() {
+        if (!usuarioLogado) return;
+
+        // Dados básicos
+        definirCampo('campo-nome',        usuarioLogado.nome        || '');
+        definirCampo('campo-cnpj',        usuarioLogado.cnpj        || '');
+        definirCampo('campo-celular',     usuarioLogado.celular     || '');
+        definirCampo('campo-descricao',   usuarioLogado.descricao   || '');
+        definirCampo('campo-email',       usuarioLogado.email       || '');
+
+        // Categoria (select)
+        const selectCat = document.getElementById('campo-categoria');
+        if (selectCat && usuarioLogado.servicos && usuarioLogado.servicos.length > 0) {
+            selectCat.value = usuarioLogado.servicos[0]; // usa o primeiro serviço como categoria principal
+        }
+
+        // Endereço (salvo como objeto usuarioLogado.endereco)
+        const end = usuarioLogado.endereco || {};
+        definirCampo('campo-cep',        end.cep        || '');
+        definirCampo('campo-logradouro', end.logradouro || '');
+        definirCampo('campo-numero',     end.numero     || '');
+        definirCampo('campo-bairro',     end.bairro     || '');
+        definirCampo('campo-cidade',     end.cidade     || '');
+        const selectEstado = document.getElementById('campo-estado');
+        if (selectEstado) selectEstado.value = end.estado || '';
+
+        // Atualiza card de perfil
+        document.getElementById('nomeExibido').textContent = usuarioLogado.nome || 'Prestador';
+        const catExib = document.getElementById('categoriaExibida');
+        if (catExib) {
+            catExib.textContent = (usuarioLogado.servicos && usuarioLogado.servicos.length > 0)
+                ? usuarioLogado.servicos.join(', ')
+                : 'Sem categoria definida';
+        }
+    }
+
+    // CARREGA AGENDA NO FORMULÁRIO
+    // ================================================================
+    function carregarAgenda() {
+        if (!usuarioLogado) return;
+        const agenda = usuarioLogado.agenda || {};
+
+        // Dias da semana
+        const diasIds = ['seg','ter','qua','qui','sex','sab','dom'];
+        diasIds.forEach(dia => {
+            const cb = document.getElementById('dia-' + dia);
+            if (cb) cb.checked = agenda.dias ? agenda.dias.includes(dia) : false;
+        });
+
+        // Horários
+        definirCampo('manha-inicio', agenda.manhaInicio || '08:00');
+        definirCampo('manha-fim',    agenda.manhaFim    || '12:00');
+        definirCampo('tarde-inicio', agenda.tardeInicio || '13:00');
+        definirCampo('tarde-fim',    agenda.tardeFim    || '18:00');
+
+        // Vagas
+        vagas = agenda.vagas || 2;
+        document.getElementById('qtdVagas').textContent = vagas;
+    }
+
+    // SALVA PERFIL → localStorage
+    // ================================================================
+    function salvarPerfil() {
+        const nome = document.getElementById('campo-nome').value.trim();
+        if (!nome) {
+            showFeedback('Atenção', 'O nome é obrigatório.', false);
+            return;
+        }
+
+        // Monta objeto de alterações
+        const novaSenha = document.getElementById('campo-senha').value.trim();
+        const alteracoes = {
+            nome:       nome,
+            cnpj:       document.getElementById('campo-cnpj').value.trim(),
+            celular:    document.getElementById('campo-celular').value.trim(),
+            descricao:  document.getElementById('campo-descricao').value.trim(),
+            email:      document.getElementById('campo-email').value.trim(),
+            servicos:   [document.getElementById('campo-categoria').value].filter(Boolean),
+            endereco: {
+                cep:        document.getElementById('campo-cep').value.trim(),
+                logradouro: document.getElementById('campo-logradouro').value.trim(),
+                numero:     document.getElementById('campo-numero').value.trim(),
+                bairro:     document.getElementById('campo-bairro').value.trim(),
+                cidade:     document.getElementById('campo-cidade').value.trim(),
+                estado:     document.getElementById('campo-estado').value,
+            }
+        };
+        if (novaSenha) alteracoes.senha = novaSenha;
+
+        // Atualiza sessão
+        usuarioLogado = { ...usuarioLogado, ...alteracoes };
+        localStorage.setItem('agendacar_sessao', JSON.stringify(usuarioLogado));
+
+        // Atualiza lista de usuários (busca pelo id)
+        atualizarUsuarioNaLista(usuarioLogado);
+
+        // Atualiza card de perfil na tela
+        document.getElementById('nomeExibido').textContent = nome;
+        const catExib = document.getElementById('categoriaExibida');
+        if (catExib) catExib.textContent = alteracoes.servicos.join(', ') || 'Sem categoria';
+
+        showFeedback('Perfil salvo!', 'Suas informações foram atualizadas com sucesso.', true);
+        document.getElementById('campo-senha').value = ''; // limpa campo de senha após salvar
+    }
+
+    // SALVA AGENDA → localStorage
+    // ================================================================
+    function salvarAgenda() {
+        const diasIds = ['seg','ter','qua','qui','sex','sab','dom'];
+        const diasSelecionados = diasIds.filter(d => {
+            const cb = document.getElementById('dia-' + d);
+            return cb && cb.checked;
+        });
+
+        if (!diasSelecionados.length) {
+            showFeedback('Atenção', 'Selecione pelo menos um dia de atendimento.', false);
+            return;
+        }
+
+        const novaAgenda = {
+            dias:         diasSelecionados,
+            manhaInicio:  document.getElementById('manha-inicio').value.trim(),
+            manhaFim:     document.getElementById('manha-fim').value.trim(),
+            tardeInicio:  document.getElementById('tarde-inicio').value.trim(),
+            tardeFim:     document.getElementById('tarde-fim').value.trim(),
+            vagas:        vagas
+        };
+
+        usuarioLogado.agenda = novaAgenda;
+        localStorage.setItem('agendacar_sessao', JSON.stringify(usuarioLogado));
+        atualizarUsuarioNaLista(usuarioLogado);
+
+        showFeedback(
+            'Agenda salva!',
+            `Configurado para ${diasSelecionados.length} dia(s) por semana, com ${vagas} vaga(s) simultânea(s).`,
+            true
+        );
+    }
+
+    // Atualiza o usuário dentro de agendacar_usuarios
+    // ================================================================
+    function atualizarUsuarioNaLista(usuarioAtualizado) {
+        let usuarios = JSON.parse(localStorage.getItem('agendacar_usuarios')) || [];
+        const idx = usuarios.findIndex(u => u.id === usuarioAtualizado.id);
+        if (idx >= 0) {
+            usuarios[idx] = usuarioAtualizado;
+        } else {
+            // busca por email
+            const idxEmail = usuarios.findIndex(u => u.email === usuarioAtualizado.email);
+            if (idxEmail >= 0) usuarios[idxEmail] = usuarioAtualizado;
+        }
+        localStorage.setItem('agendacar_usuarios', JSON.stringify(usuarios));
+    }
+
+    // HELPER: define valor em input ou textarea
+    // ================================================================
+    function definirCampo(id, valor) {
+        const el = document.getElementById(id);
+        if (el) el.value = valor;
+    }
+
+    // CANCELAR EDIÇÃO — recarre os dados originais
+    // ================================================================
+    function cancelarEdicao() {
+        carregarPerfil();
+    }
+
+    // VAGAS
+    // ================================================================
+    function alterarVagas(delta) {
+        vagas = Math.max(1, Math.min(10, vagas + delta));
+        document.getElementById('qtdVagas').textContent = vagas;
+    }
+
+    // AÇÕES DE AGENDAMENTO
+    // ================================================================
+    function acaoAgendamento(tipo, btn) {
+        const card = btn.closest('.agendamento-card');
+        const cliente = card.querySelector('.agend-cliente').textContent;
+        if (tipo === 'aceitar') {
+            card.querySelector('.badge-status').className = 'badge-status badge-confirmado';
+            card.querySelector('.badge-status').innerHTML = '<i class="fa-solid fa-circle"></i> Confirmado';
+            card.querySelector('.agend-acoes').innerHTML =
+                `<button class="btn-recusar" onclick="acaoAgendamento('cancelar',this)"><i class="fa-solid fa-ban"></i> Cancelar</button>`;
+            showFeedback('Aceito!', `Agendamento de ${cliente} confirmado.`, true);
+        } else if (tipo === 'recusar' || tipo === 'cancelar') {
+            card.style.opacity = '0.4';
+            card.style.pointerEvents = 'none';
+            showFeedback('Recusado', `Agendamento de ${cliente} recusado.`, false);
+        } else if (tipo === 'propor') {
+            showFeedback('Em breve', 'Funcionalidade de propor nova data em desenvolvimento.', false);
+        }
+        // Atualiza badge de pendentes
+        const pendentes = document.querySelectorAll('.badge-pendente').length;
+        document.getElementById('badgePendentes').textContent = pendentes;
+    }
+
+    // ABAS
+    // ================================================================
+    function mudarAba(id, btn) {
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('tab-' + id).classList.add('active');
+        btn.classList.add('active');
+    }
+
+    // MODAIS
+    // ================================================================
+    function showModal(id) { document.getElementById('modal-' + id).classList.add('active'); }
+    function hideModal(id) { document.getElementById('modal-' + id).classList.remove('active'); }
+
+    function showFeedback(titulo, texto, sucesso) {
+        const icon = document.getElementById('feedback-icon');
+        icon.className = 'modal-icon fa-solid ' + (sucesso ? 'fa-circle-check' : 'fa-triangle-exclamation');
+        icon.style.color = sucesso ? '#2e7d32' : '#f57f17';
+        document.getElementById('feedback-titulo').textContent = titulo;
+        document.getElementById('feedback-texto').textContent = texto;
+        showModal('feedback');
+    }
+
+    function confirmarLogout() {
+        localStorage.removeItem('agendacar_sessao');
+        window.location.href = 'index.html';
+    }
+
+    // Fecha modal ao clicar fora
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === this) this.classList.remove('active');
+        });
+    });
+
+    // Atualiza badge inicial de pendentes
+    document.addEventListener('DOMContentLoaded', function() {
+        const pendentes = document.querySelectorAll('.badge-pendente').length;
+        document.getElementById('badgePendentes').textContent = pendentes;
+    });
+    </script>
+</body>
+</html>

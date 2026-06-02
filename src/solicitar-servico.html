@@ -245,6 +245,11 @@
                 const primeiroNome = nomeSeguro.split(' ')[0];
                 btnHeader.innerHTML = `<i class="fa-solid fa-user-check"></i> Olá, ${primeiroNome} (Sair)`;
                 btnHeader.onclick = showLogoutModal;
+                // ── Exibe botão de gerenciamento apenas para prestadores ──
+                    if (usuario.tipo === 'prestador') {
+                        const btnGerenciar = document.getElementById('btn-gerenciar-perfil');
+                        if (btnGerenciar) btnGerenciar.style.display = 'flex';
+                    }
             }
             initDateList();
             initTimeSlotBehavior();
