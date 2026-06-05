@@ -681,9 +681,6 @@
           <button class="btn-cancel" onclick="hideConfirmModal()">
             Fechar
           </button>
-          <button class="btn-confirm" onclick="goToOrcamentos()">
-            Ver meus orçamentos
-          </button>
         </div>
       </div>
     </div>
@@ -808,6 +805,8 @@
               "Seu pedido de orçamento foi enviado com sucesso. Em breve, você receberá propostas dos prestadores.",
               false,
             );
+
+            form.reset();
           });
         }
       }
@@ -888,9 +887,6 @@
         if (isWarning) {
           icon.style.display = "none";
           overlay.querySelector(".btn-confirm").style.display = "none";
-        } else {
-          icon.style.display = "block";
-          overlay.querySelector(".btn-confirm").style.display = "inline-block";
         }
         overlay.classList.add("active");
       }
@@ -899,9 +895,6 @@
         document.getElementById("confirmModal").classList.remove("active");
       }
 
-      function goToOrcamentos() {
-        alert("Ir para tela de orçamentos");
-      }
     </script>
   </body>
 </html>
