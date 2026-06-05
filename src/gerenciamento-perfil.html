@@ -630,7 +630,7 @@
         let usuarios = JSON.parse(localStorage.getItem('agendacar_usuarios')) || [];
         const idx = usuarios.findIndex(u => u.id === usuarioAtualizado.id);
         if (idx >= 0) {
-            usuarios[idx] = usuarioAtualizado;
+            usuarios[idx] = { ...usuarioAtualizado, ...usuarios[idx] };
         } else {
             // busca por email
             const idxEmail = usuarios.findIndex(u => u.email === usuarioAtualizado.email);
