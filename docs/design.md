@@ -297,3 +297,7 @@ Esta seção apresenta os testes realizados com usuários utilizando os protóti
 
 [Relatório de Testes com Usuário Cliente - Ricardo Morais.pdf](https://github.com/user-attachments/files/27575310/Relatorio.de.Testes.com.Usuario.Cliente.-.Ricardo.Morais.pdf)
 
+Nova rodada de testes:
+
+[Relatório de Testes com Usuário Prestador 2.1.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/docs/pdf/Relatório_de_Testes_com_Usuário_Prestador_2.1.pdf)
+
