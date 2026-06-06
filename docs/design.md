@@ -301,7 +301,10 @@ Nova rodada de testes:
 
 [Relatório de Testes com Usuário Prestador 2.1.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relat%C3%B3rio_de_Testes_com_Usu%C3%A1rio_Prestador_2.1.pdf)
 
+[Relatório de Testes com Usuário Cliente-Kayhene.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relat%C3%B3rio_de_Testes_com_Cliente_Kayhene.pdf)
+
 ## 4.5 Avaliação Heurística
 
 [Avaliação Heurística - Matheus Alencar.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Avalia%C3%A7%C3%A3o_heur%C3%ADstica_Matheus_Alencar.pdf)
 
+[Avaliação Heurística - Kayhene.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relat%C3%B3rio%20da%20Avalia%C3%A7%C3%A3o%20heur%C3%ADstica-Kayhene.pdf)
