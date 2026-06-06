@@ -6,11 +6,18 @@ Nesta etapa devem ser realizados dois tipos de avaliação: por observação de 
 
 Ao final, os relatórios gerados por cada membro deverão ser disponibilizados aqui, juntamente com a planilha consolidada da avaliação heurística.
 
-Material de apoio para esta etapa:
+### Testes com usuários
+
+Na etapa de design os testes com usuários foram realizados utilizando os protótipos de alta fidelidade das telas do sistema. Para a etapa atual foi realizada uma nova rodada de testes, agora utilizando o sistema desenvolvido.
+
+[Relatorio_de_Testes_com_Usuario Cliente - avaliador Agner.pdf](https://github.com/user-attachments/files/28670577/Relatorio_de_Testes_com_Usuario.Cliente.-.avaliador.Agner.pdf)
 
 
-[Avaliação_Heurística.xlsx](https://github.com/user-attachments/files/16501461/Avaliacao_Heuristica.xlsx) 
+### Avaliações heurísticas realizadas individualmente
 
-[Relatório_de_Testes_com_Usuário.docx](https://github.com/user-attachments/files/16501456/Relatorio_de_Testes_com_Usuario.docx)
+[Relatório da Avaliação heurística - Cliente - avaliador Agner.pdf](https://github.com/user-attachments/files/28670580/Relatorio.da.Avaliacao.heuristica.-.Cliente.-.avaliador.Agner.pdf)
 
-[Relatório_de_Testes_com_Usuário_exemplo.docx](https://github.com/user-attachments/files/16501459/Relatorio_de_Testes_com_Usuario_exemplo.docx)
+
+### Relatório consolidado das avaliações heurísticas
+
+
