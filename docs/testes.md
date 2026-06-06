@@ -13,11 +13,18 @@ Na etapa de design os testes com usuários foram realizados utilizando os protó
 [Relatorio_de_Testes_com_Usuario Cliente - avaliador Agner.pdf](https://github.com/user-attachments/files/28670577/Relatorio_de_Testes_com_Usuario.Cliente.-.avaliador.Agner.pdf)
 
 
-### Avaliações heurísticas realizadas individualmente
+### Avaliações heurísticas individuais
+
+Seguem abaixo as avaliações heurísticas realizadas individualmente por cada integrante do grupo.
 
 [Relatório da Avaliação heurística - Cliente - avaliador Agner.pdf](https://github.com/user-attachments/files/28670580/Relatorio.da.Avaliacao.heuristica.-.Cliente.-.avaliador.Agner.pdf)
 
 
 ### Relatório consolidado das avaliações heurísticas
+
+Segue abaixo um relatório consolidado das avaliações heurísticas realizadas pelo grupo.
+
+
+
 
 
