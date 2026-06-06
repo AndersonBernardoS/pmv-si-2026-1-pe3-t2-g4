@@ -12,12 +12,26 @@ Na etapa de design os testes com usuários foram realizados utilizando os protó
 
 [Relatorio_de_Testes_com_Usuario Cliente - avaliador Agner.pdf](https://github.com/user-attachments/files/28670577/Relatorio_de_Testes_com_Usuario.Cliente.-.avaliador.Agner.pdf)
 
+[Relatório de Testes com Usuário Prestador 2.1.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relat%C3%B3rio_de_Testes_com_Usu%C3%A1rio_Prestador_2.1.pdf)
+
+[Relatório de Testes com Usuário Cliente-Kayhene.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relat%C3%B3rio_de_Testes_com_Cliente_Kayhene.pdf)
+
+[Relatório de Testes com Usuário-Tiago.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relatorio_Teste_Usuario_AgendaCar-TiagoNocce.pdf)
+
 
 ### Avaliações heurísticas individuais
 
 Seguem abaixo as avaliações heurísticas realizadas individualmente por cada integrante do grupo.
 
 [Relatório da Avaliação heurística - Cliente - avaliador Agner.pdf](https://github.com/user-attachments/files/28670580/Relatorio.da.Avaliacao.heuristica.-.Cliente.-.avaliador.Agner.pdf)
+
+[Avaliação Heurística - Kayhene.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relat%C3%B3rio%20da%20Avalia%C3%A7%C3%A3o%20heur%C3%ADstica-Kayhene.pdf)
+
+[Avaliação Heurística - Matheus Alencar.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Avalia%C3%A7%C3%A3o_heur%C3%ADstica_Matheus_Alencar.pdf)
+
+[Avaliação Heurística - Tiago.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Avaliacao_Heuristica_AgendaCar-TiagoNocce.pdf)
+
+
 
 
 ### Relatório consolidado das avaliações heurísticas
