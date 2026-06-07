@@ -31,6 +31,7 @@ Seguem abaixo as avaliações heurísticas realizadas individualmente por cada i
 
 [Avaliação Heurística - Tiago.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Avaliacao_Heuristica_AgendaCar-TiagoNocce.pdf)
 
+[Avaliação Heurística - Anderson.pdf](https://github.com/user-attachments/files/28688996/Avaliacao.Heuristica.-.Anderson.pdf)
 
 
 
