@@ -18,6 +18,7 @@ Na etapa de design os testes com usuários foram realizados utilizando os protó
 
 [Relatório de Testes com Usuário-Tiago.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relatorio_Teste_Usuario_AgendaCar-TiagoNocce.pdf)
 
+[Relatório de Testes com Usuário Cliente-Anderson.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relatório_de_Testes_com_Usuário-Cliente-Anderson.pdf)
 
 ### Avaliações heurísticas individuais
 
@@ -31,7 +32,7 @@ Seguem abaixo as avaliações heurísticas realizadas individualmente por cada i
 
 [Avaliação Heurística - Tiago.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Avaliacao_Heuristica_AgendaCar-TiagoNocce.pdf)
 
-
+[Avaliação Heurística - Anderson.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Avaliacao.Heuristica.-.Anderson.pdf)
 
 
 ### Relatório consolidado das avaliações heurísticas
