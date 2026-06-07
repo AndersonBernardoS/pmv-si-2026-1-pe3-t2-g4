@@ -293,7 +293,7 @@ Esta seção apresenta os testes realizados com usuários utilizando os protóti
 
 [Relatório de Testes com Usuário-Tiago Nocce.pdf](https://drive.google.com/file/d/1tkNIsWnrZerrIkdAS5YeAyMcd_mfYnT9/view?usp=sharing)
 
-[Relatório de Testes com Usuário Cliente - N-3.pdf](https://github.com/user-attachments/files/27574916/Relatorio.de.Testes.com.Usuario.Cliente.-.N-3.pdf)
+[Relatório de Testes com Usuário Cliente-Anderson.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Relatório_de_Testes_com_Usuário-Cliente-Anderson.pdf)
 
 [Relatório de Testes com Usuário Cliente - Ricardo Morais.pdf](https://github.com/user-attachments/files/27575310/Relatorio.de.Testes.com.Usuario.Cliente.-.Ricardo.Morais.pdf)
 
@@ -314,3 +314,4 @@ Nova rodada de testes:
 
 [Relatório da Avaliação heurística - Cliente - avaliador Agner.pdf](https://github.com/user-attachments/files/28670519/Relatorio.da.Avaliacao.heuristica.-.Cliente.-.avaliador.Agner.pdf)
 
+[Avaliação Heurística - Anderson.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe3-t2-g4-agendacar/blob/main/docs/pdf/Avaliação_Heurística-Anderson.pdf)
